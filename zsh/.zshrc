@@ -104,6 +104,7 @@ source $ZSH/oh-my-zsh.sh
 
 # alias
 alias cls="clear"
+alias ni="pnpm i"
 
 alias ll="ls -la"
 alias gz="tar -zxvf"
