@@ -105,6 +105,11 @@ source $ZSH/oh-my-zsh.sh
 # alias
 alias cls="clear"
 alias ni="pnpm i"
+alias nr="pnpm run"
+alias nrd="pnpm run dev"
+alias nrb="pnpm run build"
+alias nrs="pnpm run start"
+alias nrt="pnpm run test"
 
 alias ll="ls -la"
 alias gz="tar -zxvf"
