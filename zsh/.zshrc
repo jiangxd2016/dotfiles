@@ -110,6 +110,8 @@ alias nrd="pnpm run dev"
 alias nrb="pnpm run build"
 alias nrs="pnpm run start"
 alias nrt="pnpm run test"
+alias pw="pnpm why"
+alias pr="pnpm -r"
 
 alias ll="ls -la"
 alias gz="tar -zxvf"
