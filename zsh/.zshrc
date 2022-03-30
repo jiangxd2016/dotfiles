@@ -117,7 +117,7 @@ alias ll="ls -la"
 alias gz="tar -zxvf"
 alias cp="cp -i"
 alias mvim='mvim -v'
-
+alias ip="ifconfig en0 inet | grep inet | awk '{ print \$2 }'"
 
 alias ga="git add"
 alias gd="git diff"
@@ -129,7 +129,6 @@ alias gac="git add . && git commit -m" # + commit message
 alias gco="git checkout"
 alias hp="hexo clean && hexo g && hexo d"
 alias gacp="git add . && git ci -m 'update' && git push"
-
 
 
 # nvm config
