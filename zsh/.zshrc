@@ -112,6 +112,15 @@ alias ns="pnpm run start"
 alias nt="pnpm run test"
 alias pw="pnpm why"
 alias pr="pnpm -r"
+
+alias w="p n p m watch"
+alias p="pnpm run play"
+alias c="pnpm run typecheck"
+alias lint="pnpm run lint"
+alias lintf="pnpm run lint --fix"
+alias release="pnpm run release"
+alias re="pnpm run release"
+
 alias ra="rm -rf node_modules pnpm.lock yarn.lock package-lock.json"
 
 alias ll="ls -la"
