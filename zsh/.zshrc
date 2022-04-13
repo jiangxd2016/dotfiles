@@ -121,7 +121,7 @@ alias lintf="pnpm run lint --fix"
 alias release="pnpm run release"
 alias re="pnpm run release"
 
-alias ra="rm -rf node_modules pnpm.lock yarn.lock package-lock.json"
+alias ra="rm -rf node_modules pnpm-lock.yaml yarn.lock package-lock.json"
 
 alias ll="ls -la"
 alias gz="tar -zxvf"
