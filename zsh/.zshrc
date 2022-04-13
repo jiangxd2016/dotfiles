@@ -103,7 +103,6 @@ source $ZSH/oh-my-zsh.sh
 
 
 # alias
-alias cls="clear"
 alias ni="pnpm i"
 alias nr="pnpm run"
 alias nd="pnpm run dev"
@@ -113,15 +112,16 @@ alias nt="pnpm run test"
 alias pw="pnpm why"
 alias pr="pnpm -r"
 
-alias rw="p n p m watch"
-alias rp="pnpm run play"
-alias rc="pnpm run typecheck"
-alias rl="pnpm run lint"
-alias rlf="pnpm run lint --fix"
-alias re="pnpm run release"
+alias nw="p n p m watch"
+alias np="pnpm run play"
+alias nc="pnpm run typecheck"
+alias nl="pnpm run lint"
+alias nlf="pnpm run lint --fix"
+alias ne="pnpm run release"
 
 alias ra="rm -rf node_modules pnpm-lock.yaml yarn.lock package-lock.json"
 
+alias cls="clear"
 alias ll="ls -la"
 alias gz="tar -zxvf"
 alias cp="cp -i"
@@ -136,6 +136,7 @@ alias gs="git status"
 alias gc="git commit -m"
 alias gac="git add . && git commit -m" # + commit message
 alias gco="git checkout"
+alias gk="git chekout ."
 alias hp="hexo clean && hexo g && hexo d"
 alias gacp="git add . && git ci -m 'update' && git push"
 
