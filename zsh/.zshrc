@@ -104,6 +104,7 @@ source $ZSH/oh-my-zsh.sh
 
 # alias
 alias ni="pnpm i"
+alias nio="pnpm i --prefer-offline"
 alias nr="pnpm run"
 alias nd="pnpm run dev"
 alias nb="pnpm run build"
