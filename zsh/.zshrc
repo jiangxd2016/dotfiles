@@ -10,6 +10,30 @@ export ZSH="/Users/xd/.oh-my-zsh"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="ys"
 
+if [[ -f ~/.zplug/init.zsh ]] {
+  source ~/.zplug/init.zsh
+
+  zplug "zsh-users/zsh-syntax-highlighting"
+  zplug "zsh-users/zsh-autosuggestions"
+  zplug "agkozak/zsh-z"
+  zplug "supercrabtree/k"
+  zplug "denisidoro/navi"
+  zplug "MichaelAquilina/zsh-you-should-use"
+  zplug "changyuheng/zsh-interactive-cd"
+  zplug "SleepyBag/zsh-confer"
+
+  zplug "Powerlevel9k/powerlevel9k", from:github, as:theme, if:"[[ $ZSH_THEME_STYLE == 9k ]]"
+  zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh-theme, from:github, as:theme, if:"[[ $ZSH_THEME_STYLE == spaceship ]]"
+  zplug "caiogondim/bullet-train.zsh", use:bullet-train.zsh-theme, from:github, as:theme, if:"[[ $ZSH_THEME_STYLE == bullet ]]"
+  zplug "skylerlee/zeta-zsh-theme", from:github, as:theme, if:"[[ $ZSH_THEME_STYLE == zeta ]]"
+
+  if ! zplug check --verbose; then
+      echo 'Run "zplug install" to install'
+  fi
+  # Then, source plugins and add commands to $PATH
+  zplug load
+}
+
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
