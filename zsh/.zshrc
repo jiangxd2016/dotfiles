@@ -76,7 +76,7 @@ alias gco="git checkout"
 alias gk="git chekout ."
 alias hp="hexo clean && hexo g && hexo d"
 alias gacp="git add . && git ci -m 'update' && git push"
-
+alias aga="alias | grep git" # all git command abbreviations
 
 # nvm config
 export NVM_DIR="$HOME/.nvm"
