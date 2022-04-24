@@ -12,16 +12,12 @@ if [[ -f $ZPLUG_HOME/init.zsh ]] {
 
   zplug "zsh-users/zsh-syntax-highlighting"
   zplug "zsh-users/zsh-autosuggestions"
-  zplug "agkozak/zsh-z"
   zplug "supercrabtree/k"
-  zplug "MichaelAquilina/zsh-you-should-use"
-  zplug "changyuheng/zsh-interactive-cd"
   zplug "SleepyBag/zsh-confer"
   zplug "denysdovhan/spaceship-prompt", as:theme, depth:1
   zplug "plugins/git",                 from:oh-my-zsh
   zplug "plugins/z",                   from:oh-my-zsh
   zplug "plugins/d",                   from:oh-my-zsh
-  zplug "plugins/vim-mode",            from:oh-my-zsh
 
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
@@ -72,7 +68,7 @@ alias gco="git checkout"
 alias gk="git checkout ."
 alias hp="hexo clean && hexo g && hexo d"
 alias gacp="git add . && git ci -m 'update' && git push"
-
+alias aga="alias | grep git" # all git command abbreviations
 
 # nvm config
 export NVM_DIR="$HOME/.nvm"
