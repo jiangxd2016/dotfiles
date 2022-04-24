@@ -5,11 +5,7 @@ export ZPLUG_HOME=/usr/local/opt/zplug
 
 source $ZSH/oh-my-zsh.sh
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="spaceship"
+
 
 if [[ -f $ZPLUG_HOME/init.zsh ]] {
   source $ZPLUG_HOME/init.zsh
@@ -73,7 +69,7 @@ alias gs="git status"
 alias gc="git commit -m"
 alias gac="git add . && git commit -m" # + commit message
 alias gco="git checkout"
-alias gk="git chekout ."
+alias gk="git checkout ."
 alias hp="hexo clean && hexo g && hexo d"
 alias gacp="git add . && git ci -m 'update' && git push"
 
