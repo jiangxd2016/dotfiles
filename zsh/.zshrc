@@ -50,7 +50,7 @@ alias ne="pnpm run release"
 
 alias ra="rm -rf node_modules pnpm-lock.yaml yarn.lock package-lock.json"
 
-alias cls="clear"
+alias cls="clear && printf '\e[3J'"
 alias ll="ls -la"
 alias gz="tar -zxvf"
 alias cp="cp -i"
