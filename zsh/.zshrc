@@ -99,3 +99,23 @@ export NVM_DIR="$HOME/.nvm"
 # add-zsh-hook chpwd load-nvmrc
 # load-nvmrc
 
+
+#创建git tag
+tag() {
+  echo "请输入tagname:"
+  read tagname
+  if [ "$tagname" = "" ]; then
+    echo "输入的tagname为空"
+    exit 1
+  fi
+
+  echo "请输入描述:"
+
+  read detail
+  if [ -n "detail" ]; then
+    detail="say nothing"
+  fi
+  if [ "$?" = 0 ]; then
+    git tag -a $tagname -m $detail
+  fi
+}
