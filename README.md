@@ -3,14 +3,8 @@
 ## zsh config
 
 ``` bash
-zsh update.sh
+zsh {module}.sh
 ```
-
-``` bash
-zsh sync.sh
-````
-
-
 
 use [zplugin](https://github.com/zplug/zplugn) manage plugin
 
