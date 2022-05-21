@@ -77,7 +77,6 @@ export NVM_DIR="$HOME/.nvm"
 
 # nvm hook
 
-
 # autoload -U add-zsh-hook
 # load-nvmrc() {
 #   local node_version="$(nvm version)"

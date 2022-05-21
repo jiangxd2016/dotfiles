@@ -16,9 +16,9 @@ defaultConfig = {{
     name = '表情包搜索',
     enable = true
 }, {
-    module = 'modules.input-method',
-    name = '输入法切换',
-    enable = false
+    module = 'modules.password',
+    name = '密码粘贴',
+    enable = true
 }, {
     module = 'modules.network',
     name = '实时网速',
@@ -31,10 +31,6 @@ defaultConfig = {{
     module = 'modules.hotkey',
     name = '快捷键列表查看',
     enable = true
-}, {
-    module = 'modules.remind',
-    name = '提醒下班',
-    enable = false
 }
 }
 

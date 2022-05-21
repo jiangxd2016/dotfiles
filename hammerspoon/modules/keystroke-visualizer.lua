@@ -17,7 +17,7 @@ local fade_out = 0.3
 local keycodes = {
     kctrl = {char = '⌃', duplicate_removal = true, first = true},
     krightctrl = {char = '⌃', duplicate_removal = true, first = true},
-    kalt = {char = '⌥', duplicate_removal= true, first = true},
+    kalt = {char = '⌥', duplicate_removal = true, first = true},
     krightalt = {char = '⌥', duplicate_removal = true, first = true},
     kcmd = {char = '⌘', duplicate_removal = true, first = true},
     krightcmd = {char = '⌘', duplicate_removal = true, first = true},
