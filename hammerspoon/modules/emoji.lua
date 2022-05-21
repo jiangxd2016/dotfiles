@@ -4,6 +4,10 @@ require 'modules.base'
 require 'modules.shortcut'
 
 local win = hs.window.focusedWindow()
+if win~=nil then 
+    return
+end
+
 local screen = win:screen():frame()
 
 -- 占屏幕宽度的 20%（居中）
@@ -187,6 +191,6 @@ hide_chooser = chooser:hideCallback(function()
     emoji_canvas:hide(.3)
 end)
 
--- TODO-JING 解决中文输入法界面被遮挡问题
--- TODO-JING 解决每次搜索卡顿问题
--- TODO-JING 解决死锁问题
+-- TODO: 解决中文输入法界面被遮挡问题
+-- TODO: 解决每次搜索卡顿问题
+-- TODO: 解决死锁问题

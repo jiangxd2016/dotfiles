@@ -16,10 +16,6 @@ defaultConfig = {{
     name = '表情包搜索',
     enable = true
 }, {
-    module = 'modules.password',
-    name = '密码粘贴',
-    enable = true
-}, {
     module = 'modules.network',
     name = '实时网速',
     enable = true
