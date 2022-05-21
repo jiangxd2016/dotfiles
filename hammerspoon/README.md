@@ -36,15 +36,6 @@
 
 ---
 
-### 表情包搜索
-
-快捷键 `⌥` `K` 唤醒表情包搜索功能，输入关键词，**上下**键用于选择、预览表情包；**左右**键用于翻页；**回车键**用于发送表情包；`Esc` 关闭搜索窗口
-
-<div align='center'>
-  <img src='./images/emoji.gif' width='600'/>
-</div>
-
----
 
 ### 实时网速显示
 
@@ -158,8 +149,6 @@ osascript -e 'id of app "Name of App"'
 ```shell
 .hammerspoon
 ├── .config 用户本地配置文件，保存了用户每个功能模块的启用/禁用状态
-├── .emoji 表情包缓存目录
-├── LICENSE
 ├── README.md
 ├── images 功能模块及 README 需要用到的图片
 ├── init.lua 脚本入口
@@ -167,9 +156,7 @@ osascript -e 'id of app "Name of App"'
     ├── application.lua 应用切换模块
     ├── base.lua 封装了 Lua 基本工具
     ├── config.lua 菜单默认配置，记录了每一项功能的默认启用/禁用状态
-    ├── emoji.lua 表情包搜索模块
     ├── hotkey.lua 快捷键列表查看模块
-    ├── input-method.lua 输入法切换
     ├── keystroke-visualizer.lua 按键回显模块
     ├── menu.lua 菜单模块
     ├── network.lua 实时网速模块
