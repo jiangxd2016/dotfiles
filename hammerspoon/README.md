@@ -50,10 +50,6 @@
 
 替代 [NetWorker Pro](https://apps.apple.com/us/app/networker-pro/id1163602886?mt=12) 实时显示网速（每两秒刷新一次）
 
-<div align='center'>
-  <img src='./images/network.png' width='700'/>
-</div>
-
 ---
 
 

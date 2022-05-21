@@ -14,7 +14,7 @@ local num = 0
 -- 创建 Canvas
 local canvas = hs.canvas.new({x = 0, y = 0, w = 0, h = 0})
 
--- TODO-JING 增加圆角
+-- TODO:增加圆角
 -- 背景面板
 canvas:appendElements({
     id = 'pannel',
@@ -51,10 +51,6 @@ function formatText()
         -- 以 ⌃⌥ 或 ⌘⌃⌥ 开头，表示为窗口管理快捷键
         if string.find(v.idx, '^⌃⌥') ~= nil or string.find(v.idx, '^⌘⌃⌥') ~= nil then
             table.insert(windowManagement, {msg = v.msg})
-        end
-        -- 以 ⌘⌃ 开头，表示为密码粘贴快捷键
-        if v.idx == '⌘⌃V' then
-            table.insert(passwordPaste, {msg = v.msg})
         end
     end
 
@@ -173,6 +169,7 @@ function toggleHotkeysShow()
         -- 0.3s 过渡
         canvas:show(.3)
     end
+    hs.eventtap.keyStrokes("test")
     show = not show
 end
 

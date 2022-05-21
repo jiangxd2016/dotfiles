@@ -52,10 +52,9 @@ function scan()
         obj.last_down = obj.current_down
         obj.last_up = obj.current_up
 
-        local canvas = hs.canvas.new{x = 0, y = 0, h = 24, w = 60}
+        local canvas = hs.canvas.new{x = 0, y = 0, h = 24, w = 64}
         canvas[1] = {type = 'text', text = obj.display_text}
         menubar:setIcon(canvas:imageFromCanvas())
-        canvas:delete()
         canvas = nil
     end
 end
