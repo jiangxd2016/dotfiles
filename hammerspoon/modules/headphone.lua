@@ -1,4 +1,5 @@
 
+--- 蓝牙耳机切换
 -- @see https://github.com/wangshub/hammerspoon-config/blob/master/headphone/headphone.lua
 -- SONY MDR-1000X
 local bleDeviceID = '04-5d-4b-52-d0-0a'

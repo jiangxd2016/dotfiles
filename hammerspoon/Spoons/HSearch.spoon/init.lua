@@ -1,7 +1,6 @@
 --- === HSearch ===
 ---
 --- Hammerspoon Search
---- more @see https://github.com/ashfinal/awesome-hammerspoon
 ---
 --- Download: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/HSearch.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/HSearch.spoon.zip)
 
