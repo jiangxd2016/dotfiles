@@ -80,15 +80,13 @@ applications = {
     {prefix = {"Option"}, key = "F", message="Finder", bundleId="com.apple.finder"},
     {prefix = {"Option"}, key = "C", message="Chrome", bundleId="com.google.Chrome"},
     {prefix = {"Option"}, key = "J", message="IntelliJ IDEA", bundleId="com.jetbrains.intellij"},
-    {prefix = {"Option"}, key = "N", message="WizNote", bundleId="cn.wiznote.desktop"},
     {prefix = {"Option"}, key = "D", message="DataGrip", bundleId="com.jetbrains.datagrip"},
-    {prefix = {"Option"}, key = "T", message="iTerm2", bundleId="com.googlecode.iterm2"},
-    {prefix = {"Option"}, key = "M", message="MailMaster", bundleId="com.netease.macmail"},
     {prefix = {"Option"}, key = "P", message="Postman", bundleId="com.postmanlabs.mac"},
     {prefix = {"Option"}, key = "O", message="Word", bundleId="com.microsoft.Word"},
     {prefix = {"Option"}, key = "E", message="Excel", bundleId="com.microsoft.Excel"},
-    {prefix = {"Option"}, key = "Y", message="PyCharm", bundleId="com.jetbrains.pycharm"},
-    {prefix = {"Option"}, key = "R", message="Redis Desktop", bundleId="me.qii404.another-redis-desktop-manager"}
+    {prefix = {"Option"}, key = "S", message="SourceTree", bundleId="com.torusknot.SourceTreeNotMAS"},
+    {prefix = {"Option"}, key = "T", message="Terminal", bundleId="com.apple.Terminal"},
+    {prefix = {"Option"}, key = "M", message="QQMusic", bundleId="com.tencent.QQMusicMac"}
 }
 
 -- 输入法切换快捷键配置
@@ -107,14 +105,6 @@ emoji_search = {
     key = "K"
 }
 
--- 密码粘贴快捷键配置
-password_paste = {
-    prefix = {
-        "Ctrl", "Command"
-    },
-    key = "V", 
-    message = "Password Paste"
-}
 
 -- 快捷键查看面板快捷键配置
 hotkey = {
