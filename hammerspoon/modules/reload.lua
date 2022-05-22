@@ -8,7 +8,9 @@ function reloadConfig(files)
     end
     if doReload then
         hs.reload()
+        hs.toggleConsole()
     end
 end
 myWatcher = hs.pathwatcher.new(os.getenv("HOME") .. "/.hammerspoon/", reloadConfig):start()
+
 -- hs.alert.show("Config loaded")

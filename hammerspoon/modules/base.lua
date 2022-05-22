@@ -144,3 +144,12 @@ function popright (list)
     list.last = last - 1
     return value
 end
+
+
+function tableSize(t)
+    local s = 0;
+    for k, v in pairs(t) do
+        if v ~= nil then s = s + 1 end
+    end
+    return s;
+end

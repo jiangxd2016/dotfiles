@@ -2,7 +2,7 @@
 
 require 'modules.base'
 require 'modules.shortcut'
-
+require "modules.git"
 
 local screen = hs.window.focusedWindow():screen():frame()
 
@@ -22,30 +22,30 @@ page = 1
 appList = {};
 
 
-local toolId = "app"
-
+local toolId = "git"
 
 
 chooser = hs.chooser.new(function(choice)
     if not choice then
         return
     end
-    local app = hs.application.get(choice.pid);
-    print(app:name())
-    app:activate()
-
+    if toolId == "app" then
+        local app = hs.application.get(choice.pid);
+        print(app:name())
+        app:activate()
+    elseif toolId == "git" then
+        hs.execute('code '..choice.path,true)
+    end    
 end)
 chooser:width(20)
 chooser:rows(10)
-chooser:bgDark(false)
 chooser:fgColor({
-    hex = '#000000'
+    hex = '#84CC16'
 })
 chooser:placeholderText('请输入')
 
 
-t = require("hs.webview.toolbar")
-myConsole = t.new("myConsole", {
+myConsole = hs.webview.toolbar.new("myConsole", {
         { id = "app",       label="应用", selectable = true, },
         { id = "bookMark",  label="书签", selectable = true,},
         { id = "history",   label="历史",selectable = true, },
@@ -53,57 +53,87 @@ myConsole = t.new("myConsole", {
 
     })
 
-      myConsole:selectedItem(toolId):notifyOnChange(true):autosaves(true):displayMode("label");
-      myConsole:setCallback(function(toolBar, item, name,isSelected)
+myConsole:selectedItem(toolId):notifyOnChange(true):autosaves(true):displayMode("label");
+myConsole:setCallback(function(toolBar, item, name,isSelected)
                 toolId=name
                 print(toolId)
                     end)
 
 
-tool_bar =chooser:attachedToolbar(myConsole)
+tool_bar = chooser:attachedToolbar(myConsole)
 
 
 function request(query)
-
     choices = {}
-
     query = trim(query)
-
     if query == '' then
         return
     end
 
-
-    for _,w in ipairs(hs.window.allWindows()) do
-        print('title====> '..w:title())
-        if string.find(w:title(),query) == nil then
-        else
-            print(w:pid())
-            table.insert(choices, {
-                text = w:title(),
-                subText =w:title(),
-                path = file_path,
-                pid = w:pid()
-                })
-            chooser:choices(choices)
+    if toolId == "app" then
+        for _,w in ipairs(hs.window.allWindows()) do
+            print('title====> '..w:title())
+            if string.find(w:title(),query) == nil then
+            else
+                print(w:pid())
+                table.insert(choices, {
+                    text = w:title(),
+                    subText =w:title(),
+                    path = file_path,
+                    pid = w:pid()
+                    })
+                chooser:choices(choices)
+            end
         end
-    end
+    elseif toolId == "bookMark" then
+        for _,w in ipairs(hs.window.allWindows()) do
+            print('title====> '..w:title())
+            if string.find(w:title(),query) == nil then
+            else
+                print(w:pid())
+                table.insert(choices, {
+                    text = w:title(),
+                    subText =w:title(),
+                    path = file_path,
+                    pid = w:pid()
+                    })
+                chooser:choices(choices)
+            end
+        end
+    elseif toolId == "history" then
+        for _,w in ipairs(hs.window.allWindows()) do
+            print('title====> '..w:title())
+            if string.find(w:title(),query) == nil then
+            else
+                print(w:pid())
+                table.insert(choices, {
+                    text = w:title(),
+                    subText =w:title(),
+                    path = file_path,
+                    pid = w:pid()
+                    })
+                chooser:choices(choices)
+            end
+        end
+    elseif toolId == "git" then
+        print(gitfile)
+        for _,w in ipairs(gitfile) do
+            print(w.name,w.path)
+            if string.find(w.name,query) == nil then
+            else
+                table.insert(choices, {
+                    text = w.name,
+                    subText =w.name,
+                    path = w.path
+                    })
+                chooser:choices(choices)
+            end
+        end
+    end    
 end
 
 
 
-function preview(path)
-    if path == nil then
-        return
-    end
-    search_canvas[1] = {
-        type = 'image',
-        image = hs.image.imageFromPath(path),
-        imageScaling = 'scaleProportionally',
-        imageAnimates = true
-    }
-    search_canvas:show()
-end
 
 -- 上下键选择
 select_key = hs.eventtap.new({hs.eventtap.event.types.keyDown}, function(event)
@@ -111,6 +141,7 @@ select_key = hs.eventtap.new({hs.eventtap.event.types.keyDown}, function(event)
     if not chooser:isVisible() then
         return
     end
+    local len = 0;
     local keycode = event:getKeyCode()
     local key = hs.keycodes.map[keycode]
     if 'right' == key then
@@ -132,7 +163,8 @@ select_key = hs.eventtap.new({hs.eventtap.event.types.keyDown}, function(event)
         return
     end
     -- TODO-JING 第一项需要直接预览
-    number = chooser:selectedRow()
+    number = chooser:selectedRow();
+    print(number,len)
     if 'down' == key then
         if number < len then
             number = number + 1
@@ -148,7 +180,6 @@ select_key = hs.eventtap.new({hs.eventtap.event.types.keyDown}, function(event)
         end
     end
     row_contents = chooser:selectedRowContents(number)
-    preview(row_contents.path)
 end):start()
 
 hs.hotkey.bind(search.prefix,search.key, function()
