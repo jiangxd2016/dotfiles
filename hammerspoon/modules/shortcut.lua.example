@@ -100,7 +100,7 @@ input_method = {
 }
 
 -- 表情包搜索快捷键配置
-emoji_search = {
+search = {
     prefix = {
         "Option"
     },

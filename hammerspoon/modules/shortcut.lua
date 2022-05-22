@@ -89,20 +89,24 @@ applications = {
     {prefix = {"Option"}, key = "M", message="QQMusic", bundleId="com.tencent.QQMusicMac"}
 }
 
--- 输入法切换快捷键配置
-input_method = {
-    prefix = {
-        "Option"
-    },
-    key = "L"
-}
 
--- 表情包搜索快捷键配置
-emoji_search = {
+
+
+
+-- 搜索快捷键配置
+search = {
     prefix = {
         "Option"
     },
     key = "K"
+}
+
+
+Lock = {
+    prefix = {
+        "Option"
+    },
+    key = "L"
 }
 
 

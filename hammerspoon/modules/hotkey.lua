@@ -169,7 +169,6 @@ function toggleHotkeysShow()
         -- 0.3s 过渡
         canvas:show(.3)
     end
-    hs.eventtap.keyStrokes("test")
     show = not show
 end
 

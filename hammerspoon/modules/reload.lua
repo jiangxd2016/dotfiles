@@ -11,5 +11,4 @@ function reloadConfig(files)
     end
 end
 myWatcher = hs.pathwatcher.new(os.getenv("HOME") .. "/.hammerspoon/", reloadConfig):start()
--- TODO-JING 删除提醒
 -- hs.alert.show("Config loaded")

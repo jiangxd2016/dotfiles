@@ -17,8 +17,12 @@ defaultConfig = {{
 }, {
     module = 'modules.keystroke-visualizer',
     name = '按键回显',
-    enable = false
-}, {
+    enable = true
+},{
+    module = 'modules.search',
+    name = '超级搜索',
+    enable = true
+} ,{
     module = 'modules.hotkey',
     name = '快捷键列表查看',
     enable = true
