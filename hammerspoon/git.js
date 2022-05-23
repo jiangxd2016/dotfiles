@@ -38,7 +38,7 @@ function readFileList(dir) {
 }
 
 
-function setLuaFile(){
+function setGitLuaFile(){
   readFileList(dir);
   const str  = `gitfile = {
     ${filesList.map(item=>`{name="${item.name}",path="${item.path}"}`).join(',')}
@@ -46,4 +46,4 @@ function setLuaFile(){
 
   fs.writeFileSync(outFile,str);
 }
-setLuaFile()
+seGitLuaFile()

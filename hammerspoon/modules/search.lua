@@ -3,12 +3,13 @@
 require 'modules.base'
 require 'modules.shortcut'
 require "modules.git"
+require "modules.tiny"
 
 local screen = hs.window.focusedWindow():screen():frame()
 
 -- 占屏幕宽度的 20%（居中）
-local WIDTH = 1600
-local HEIGHT = 1600
+local WIDTH = 600
+local HEIGHT = 600
 local CHOOSER_WIDTH = screen.w * .2
 local COORIDNATE_X = screen.w / 2 + CHOOSER_WIDTH / 2 + 5
 local COORIDNATE_Y = screen.h / 2 - 600
@@ -22,7 +23,26 @@ page = 1
 appList = {};
 
 
-local toolId = "git"
+ SeachUrl ={
+    {
+        text="Goolge",
+        url="https://www.google.com/search?q=",
+    },
+    {
+        text="Baidu",
+        url="https://www.baidu.com/s?wd=",
+    },
+    {
+        text="Github",
+        url="https://github.com/search?q=",
+    },
+    {
+        text="Bing",
+        url="https://www.bing.com/search?q=",
+    }
+}
+
+local toolId = "search"
 
 
 chooser = hs.chooser.new(function(choice)
@@ -35,7 +55,13 @@ chooser = hs.chooser.new(function(choice)
         app:activate()
     elseif toolId == "git" then
         hs.execute('code '..choice.path,true)
-    end    
+    elseif toolId == "bookMark" then
+        local default_browser = hs.urlevent.getDefaultHandler('http')
+        hs.urlevent.openURLWithBundle(choice.url, default_browser)
+    elseif toolId == "search" then
+        local default_browser = hs.urlevent.getDefaultHandler('http')
+        hs.urlevent.openURLWithBundle(choice.url, default_browser)    
+    end 
 end)
 chooser:width(20)
 chooser:rows(10)
@@ -48,9 +74,8 @@ chooser:placeholderText('请输入')
 myConsole = hs.webview.toolbar.new("myConsole", {
         { id = "app",       label="应用", selectable = true, },
         { id = "bookMark",  label="书签", selectable = true,},
-        { id = "history",   label="历史",selectable = true, },
+        { id = "search",   label="搜索",selectable = true, },
         { id = "git",       label="文件夹",selectable = true, },
-
     })
 
 myConsole:selectedItem(toolId):notifyOnChange(true):autosaves(true):displayMode("label");
@@ -70,6 +95,7 @@ function request(query)
         return
     end
 
+    print(toolId)
     if toolId == "app" then
         for _,w in ipairs(hs.window.allWindows()) do
             print('title====> '..w:title())
@@ -86,35 +112,29 @@ function request(query)
             end
         end
     elseif toolId == "bookMark" then
-        for _,w in ipairs(hs.window.allWindows()) do
-            print('title====> '..w:title())
-            if string.find(w:title(),query) == nil then
+        for _,w in ipairs(bookMarkList) do
+            print('title====> ',w.name,w.url)
+            if (string.find(w.name,query) == nil and string.find(w.url,query) == nil) then
             else
-                print(w:pid())
                 table.insert(choices, {
-                    text = w:title(),
-                    subText =w:title(),
-                    path = file_path,
-                    pid = w:pid()
+                    text = w.name,
+                    subText =w.url,
+                    url = w.url,
                     })
                 chooser:choices(choices)
             end
         end
-    elseif toolId == "history" then
-        for _,w in ipairs(hs.window.allWindows()) do
-            print('title====> '..w:title())
-            if string.find(w:title(),query) == nil then
-            else
-                print(w:pid())
+    elseif toolId == "search" then
+        for _,w in ipairs(SeachUrl) do
+            print('title====> ',w.text,w.url)
                 table.insert(choices, {
-                    text = w:title(),
-                    subText =w:title(),
-                    path = file_path,
-                    pid = w:pid()
+                    text = w.text,
+                    subText =w.url,
+                    url = w.url..query,
                     })
                 chooser:choices(choices)
-            end
-        end
+        end   
+        
     elseif toolId == "git" then
         print(gitfile)
         for _,w in ipairs(gitfile) do
