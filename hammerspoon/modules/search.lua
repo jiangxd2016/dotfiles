@@ -20,18 +20,14 @@ local screen = hs.window.focusedWindow():screen():frame()
 -- 占屏幕宽度的 20%（居中）
 local WIDTH = 600
 local HEIGHT = 600
-local CHOOSER_WIDTH = screen.w * .2
-local COORIDNATE_X = screen.w / 2 + CHOOSER_WIDTH / 2 + 5
-local COORIDNATE_Y = screen.h / 2 - 600
+local CHOOSER_WIDTH = screen.w * .3
+local COORIDNATE_X = screen.w / 3 + CHOOSER_WIDTH / 3 + 5
+local COORIDNATE_Y = screen.h / 3 - 800
+local toolId = "search"
 
-
-search_canvas = hs.canvas.new({x = COORIDNATE_X, y = COORIDNATE_Y - HEIGHT / 2, w = WIDTH, h = HEIGHT})
-
+search_canvas = hs.canvas.new({x = COORIDNATE_X, y = COORIDNATE_Y - HEIGHT / 3, w = WIDTH, h = HEIGHT})
 
 choices = {}
-page = 1
-appList = {};
-
 
  SeachUrl ={
     {
@@ -51,8 +47,12 @@ appList = {};
         url="https://www.bing.com/search?q=",
     }
 }
-
-local toolId = "search"
+toolbar = {
+    { id = "search",    label="搜索", selectable = true, },
+    { id = "app",       label="应用", selectable = true, },
+    { id = "bookMark",  label="书签", selectable = true, },
+    { id = "git",       label="项目", selectable = true, },
+}
 
 
 chooser = hs.chooser.new(function(choice)
@@ -61,7 +61,6 @@ chooser = hs.chooser.new(function(choice)
     end
     if toolId == "app" then
         local app = hs.application.get(choice.pid);
-        print(app:name())
         app:activate()
     elseif toolId == "git" then
         hs.execute('code '..choice.path,true)
@@ -73,27 +72,17 @@ chooser = hs.chooser.new(function(choice)
         hs.urlevent.openURLWithBundle(choice.url, default_browser)    
     end 
 end)
-chooser:width(20)
+chooser:width(30)
 chooser:rows(10)
 chooser:fgColor({
-    hex = '#84CC16'
+    hex = '#35485E'
 })
 chooser:placeholderText('请输入')
 
 
-myConsole = hs.webview.toolbar.new("myConsole", {
-        { id = "app",       label="应用", selectable = true, },
-        { id = "bookMark",  label="书签", selectable = true,},
-        { id = "search",   label="搜索",selectable = true, },
-        { id = "git",       label="文件夹",selectable = true, },
-    })
+myConsole = hs.webview.toolbar.new("myConsole", toolbar)
 
 myConsole:selectedItem(toolId):notifyOnChange(true):autosaves(true):displayMode("label");
-myConsole:setCallback(function(toolBar, item, name,isSelected)
-                toolId=name
-                print(toolId)
-                    end)
-
 
 tool_bar = chooser:attachedToolbar(myConsole)
 
@@ -123,7 +112,6 @@ function request(query)
         end
     elseif toolId == "bookMark" then
         for _,w in ipairs(bookmarks) do
-            print('title====> ',w.name,w.url)
             if (string.find(w.name,query) == nil and string.find(w.url,query) == nil) then
             else
                 table.insert(choices, {
@@ -136,19 +124,16 @@ function request(query)
         end
     elseif toolId == "search" then
         for _,w in ipairs(SeachUrl) do
-            print('title====> ',w.text,w.url)
                 table.insert(choices, {
                     text = w.text,
                     subText =w.url,
-                    url = w.url..query,
+                    url = w.url..encodeURI(query),
                     })
                 chooser:choices(choices)
         end   
         
     elseif toolId == "git" then
-        print(gitfile)
         for _,w in ipairs(gitfile) do
-            print(w.name,w.path)
             if string.find(w.name,query) == nil then
             else
                 table.insert(choices, {
@@ -175,24 +160,46 @@ select_key = hs.eventtap.new({hs.eventtap.event.types.keyDown}, function(event)
     local keycode = event:getKeyCode()
     local key = hs.keycodes.map[keycode]
     if 'right' == key then
-        page = page + 1
+        for v,k in pairs(toolbar) do
+            if k.id == toolId then
+                if v == #toolbar then
+                    print(v)
+                    toolId = toolbar[1].id
+                else
+                    print(v)
+                    toolId = toolbar[v + 1].id
+                end
+            break    
+            end
+        end
+            -- 选择
+        print(toolId)
+        myConsole:selectedItem(toolId)
         request(chooser:query())
         return
     end
     if 'left' == key then
-        if page <= 1 then
-            page = 1
-            return
-        end
-        page = page - 1
+        for v,k in pairs(toolbar) do
+            if k.id == toolId then
+                if v == 1 then
+                    toolId = toolbar[#toolbar].id
+                else
+                    toolId = toolbar[v -1].id
+                end
+            break    
+            end
+         end   
+             -- 选择
+        print(toolId)
+        myConsole:selectedItem(toolId)
         request(chooser:query())
         return
     end
     
+
     if 'down' ~= key and 'up' ~= key then
         return
     end
-    -- TODO-JING 第一项需要直接预览
     number = chooser:selectedRow();
     print(number,len)
     if 'down' == key then
@@ -213,7 +220,6 @@ select_key = hs.eventtap.new({hs.eventtap.event.types.keyDown}, function(event)
 end):start()
 
 hs.hotkey.bind(search.prefix,search.key, function()
-    page = 1
     chooser:query('')
     chooser:show()
 end)
@@ -221,7 +227,6 @@ end)
 changed_chooser = chooser:queryChangedCallback(function()
     hs.timer.doAfter(0.1, function()
         local query = chooser:query()
-        page = 1
         request(query)
     end)
 end)

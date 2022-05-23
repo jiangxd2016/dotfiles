@@ -153,3 +153,13 @@ function tableSize(t)
     end
     return s;
 end
+
+function decodeURI(str)
+    str = string.gsub(str, "+", " ")
+    str = string.gsub(str, "%%(%x%x)", function(h) return string.char(tonumber(h,16)) end)
+    return str
+ end
+function encodeURI(s)
+    s = string.gsub(s, "([^%w%.%- ])", function(c) return string.format("%%%02X", string.byte(c)) end)
+    return string.gsub(s, " ", "+")
+end

@@ -19,20 +19,19 @@ ln -sf $PWD/zsh/.vsvimrc  $HOME/.vsvimrc
 
 echo $HS_DIR
 
-
 # 缓存目录
-if [ ! -d $PWD/hammerspoon/.cache ]
+if [ ! -d $PWD/hammerspoon/cache ]
 then
-    mkdir $PWD/hammerspoon/.cache
+    mkdir $PWD/hammerspoon/cache
 fi
 
 
 if [ ! -d $HS_DIR ]
 then
-    mkdir -p $ZP_DIR
+    mkdir -p $HS_DIR
 else
-    rm -rf $ZP_DIR
-    mkdir -p $ZP_DIR
+    rm -rf $HS_DIR
+    mkdir -p $HS_DIR
 fi
 ln -sf $PWD/hammerspoon/* $HS_DIR
 

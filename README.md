@@ -3,7 +3,7 @@
 ## zsh config
 
 ``` bash
-zsh {module}.sh
+zsh install.sh
 ```
 
 use [zplugin](https://github.com/zplug/zplugn) manage plugin
