@@ -23,6 +23,8 @@ echo $HS_DIR
 if [ ! -d $PWD/hammerspoon/cache ]
 then
     mkdir $PWD/hammerspoon/cache
+    echo bookmarks = {} > ./hammerspoon/cache/bookmarks.lua 
+    echo gitfile = {} > ./hammerspoon/cache/git.lua 
 fi
 
 
