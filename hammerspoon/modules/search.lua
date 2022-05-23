@@ -28,6 +28,7 @@ local toolId = "search"
 search_canvas = hs.canvas.new({x = COORIDNATE_X, y = COORIDNATE_Y - HEIGHT / 3, w = WIDTH, h = HEIGHT})
 
 choices = {}
+allWindws = {};
 
  SeachUrl ={
     {
@@ -59,10 +60,24 @@ chooser = hs.chooser.new(function(choice)
     if not choice then
         return
     end
+    choice.text = trim(choice.text)
+
     if toolId == "app" then
         local app = hs.application.get(choice.pid);
         app:activate()
     elseif toolId == "git" then
+        print("choice.text==>",choice.text)
+        -- 当项目已打开，就直接切换到项目
+        for _,w in ipairs(allWindows) do
+            print("w.title==>",w:title())
+            if string.find(w:title(),choice.text) == nil then
+            else
+                print("find--------------------")
+                local app = hs.application.get(w.pid);
+                app:activate()
+            return   
+            end
+        end
         hs.execute('code '..choice.path,true)
     elseif toolId == "bookMark" then
         local default_browser = hs.urlevent.getDefaultHandler('http')
@@ -96,7 +111,7 @@ function request(query)
 
     print(toolId)
     if toolId == "app" then
-        for _,w in ipairs(hs.window.allWindows()) do
+        for _,w in ipairs(allWindows) do
             print('title====> '..w:title())
             if string.find(w:title(),query) == nil then
             else
@@ -220,6 +235,7 @@ select_key = hs.eventtap.new({hs.eventtap.event.types.keyDown}, function(event)
 end):start()
 
 hs.hotkey.bind(search.prefix,search.key, function()
+    allWindows = hs.window.allWindows();
     chooser:query('')
     chooser:show()
 end)
