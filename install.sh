@@ -19,6 +19,14 @@ ln -sf $PWD/zsh/.vsvimrc  $HOME/.vsvimrc
 
 echo $HS_DIR
 
+
+# 缓存目录
+if [ ! -d $PWD/hammerspoon/.cache ]
+then
+    mkdir $PWD/hammerspoon/.cache
+fi
+
+
 if [ ! -d $HS_DIR ]
 then
     mkdir -p $ZP_DIR

@@ -1,9 +1,19 @@
--- 表情包搜索
 
 require 'modules.base'
 require 'modules.shortcut'
-require "modules.git"
-require "modules.tiny"
+require "cache.git"
+require "cache.bookmarks"
+
+
+--- hack cache
+if(bookmarks == nil) then
+    print("[error]: bookmarks is nil,please reload you cache")
+    bookmarks = {}
+end
+if(gitfile == nil) then
+    print("[error]: gitfile is nil,please reload you cache")
+    gitfile = {}
+end
 
 local screen = hs.window.focusedWindow():screen():frame()
 
@@ -112,7 +122,7 @@ function request(query)
             end
         end
     elseif toolId == "bookMark" then
-        for _,w in ipairs(bookMarkList) do
+        for _,w in ipairs(bookmarks) do
             print('title====> ',w.name,w.url)
             if (string.find(w.name,query) == nil and string.find(w.url,query) == nil) then
             else
