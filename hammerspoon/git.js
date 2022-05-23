@@ -8,7 +8,7 @@ const findDir = "Documents"
 
 const USER_HOME = process.env.HOME || process.env.USERPROFILE
 const dir = path.join(USER_HOME,findDir);
-const outFile =  path.join(__dirname,"../modules","git.lua");
+const outFile =  path.join(__dirname,"./modules","git.lua");
 
 function isGitSync(dir) {
   return fs.existsSync(path.join(dir, '.git'))

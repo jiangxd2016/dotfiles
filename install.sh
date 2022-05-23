@@ -14,9 +14,19 @@ fi
 
 # 生成软链接
 ln -sf $PWD/zsh/.zshrc  $HOME/.zshrc
-ln -sf $PWD/zsh/.vsvimrc  $HOME/.vsvimrctest
+ln -sf $PWD/zsh/.vsvimrc  $HOME/.vsvimrc
 
 
-ln -s $PWD/hammerspoon/* $HS_DIRtest
+echo $HS_DIR
+
+if [ ! -d $HS_DIR ]
+then
+    mkdir -p $ZP_DIR
+else
+    rm -rf $ZP_DIR
+    mkdir -p $ZP_DIR
+fi
+ln -sf $PWD/hammerspoon/* $HS_DIR
+
 # 让zsh配置生效
 source  $HOME/.zshrc

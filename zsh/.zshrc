@@ -6,7 +6,6 @@ export ZPLUG_HOME=/usr/local/opt/zplug
 source $ZSH/oh-my-zsh.sh
 
 
-
 if [[ -f $ZPLUG_HOME/init.zsh ]] {
   source $ZPLUG_HOME/init.zsh
 

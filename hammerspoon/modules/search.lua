@@ -7,8 +7,8 @@ require "modules.git"
 local screen = hs.window.focusedWindow():screen():frame()
 
 -- 占屏幕宽度的 20%（居中）
-local WIDTH = 600
-local HEIGHT = 600
+local WIDTH = 1600
+local HEIGHT = 1600
 local CHOOSER_WIDTH = screen.w * .2
 local COORIDNATE_X = screen.w / 2 + CHOOSER_WIDTH / 2 + 5
 local COORIDNATE_Y = screen.h / 2 - 600
