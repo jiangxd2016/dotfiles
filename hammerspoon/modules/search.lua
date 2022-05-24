@@ -90,7 +90,7 @@ end)
 chooser:width(20)
 chooser:rows(10)
 chooser:fgColor({
-    hex = '#35485E'
+    hex = '#51c4d3'
 })
 chooser:placeholderText('请输入')
 
