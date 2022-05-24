@@ -79,7 +79,7 @@ function setGitLuaFile(){
     ${filesList.map(item=>`{name="${item.name}",path="${item.path}"}`).join(',')}
       }`;
 
-  fs.writeFileSync(path.join(outDir,"git.lua"),str);
+  fs.writeFileSync(path.join(outDir,"git.lua"),str,{encoding:'utf8',flag:'w'});
 }
 
 
@@ -88,7 +88,7 @@ function setBookMarksLuaFile(){
   const str  = `bookmarks = {
     ${bookMarKList.map(item=>`{name="${item.name}",url="${item.url}"}`).join(',')}
       }`;
-   fs.writeFileSync(path.join(outDir,"bookmarks.lua"),str);
+   fs.writeFileSync(path.join(outDir,"bookmarks.lua"),str,{encoding:'utf8',flag:'w'});
 }   
 
 console.log(path.join(outDir,"bookmarks.lua"));

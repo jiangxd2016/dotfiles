@@ -48,7 +48,7 @@ function renderMenubar(config)
         table.insert(menudata, {
             title = '重新生成缓存',
             fn = function()
-                hs.execute('node ../cache.js',true)
+                setCache()
                 -- 持久化配置文件
                 saveConfig(defaultConfig)
                 -- 重新加载 Hammerspoon 所有配置
