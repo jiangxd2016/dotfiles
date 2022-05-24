@@ -6,8 +6,8 @@
 zsh install.sh
 ```
 
-use [zplugin](https://github.com/zplug/zplugn) manage plugin
-
+zsh use [zplugin](https://github.com/zplug/zplugn) manage plugin
+you need to install zplug first.
 ```
  brew install zplug
  ```

@@ -22,7 +22,13 @@ defaultConfig = {{
     module = 'modules.search',
     name = '超级搜索',
     enable = true
-} ,{
+} 
+,{
+    module = 'modules.weather',
+    name = '天气预报',
+    enable = true
+} ,
+{
     module = 'modules.hotkey',
     name = '快捷键列表查看',
     enable = true
