@@ -87,7 +87,7 @@ chooser = hs.chooser.new(function(choice)
         hs.urlevent.openURLWithBundle(choice.url, default_browser)    
     end 
 end)
-chooser:width(20)
+chooser:width(26)
 chooser:rows(10)
 chooser:fgColor({
     hex = '#51c4d3'
