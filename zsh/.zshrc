@@ -1,33 +1,18 @@
 
 export UPDATE_ZSH_DAYS=13
 export ZSH="/Users/xd/.oh-my-zsh"
-export ZPLUG_HOME=/usr/local/opt/zplug
 
 source $ZSH/oh-my-zsh.sh
 
+ZSH_THEME="spaceship"
 
-if [[ -f $ZPLUG_HOME/init.zsh ]] {
-  source $ZPLUG_HOME/init.zsh
-
-  zplug "zsh-users/zsh-syntax-highlighting"
-  zplug "zsh-users/zsh-autosuggestions"
-  zplug "supercrabtree/k"
-  zplug "SleepyBag/zsh-confer"
-  zplug "denysdovhan/spaceship-prompt", as:theme, depth:1
-  zplug "plugins/git",                 from:oh-my-zsh
-  zplug "plugins/z",                   from:oh-my-zsh
-  zplug "plugins/d",                   from:oh-my-zsh
-
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
-fi
-
-  # Then, source plugins and add commands to $PATH
-  zplug load
-}
+plugins=(
+  git
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+  zsh-z
+  k
+)
 
 # alias
 alias ni="pnpm i"

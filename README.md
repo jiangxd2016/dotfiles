@@ -3,13 +3,26 @@
 ## zsh config
 
 ``` bash
-zsh install.sh
+sudo zsh install.sh
 ```
 
-zsh use [zplugin](https://github.com/zplug/zplugn) manage plugin
-you need to install zplug first.
+## zsh plugin config
+
+use git submodule
+
 ```
- brew install zplug
- ```
+git submodule add git@github.com:spaceship-prompt/spaceship-prompt.git spaceship-prompt --depth=1
+git submodule add git@github.com:zsh-users/zsh-autosuggestions.git ./zsh/plugins/zsh-autosuggestions --depth=1
+git submodule add git@github.com:zsh-users/zsh-syntax-highlighting.git ./zsh/plugins/zsh-syntax-highlighting --depth=1
+git submodule add git@github.com:agkozak/zsh-z.git ./zsh/plugins/zsh-z --depth=1
+git submodule add git@github.com:supercrabtree/k.git ./zsh/plugins/k --depth=1
+
+```
 
 
+## TODO
+<!-- - [x]  -->
+- [ ] need fast search bookmarks(like use c/c++)
+- [ ] use sqlite3 parse history to search
+- [ ] refactor search code
+- [ ] more
