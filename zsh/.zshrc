@@ -2,7 +2,6 @@
 export UPDATE_ZSH_DAYS=13
 export ZSH="/Users/xd/.oh-my-zsh"
 
-source $ZSH/oh-my-zsh.sh
 
 ZSH_THEME="spaceship"
 
@@ -13,6 +12,8 @@ plugins=(
   zsh-z
   k
 )
+
+source $ZSH/oh-my-zsh.sh
 
 # alias
 alias ni="pnpm i"
