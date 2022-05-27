@@ -1,5 +1,4 @@
 -- 应用切换
-
 require 'modules.shortcut'
 
 hs.fnutils.each(applications, function(item)
@@ -21,7 +20,7 @@ function toggleAppByBundleId(appBundleID)
 
     -- 两者重复时,寻找下一个该窗口
     if frontMostApp:bundleID() == appBundleID then
-        local wf = hs.window.filter.new{frontMostApp:name()}
+        local wf = hs.window.filter.new {frontMostApp:name()}
         local locT = wf:getWindows({hs.window.filter.sortByFocusedLast})
         if locT and #locT > 1 then
             local windowId = frontMostApp:mainWindow():id()
@@ -44,13 +43,13 @@ function toggleAppByBundleId(appBundleID)
     frontMostApp = hs.application.applicationsForBundleID(appBundleID)[1]
     local point = mousePositions[appBundleID]
     if point then
-      hs.mouse.setAbsolutePosition(point)
-      local currentSc = hs.mouse.getCurrentScreen()
-      local tempSc = frontMostApp:mainWindow():screen()
-      if currentSc ~= tempSc then
-          setMouseToCenter(frontMostApp)
-      end
-    -- 找不到则转移到该屏幕中间
+        hs.mouse.setAbsolutePosition(point)
+        local currentSc = hs.mouse.getCurrentScreen()
+        local tempSc = frontMostApp:mainWindow():screen()
+        if currentSc ~= tempSc then
+            setMouseToCenter(frontMostApp)
+        end
+        -- 找不到则转移到该屏幕中间
     else
         setMouseToCenter(frontMostApp)
     end
@@ -62,6 +61,6 @@ function setMouseToCenter(frontMostApp)
         return
     end
     local mainFrame = mainWindow:frame()
-    local mainPoint = hs.geometry.point(mainFrame.x + mainFrame.w /2, mainFrame.y + mainFrame.h /2)
+    local mainPoint = hs.geometry.point(mainFrame.x + mainFrame.w / 2, mainFrame.y + mainFrame.h / 2)
     hs.mouse.absolutePosition(mainPoint)
 end

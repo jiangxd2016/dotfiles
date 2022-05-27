@@ -1,38 +1,36 @@
-
 --- 蓝牙耳机切换
 -- @see https://github.com/wangshub/hammerspoon-config/blob/master/headphone/headphone.lua
 -- SONY MDR-1000X
 local bleDeviceID = '04-5d-4b-52-d0-0a'
 
-
 function bluetoothSwitch(state)
-  -- state: 0(off), 1(on)
-  cmd = "/usr/local/bin/blueutil --power "..(state)
-  print(cmd)
-  result = hs.osascript.applescript(string.format('do shell script "%s"', cmd))
+    -- state: 0(off), 1(on)
+    cmd = "/usr/local/bin/blueutil --power " .. (state)
+    print(cmd)
+    result = hs.osascript.applescript(string.format('do shell script "%s"', cmd))
 end
 
 function disconnectBluetooth()
-  cmd = "/usr/local/bin/blueutil --disconnect "..(bleDeviceID)
-  result = hs.osascript.applescript(string.format('do shell script "%s"', cmd))
+    cmd = "/usr/local/bin/blueutil --disconnect " .. (bleDeviceID)
+    result = hs.osascript.applescript(string.format('do shell script "%s"', cmd))
 end
 
 function connectBluetooth()
-  cmd = "/usr/local/bin/blueutil --connect "..(bleDeviceID)
-  result = hs.osascript.applescript(string.format('do shell script "%s"', cmd))
+    cmd = "/usr/local/bin/blueutil --connect " .. (bleDeviceID)
+    result = hs.osascript.applescript(string.format('do shell script "%s"', cmd))
 end
 
 function caffeinateCallback(eventType)
     if (eventType == hs.caffeinate.watcher.screensDidSleep) then
-      print("screensDidSleep")
+        print("screensDidSleep")
     elseif (eventType == hs.caffeinate.watcher.screensDidWake) then
-      print("screensDidWake")
+        print("screensDidWake")
     elseif (eventType == hs.caffeinate.watcher.screensDidLock) then
-      print("screensDidLock")
-      disconnectBluetooth()
+        print("screensDidLock")
+        disconnectBluetooth()
     elseif (eventType == hs.caffeinate.watcher.screensDidUnlock) then
-      print("screensDidUnlock")
-      connectBluetooth()
+        print("screensDidUnlock")
+        connectBluetooth()
     end
 end
 

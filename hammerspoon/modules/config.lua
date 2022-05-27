@@ -11,29 +11,27 @@ defaultConfig = {{
     module = 'modules.application',
     name = '应用切换',
     enable = true
-}, { module = 'modules.network',
+}, {
+    module = 'modules.network',
     name = '实时网速',
     enable = true
 }, {
     module = 'modules.keystroke-visualizer',
     name = '按键回显',
     enable = true
-},{
+}, {
     module = 'modules.search',
     name = '超级搜索',
     enable = true
-} 
-,{
+}, {
     module = 'modules.weather',
     name = '天气预报',
     enable = true
-} ,
-{
+}, {
     module = 'modules.hotkey',
     name = '快捷键列表查看',
     enable = true
-}
-}
+}}
 
 base_path = os.getenv("HOME") .. '/.hammerspoon/'
 -- 本地配置文件路径

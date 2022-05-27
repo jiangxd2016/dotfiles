@@ -1,27 +1,34 @@
 function charsize(ch)
-    if not ch then return 0
-    elseif ch >=252 then return 6
-    elseif ch >= 248 and ch < 252 then return 5
-    elseif ch >= 240 and ch < 248 then return 4
-    elseif ch >= 224 and ch < 240 then return 3
-    elseif ch >= 192 and ch < 224 then return 2
-    elseif ch < 192 then return 1
+    if not ch then
+        return 0
+    elseif ch >= 252 then
+        return 6
+    elseif ch >= 248 and ch < 252 then
+        return 5
+    elseif ch >= 240 and ch < 248 then
+        return 4
+    elseif ch >= 224 and ch < 240 then
+        return 3
+    elseif ch >= 192 and ch < 224 then
+        return 2
+    elseif ch < 192 then
+        return 1
     end
 end
 
 function utf8len(str)
     local len = 0
-    local aNum = 0 --字母个数
-    local hNum = 0 --汉字个数
+    local aNum = 0 -- 字母个数
+    local hNum = 0 -- 汉字个数
     local currentIndex = 1
     while currentIndex <= #str do
         local char = string.byte(str, currentIndex)
         local cs = charsize(char)
         currentIndex = currentIndex + cs
-        len = len +1
-        if cs == 1 then 
+        len = len + 1
+        if cs == 1 then
             aNum = aNum + 1
-        elseif cs >= 2 then 
+        elseif cs >= 2 then
             hNum = hNum + 1
         end
     end
@@ -41,7 +48,7 @@ function utf8sub(str, startChar, numChars)
     while numChars > 0 and currentIndex <= #str do
         local char = string.byte(str, currentIndex)
         currentIndex = currentIndex + charsize(char)
-        numChars = numChars -1
+        numChars = numChars - 1
     end
     return str:sub(startIndex, currentIndex - 1)
 end
@@ -97,10 +104,14 @@ end
 function split(input, delimiter)
     input = tostring(input)
     delimiter = tostring(delimiter)
-    if (delimiter=='') then return false end
-    local pos,arr = 0, {}
+    if (delimiter == '') then
+        return false
+    end
+    local pos, arr = 0, {}
     -- for each divider found
-    for st,sp in function() return string.find(input, delimiter, pos, true) end do
+    for st, sp in function()
+        return string.find(input, delimiter, pos, true)
+    end do
         table.insert(arr, string.sub(input, pos, st - 1))
         pos = sp + 1
     end
@@ -115,51 +126,60 @@ function trim(s)
     return (s:gsub("^%s+", ""):gsub("%s+$", ""))
 end
 
-function pushleft (list, value)
+function pushleft(list, value)
     local first = list.first - 1
     list.first = first
     list[first] = value
 end
 
-function pushright (list, value)
+function pushright(list, value)
     local last = list.last + 1
     list.last = last
     list[last] = value
 end
 
-function popleft (list)
+function popleft(list)
     local first = list.first
-    if first > list.last then error("list is empty") end
+    if first > list.last then
+        error("list is empty")
+    end
     local value = list[first]
-    list[first] = nil    -- to allow garbage collection
+    list[first] = nil -- to allow garbage collection
     list.first = first + 1
     return value
 end
 
-function popright (list)
+function popright(list)
     local last = list.last
-    if list.first > last then error("list is empty") end
+    if list.first > last then
+        error("list is empty")
+    end
     local value = list[last]
-    list[last] = nil     -- to allow garbage collection
+    list[last] = nil -- to allow garbage collection
     list.last = last - 1
     return value
 end
 
-
 function tableSize(t)
     local s = 0;
     for k, v in pairs(t) do
-        if v ~= nil then s = s + 1 end
+        if v ~= nil then
+            s = s + 1
+        end
     end
     return s;
 end
 
 function decodeURI(str)
     str = string.gsub(str, "+", " ")
-    str = string.gsub(str, "%%(%x%x)", function(h) return string.char(tonumber(h,16)) end)
+    str = string.gsub(str, "%%(%x%x)", function(h)
+        return string.char(tonumber(h, 16))
+    end)
     return str
- end
+end
 function encodeURI(s)
-    s = string.gsub(s, "([^%w%.%- ])", function(c) return string.format("%%%02X", string.byte(c)) end)
+    s = string.gsub(s, "([^%w%.%- ])", function(c)
+        return string.format("%%%02X", string.byte(c))
+    end)
     return string.gsub(s, " ", "+")
 end

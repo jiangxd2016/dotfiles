@@ -1,5 +1,4 @@
 -- 展示本工程快捷键列表
-
 require 'modules.base'
 require 'modules.shortcut'
 
@@ -12,32 +11,48 @@ local COORIDNATE_Y = screen.h / 2
 local num = 0
 
 -- 创建 Canvas
-local canvas = hs.canvas.new({x = 0, y = 0, w = 0, h = 0})
+local canvas = hs.canvas.new({
+    x = 0,
+    y = 0,
+    w = 0,
+    h = 0
+})
 
 -- TODO:增加圆角
 -- 背景面板
 canvas:appendElements({
     id = 'pannel',
     action = 'fill',
-    fillColor = {alpha = 0.9, red = 0, green = 0, blue = 0},
+    fillColor = {
+        alpha = 0.9,
+        red = 0,
+        green = 0,
+        blue = 0
+    },
     type = 'rectangle'
 })
 
 function formatText()
-    
+
     -- 加载所有绑定的快捷键
     local hotkeys = hs.hotkey.getHotkeys()
     local renderText = {}
     -- 快捷键分类
     -- 应用切换类
     local applicationSwitchText = {}
-    table.insert(applicationSwitchText, {msg = '[Application Switch:]'})
+    table.insert(applicationSwitchText, {
+        msg = '[Application Switch:]'
+    })
     -- 窗口管理类
     local windowManagement = {}
-    table.insert(windowManagement, {msg = '[Window Management:]'})
+    table.insert(windowManagement, {
+        msg = '[Window Management:]'
+    })
     -- 密码粘贴类
     local passwordPaste = {}
-    table.insert(passwordPaste, {msg = '[Password Paste:]'})
+    table.insert(passwordPaste, {
+        msg = '[Password Paste:]'
+    })
 
     -- 每行最多 40 个字符
     local MAX_LEN = 40
@@ -46,23 +61,33 @@ function formatText()
     for k, v in ipairs(hotkeys) do
         -- 以 ⌥ 开头，表示为应用切换快捷键
         if string.find(v.idx, '^⌥') ~= nil then
-            table.insert(applicationSwitchText, {msg = v.msg})
+            table.insert(applicationSwitchText, {
+                msg = v.msg
+            })
         end
         -- 以 ⌃⌥ 或 ⌘⌃⌥ 开头，表示为窗口管理快捷键
         if string.find(v.idx, '^⌃⌥') ~= nil or string.find(v.idx, '^⌘⌃⌥') ~= nil then
-            table.insert(windowManagement, {msg = v.msg})
+            table.insert(windowManagement, {
+                msg = v.msg
+            })
         end
     end
 
     hotkeys = {}
     for k, v in ipairs(applicationSwitchText) do
-        table.insert(hotkeys, {msg = v.msg})
+        table.insert(hotkeys, {
+            msg = v.msg
+        })
     end
     for k, v in ipairs(windowManagement) do
-        table.insert(hotkeys, {msg = v.msg})
+        table.insert(hotkeys, {
+            msg = v.msg
+        })
     end
     for k, v in ipairs(passwordPaste) do
-        table.insert(hotkeys, {msg = v.msg})
+        table.insert(hotkeys, {
+            msg = v.msg
+        })
     end
 
     -- 文本定长
@@ -73,14 +98,18 @@ function formatText()
         -- 超过最大长度，截断多余部分，截断的部分作为新的一行
         while len > MAX_LEN do
             local substr = utf8sub(msg, 1, MAX_LEN)
-            table.insert(renderText, {line = substr})
+            table.insert(renderText, {
+                line = substr
+            })
             msg = utf8sub(msg, MAX_LEN + 1, len)
             len = utf8len(msg)
         end
         for i = 1, MAX_LEN - utf8len(msg), 1 do
             msg = msg .. ' '
         end
-        table.insert(renderText, {line = msg})
+        table.insert(renderText, {
+            line = msg
+        })
     end
     return renderText
 end
@@ -114,16 +143,29 @@ function drawText(renderText)
             canvas:appendElements({
                 type = 'text',
                 text = itemText,
-                frame = {x = (k / MAX_LINE_NUM - 1) * size.w + SEPRATOR_W, y = 0, w = size.w + SEPRATOR_W, h = size.h}
+                frame = {
+                    x = (k / MAX_LINE_NUM - 1) * size.w + SEPRATOR_W,
+                    y = 0,
+                    w = size.w + SEPRATOR_W,
+                    h = size.h
+                }
             })
             canvas:appendElements({
                 type = "segments",
                 closed = false,
                 -- strokeColor = { blue = 1 }, 
-                strokeColor = { hex = '#0096FA' },
+                strokeColor = {
+                    hex = '#0096FA'
+                },
                 action = "stroke",
                 strokeWidth = 2,
-                coordinates = {{ x = (k / MAX_LINE_NUM) * size.w - SEPRATOR_W, y = 0 }, {x = (k / MAX_LINE_NUM) * size.w - SEPRATOR_W, y = h}},
+                coordinates = {{
+                    x = (k / MAX_LINE_NUM) * size.w - SEPRATOR_W,
+                    y = 0
+                }, {
+                    x = (k / MAX_LINE_NUM) * size.w - SEPRATOR_W,
+                    y = h
+                }}
             })
             column = ''
         end
@@ -135,13 +177,23 @@ function drawText(renderText)
         canvas:appendElements({
             type = 'text',
             text = itemText,
-            frame = {x = math.ceil(num / MAX_LINE_NUM - 1) * size.w + SEPRATOR_W, y = 0, w = size.w + SEPRATOR_W, h = size.h}
+            frame = {
+                x = math.ceil(num / MAX_LINE_NUM - 1) * size.w + SEPRATOR_W,
+                y = 0,
+                w = size.w + SEPRATOR_W,
+                h = size.h
+            }
         })
         column = nil
     end
-    
+
     -- 居中显示
-    canvas:frame({x = COORIDNATE_X - w / 2, y = COORIDNATE_Y - h / 2, w = w, h = h})
+    canvas:frame({
+        x = COORIDNATE_X - w / 2,
+        y = COORIDNATE_Y - h / 2,
+        w = w,
+        h = h
+    })
 end
 
 function styleText(text)
@@ -150,7 +202,9 @@ function styleText(text)
             name = "Monaco",
             size = 16
         },
-        color = {hex = '#0096FA'},
+        color = {
+            hex = '#0096FA'
+        },
         paragraphStyle = {
             lineSpacing = 5
         }
@@ -165,7 +219,7 @@ function toggleHotkeysShow()
     if show then
         -- 0.3s 过渡
         canvas:hide(.3)
-    else 
+    else
         -- 0.3s 过渡
         canvas:show(.3)
     end

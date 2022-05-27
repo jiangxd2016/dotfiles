@@ -1,5 +1,4 @@
 -- 窗口管理
-
 require 'modules.shortcut'
 
 -- 关闭动画持续时间
@@ -35,7 +34,7 @@ hs.hotkey.bind(windows.right.prefix, windows.right.key, nil, function()
 end)
 
 -- 上半屏
-hs.hotkey.bind(windows.up.prefix, windows.up.key,nil, function()
+hs.hotkey.bind(windows.up.prefix, windows.up.key, nil, function()
     local win = hs.window.focusedWindow()
     local f = win:frame()
     local screen = win:screen()
@@ -49,7 +48,7 @@ hs.hotkey.bind(windows.up.prefix, windows.up.key,nil, function()
 end)
 
 -- 下半屏
-hs.hotkey.bind(windows.down.prefix, windows.down.key,nil, function()
+hs.hotkey.bind(windows.down.prefix, windows.down.key, nil, function()
     local win = hs.window.focusedWindow()
     local f = win:frame()
     local screen = win:screen()
@@ -59,7 +58,7 @@ hs.hotkey.bind(windows.down.prefix, windows.down.key,nil, function()
     f.y = max.y + (max.h / 2)
     f.w = max.w
     f.h = max.h / 2
-    win:setFrame(f) 
+    win:setFrame(f)
 end)
 
 -- 左上角
@@ -445,7 +444,7 @@ hs.hotkey.bind(windows.to_left.prefix, windows.to_left.key, nil, function()
 end)
 
 -- 将窗口移动到右侧屏幕
-hs.hotkey.bind(windows.to_right.prefix, windows.to_right.key,nil, function()
+hs.hotkey.bind(windows.to_right.prefix, windows.to_right.key, nil, function()
     local win = hs.window.focusedWindow()
     if (win) then
         win:moveOneScreenEast()
