@@ -41,10 +41,16 @@ config_path = base_path .. '.config'
 function loadConfig()
     -- 以可读写方式打开文件
     local file = io.open(config_path, 'r+')
+
     -- 文件不存在
     if file == nil then
         -- 创建文件
         file = io.open(config_path, 'w+')
+    end
+    if file == nil then
+        -- 读取默认配置
+        local config = serialize(defaultConfig)
+        return config
     end
     -- 读取文件所有内容
     local config = file:read('*a')
@@ -56,6 +62,7 @@ function loadConfig()
     file:close()
     return config
 end
+
 
 function saveConfig(config)
     -- 清空文件内容，然后写入新的文件内容
