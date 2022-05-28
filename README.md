@@ -18,6 +18,15 @@ git submodule add git@github.com:agkozak/zsh-z.git ./zsh/plugins/zsh-z --depth=1
 git submodule add git@github.com:supercrabtree/k.git ./zsh/plugins/k --depth=1
 
 ```
+first install
+```
+ git submodule update --init --depth 1
+```
+  update submodule
+```
+git submodule update --recursive --remote --depth 1
+```
+```
 
 
 ## TODO

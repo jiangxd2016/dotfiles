@@ -8,6 +8,8 @@ MY_ZSH="$PWD/zsh"
 ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
 
 
+ git submodule update --init --depth 1
+
 # # # # # # # # # # # # # # # # # # #
 #  zsh config
 # # # # # # # # # # # # # # # # # # # 
