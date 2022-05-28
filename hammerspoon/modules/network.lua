@@ -102,4 +102,4 @@ if obj.timer then
     obj.timer = nil
 end
 -- 第三个参数表示当发生异常情况时，定时器是否继续执行下去
-obj.timer = hs.timer.doEvery(2, scan, true):start()
+obj.timer = hs.timer.doEvery(3, scan, true):start()

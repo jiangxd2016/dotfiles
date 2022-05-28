@@ -5,10 +5,14 @@
   <img src='https://img.shields.io/badge/Lua-5.4-00007C' alt='icon'/>
   <img src='https://img.shields.io/badge/Shell-417DDE' alt='icon'/>
 </div>
+## 
+  参考
+    https://github.com/sugood/hammerspoon
+    https://github.com/KURANADO2/hammerspoon-kuranado
 
 ## TODO
-  - weather
-  - headphone
+  [-] weather
+  [-] headphone
 
 
 ## 本工程提供功能

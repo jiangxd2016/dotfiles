@@ -12,8 +12,8 @@ defaultConfig = {{
     name = '应用切换',
     enable = true
 }, {
-    module = 'modules.network',
-    name = '实时网速',
+    module = 'modules.system',
+    name = '系统信息',
     enable = true
 }, {
     module = 'modules.keystroke-visualizer',
