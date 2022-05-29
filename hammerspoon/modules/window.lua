@@ -1,13 +1,17 @@
 -- 窗口管理
 require 'modules.shortcut'
-
+local hotkey = require "hs.hotkey"
+local window = require "hs.window"
+local screen = require "hs.screen"
+local layout = require "hs.layout"
+local alert = require "hs.alert"
 -- 关闭动画持续时间
-hs.window.animationDuration = 0
+window.animationDuration = 0
 
 -- 窗口移动
 -- 左半屏
-hs.hotkey.bind(windows.left.prefix, windows.left.key, nil, function()
-    local win = hs.window.focusedWindow()
+hotkey.bind(windows.left.prefix, windows.left.key, nil, function()
+    local win =window.focusedWindow()
     local f = win:frame()
     local screen = win:screen()
     local max = screen:frame()
@@ -20,8 +24,8 @@ hs.hotkey.bind(windows.left.prefix, windows.left.key, nil, function()
 end)
 
 -- 右半屏
-hs.hotkey.bind(windows.right.prefix, windows.right.key, nil, function()
-    local win = hs.window.focusedWindow()
+hotkey.bind(windows.right.prefix, windows.right.key, nil, function()
+    local win =window.focusedWindow()
     local f = win:frame()
     local screen = win:screen()
     local max = screen:frame()
@@ -34,8 +38,8 @@ hs.hotkey.bind(windows.right.prefix, windows.right.key, nil, function()
 end)
 
 -- 上半屏
-hs.hotkey.bind(windows.up.prefix, windows.up.key, nil, function()
-    local win = hs.window.focusedWindow()
+hotkey.bind(windows.up.prefix, windows.up.key, nil, function()
+    local win =window.focusedWindow()
     local f = win:frame()
     local screen = win:screen()
     local max = screen:frame()
@@ -48,8 +52,8 @@ hs.hotkey.bind(windows.up.prefix, windows.up.key, nil, function()
 end)
 
 -- 下半屏
-hs.hotkey.bind(windows.down.prefix, windows.down.key, nil, function()
-    local win = hs.window.focusedWindow()
+hotkey.bind(windows.down.prefix, windows.down.key, nil, function()
+    local win =window.focusedWindow()
     local f = win:frame()
     local screen = win:screen()
     local max = screen:frame()
@@ -62,8 +66,8 @@ hs.hotkey.bind(windows.down.prefix, windows.down.key, nil, function()
 end)
 
 -- 左上角
-hs.hotkey.bind(windows.top_left.prefix, windows.top_left.key, nil, function()
-    local win = hs.window.focusedWindow()
+hotkey.bind(windows.top_left.prefix, windows.top_left.key, nil, function()
+    local win =window.focusedWindow()
     local f = win:frame()
     local screen = win:screen()
     local max = screen:frame()
@@ -76,8 +80,8 @@ hs.hotkey.bind(windows.top_left.prefix, windows.top_left.key, nil, function()
 end)
 
 -- 右上角
-hs.hotkey.bind(windows.top_right.prefix, windows.top_right.key, nil, function()
-    local win = hs.window.focusedWindow()
+hotkey.bind(windows.top_right.prefix, windows.top_right.key, nil, function()
+    local win =window.focusedWindow()
     local f = win:frame()
     local screen = win:screen()
     local max = screen:frame()
@@ -90,8 +94,8 @@ hs.hotkey.bind(windows.top_right.prefix, windows.top_right.key, nil, function()
 end)
 
 -- 左下角
-hs.hotkey.bind(windows.left_bottom.prefix, windows.left_bottom.key, nil, function()
-    local win = hs.window.focusedWindow()
+hotkey.bind(windows.left_bottom.prefix, windows.left_bottom.key, nil, function()
+    local win =window.focusedWindow()
     local f = win:frame()
     local screen = win:screen()
     local max = screen:frame()
@@ -104,8 +108,8 @@ hs.hotkey.bind(windows.left_bottom.prefix, windows.left_bottom.key, nil, functio
 end)
 
 -- 右下角
-hs.hotkey.bind(windows.right_bottom.prefix, windows.right_bottom.key, nil, function()
-    local win = hs.window.focusedWindow()
+hotkey.bind(windows.right_bottom.prefix, windows.right_bottom.key, nil, function()
+    local win =window.focusedWindow()
     local f = win:frame()
     local screen = win:screen()
     local max = screen:frame()
@@ -117,135 +121,10 @@ hs.hotkey.bind(windows.right_bottom.prefix, windows.right_bottom.key, nil, funct
     win:setFrame(f)
 end)
 
--- 1/9
-hs.hotkey.bind(windows.one.prefix, windows.one.key, nil, function()
-    local win = hs.window.focusedWindow()
-    local f = win:frame()
-    local screen = win:screen()
-    local max = screen:frame()
-
-    f.x = max.x
-    f.y = max.y
-    f.w = max.w / 3
-    f.h = max.h / 3
-    win:setFrame(f)
-end)
-
--- 2/9
-hs.hotkey.bind(windows.two.prefix, windows.two.key, nil, function()
-    local win = hs.window.focusedWindow()
-    local f = win:frame()
-    local screen = win:screen()
-    local max = screen:frame()
-
-    f.x = max.x + (max.w / 3)
-    f.y = max.y
-    f.w = max.w / 3
-    f.h = max.h / 3
-    win:setFrame(f)
-end)
-
--- 3/9
-hs.hotkey.bind(windows.three.prefix, windows.three.key, nil, function()
-    local win = hs.window.focusedWindow()
-    local f = win:frame()
-    local screen = win:screen()
-    local max = screen:frame()
-
-    f.x = max.x + (max.w / 3) * 2
-    f.y = max.y
-    f.w = max.w / 3
-    f.h = max.h / 3
-    win:setFrame(f)
-end)
-
--- 4/9
-hs.hotkey.bind(windows.four.prefix, windows.four.key, nil, function()
-    local win = hs.window.focusedWindow()
-    local f = win:frame()
-    local screen = win:screen()
-    local max = screen:frame()
-
-    f.x = max.x
-    f.y = max.y + (max.h / 3)
-    f.w = max.w / 3
-    f.h = max.h / 3
-    win:setFrame(f)
-end)
-
--- 5/9
-hs.hotkey.bind(windows.five.prefix, windows.five.key, nil, function()
-    local win = hs.window.focusedWindow()
-    local f = win:frame()
-    local screen = win:screen()
-    local max = screen:frame()
-
-    f.x = max.x + (max.w / 3)
-    f.y = max.y + (max.h / 3)
-    f.w = max.w / 3
-    f.h = max.h / 3
-    win:setFrame(f)
-end)
-
--- 6/9
-hs.hotkey.bind(windows.six.prefix, windows.six.key, nil, function()
-    local win = hs.window.focusedWindow()
-    local f = win:frame()
-    local screen = win:screen()
-    local max = screen:frame()
-
-    f.x = max.x + (max.w / 3) * 2
-    f.y = max.y + (max.h / 3)
-    f.w = max.w / 3
-    f.h = max.h / 3
-    win:setFrame(f)
-end)
-
--- 7/9
-hs.hotkey.bind(windows.seven.prefix, windows.seven.key, nil, function()
-    local win = hs.window.focusedWindow()
-    local f = win:frame()
-    local screen = win:screen()
-    local max = screen:frame()
-
-    f.x = max.x
-    f.y = max.y + (max.h / 3) * 2
-    f.w = max.w / 3
-    f.h = max.h / 3
-    win:setFrame(f)
-end)
-
--- 8/9
-hs.hotkey.bind(windows.eight.prefix, windows.eight.key, nil, function()
-    local win = hs.window.focusedWindow()
-    local f = win:frame()
-    local screen = win:screen()
-    local max = screen:frame()
-
-    f.x = max.x + (max.w / 3)
-    f.y = max.y + (max.h / 3) * 2
-    f.w = max.w / 3
-    f.h = max.h / 3
-    win:setFrame(f)
-end)
-
--- 9/9
-hs.hotkey.bind(windows.nine.prefix, windows.nine.key, nil, function()
-    local win = hs.window.focusedWindow()
-    local f = win:frame()
-    local screen = win:screen()
-    local max = screen:frame()
-
-    f.x = max.x + (max.w / 3) * 2
-    f.y = max.y + (max.h / 3) * 2
-    f.w = max.w / 3
-    f.h = max.h / 3
-    win:setFrame(f)
-end)
 
 -- 左 1/3（横屏）或上 1/3（竖屏）
-hs.hotkey.bind(windows.left_1_3.prefix, windows.left_1_3.key, nil, function()
-    local win = hs.window.focusedWindow()
+hotkey.bind(windows.left_1_3.prefix, windows.left_1_3.key, nil, function()
+    local win =window.focusedWindow()
     local f = win:frame()
     local screen = win:screen()
     local max = screen:frame()
@@ -266,8 +145,8 @@ hs.hotkey.bind(windows.left_1_3.prefix, windows.left_1_3.key, nil, function()
 end)
 
 -- 中 1/3
-hs.hotkey.bind(windows.middle.prefix, windows.middle.key, nil, function()
-    local win = hs.window.focusedWindow()
+hotkey.bind(windows.middle.prefix, windows.middle.key, nil, function()
+    local win =window.focusedWindow()
     local f = win:frame()
     local screen = win:screen()
     local max = screen:frame()
@@ -288,8 +167,8 @@ hs.hotkey.bind(windows.middle.prefix, windows.middle.key, nil, function()
 end)
 
 -- 右 1/3（横屏）或下 1/3（竖屏）
-hs.hotkey.bind(windows.right_1_3.prefix, windows.right_1_3.key, nil, function()
-    local win = hs.window.focusedWindow()
+hotkey.bind(windows.right_1_3.prefix, windows.right_1_3.key, nil, function()
+    local win =window.focusedWindow()
     local f = win:frame()
     local screen = win:screen()
     local max = screen:frame()
@@ -310,8 +189,8 @@ hs.hotkey.bind(windows.right_1_3.prefix, windows.right_1_3.key, nil, function()
 end)
 
 -- 左 2/3（横屏）或上 2/3（竖屏）
-hs.hotkey.bind(windows.left_2_3.prefix, windows.left_2_3.key, nil, function()
-    local win = hs.window.focusedWindow()
+hotkey.bind(windows.left_2_3.prefix, windows.left_2_3.key, nil, function()
+    local win =window.focusedWindow()
     local f = win:frame()
     local screen = win:screen()
     local max = screen:frame()
@@ -332,8 +211,8 @@ hs.hotkey.bind(windows.left_2_3.prefix, windows.left_2_3.key, nil, function()
 end)
 
 -- 右 2/3（横屏）或下 2/3（竖屏）
-hs.hotkey.bind(windows.right_2_3.prefix, windows.right_2_3.key, nil, function()
-    local win = hs.window.focusedWindow()
+hotkey.bind(windows.right_2_3.prefix, windows.right_2_3.key, nil, function()
+    local win =window.focusedWindow()
     local f = win:frame()
     local screen = win:screen()
     local max = screen:frame()
@@ -363,8 +242,8 @@ function isVerticalScreen(screen)
 end
 
 -- 居中
-hs.hotkey.bind(windows.center.prefix, windows.center.key, nil, function()
-    local win = hs.window.focusedWindow()
+hotkey.bind(windows.center.prefix, windows.center.key, nil, function()
+    local win =window.focusedWindow()
     local f = win:frame()
     local screen = win:screen()
     local max = screen:frame()
@@ -377,8 +256,8 @@ hs.hotkey.bind(windows.center.prefix, windows.center.key, nil, function()
 end)
 
 -- 等比例放大窗口
-hs.hotkey.bind(windows.zoom.prefix, windows.zoom.key, nil, function()
-    local win = hs.window.focusedWindow()
+hotkey.bind(windows.zoom.prefix, windows.zoom.key, nil, function()
+    local win =window.focusedWindow()
     local f = win:frame()
     local screen = win:screen()
     local max = screen:frame()
@@ -403,8 +282,8 @@ hs.hotkey.bind(windows.zoom.prefix, windows.zoom.key, nil, function()
 end)
 
 -- 等比例缩小窗口
-hs.hotkey.bind(windows.narrow.prefix, windows.narrow.key, nil, function()
-    local win = hs.window.focusedWindow()
+hotkey.bind(windows.narrow.prefix, windows.narrow.key, nil, function()
+    local win =window.focusedWindow()
     local f = win:frame()
     f.w = f.w - 40
     f.h = f.h - 40
@@ -414,39 +293,70 @@ hs.hotkey.bind(windows.narrow.prefix, windows.narrow.key, nil, function()
 end)
 
 -- 最大化
-hs.hotkey.bind(windows.max.prefix, windows.max.key, nil, function()
-    local win = hs.window.focusedWindow()
+hotkey.bind(windows.max.prefix, windows.max.key, nil, function()
+    local win =window.focusedWindow()
     win:maximize()
 end)
 
 -- 将窗口移动到上方屏幕
-hs.hotkey.bind(windows.to_up.prefix, windows.to_up.key, nil, function()
-    local win = hs.window.focusedWindow()
+hotkey.bind(windows.to_up.prefix, windows.to_up.key, nil, function()
+    local win =window.focusedWindow()
     if (win) then
         win:moveOneScreenNorth()
     end
 end)
 
 -- 将窗口移动到下方屏幕
-hs.hotkey.bind(windows.to_down.prefix, windows.to_down.key, nil, function()
-    local win = hs.window.focusedWindow()
+hotkey.bind(windows.to_down.prefix, windows.to_down.key, nil, function()
+    local win =window.focusedWindow()
     if (win) then
         win:moveOneScreenSouth()
     end
 end)
 
 -- 将窗口移动到左侧屏幕
-hs.hotkey.bind(windows.to_left.prefix, windows.to_left.key, nil, function()
-    local win = hs.window.focusedWindow()
+hotkey.bind(windows.to_left.prefix, windows.to_left.key, nil, function()
+    local win =window.focusedWindow()
     if (win) then
         win:moveOneScreenWest()
     end
 end)
 
 -- 将窗口移动到右侧屏幕
-hs.hotkey.bind(windows.to_right.prefix, windows.to_right.key, nil, function()
-    local win = hs.window.focusedWindow()
+hotkey.bind(windows.to_right.prefix, windows.to_right.key, nil, function()
+    local win =window.focusedWindow()
     if (win) then
         win:moveOneScreenEast()
     end
 end)
+
+
+-- maximized active window and move to selected monitor
+local moveto = function(win, n)
+    local screens = screen.allScreens()
+    if n > #screens then
+      alert.show("Only " .. #screens .. " monitors ")
+    else
+      local toWin = screen.allScreens()[n]:name()
+      alert.show("Move " .. win:application():name() .. " to " .. toWin)
+  
+      layout.apply({{nil, win:title(), toWin, layout.maximized, nil, nil}})
+      
+    end
+  end
+  
+  -- move cursor to monitor 1 and maximize the window
+  hotkey.bind(hyperOpt, "1", function()
+    local win = window.focusedWindow()
+    moveto(win, 1)
+  end)
+  
+  hotkey.bind(hyperOpt, "2", function()
+    local win = window.focusedWindow()
+    moveto(win, 2)
+  end)
+  
+  hotkey.bind(hyperOpt, "3", function()
+    local win = window.focusedWindow()
+    moveto(win, 3)
+  end)

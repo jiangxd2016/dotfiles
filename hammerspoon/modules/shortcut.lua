@@ -28,24 +28,7 @@ windows = {
     left_bottom = {prefix = hyperOpt, key = "J", message = "Left Bottom"},
     -- 右下角
     right_bottom = {prefix = hyperOpt, key = "K", message = "Right Bottom"},
-    -- 1/9
-    one = {prefix = hyperOpt, key = "1", message = "1/9"},
-    -- 2/9
-    two = {prefix = hyperOpt, key = "2", message = "2/9"},
-    -- 3/9
-    three = {prefix = hyperOpt, key = "3", message = "3/9"},
-    -- 4/9
-    four = {prefix = hyperOpt, key = "4", message = "4/9"},
-    -- 5/9
-    five = {prefix = hyperOpt, key = "5", message = "5/9"},
-    -- 6/9
-    six = {prefix = hyperOpt, key = "6", message = "6/9"},
-    -- 7/9
-    seven = {prefix = hyperOpt, key = "7", message = "7/9"},
-    -- 8/9
-    eight = {prefix = hyperOpt, key = "8", message = "8/9"},
-    -- 9/9
-    nine = {prefix = hyperOpt, key = "9", message = "9/9"},
+
     -- 左 1/3（横屏）或上 1/3（竖屏）
     left_1_3 = {prefix = hyperOpt, key = "D", message = "Left 1/3(Horizontal screen) Or Top 1/3(Vertical screen)"},
     -- 中 1/3

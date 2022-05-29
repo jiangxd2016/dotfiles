@@ -32,7 +32,27 @@ function init()
         obj.last_down = hs.execute('netstat -ibn | grep -e ' .. interface .. ' -m 1 | awk \'{print $7}\'')
         obj.last_up = hs.execute('netstat -ibn | grep -e ' .. interface .. ' -m 1 | awk \'{print $10}\'')
     end
-
+    table.insert(menuData, {
+        title = '打开:监  视  器    (⇧⌃A)',
+        tooltip = 'Show Activity Monitor',
+        fn = function()
+            bindActivityMonitorKey()
+        end
+    })
+    table.insert(menuData, {
+        title = '打开:磁盘工具    (⇧⌃D)',
+        tooltip = 'Show Disk Utility',
+        fn = function()
+            bindDiskKey()
+        end
+    })
+    table.insert(menuData, {
+        title = '打开:系统日历    (⇧⌃C)',
+        tooltip = 'Show calendar',
+        fn = function()
+            bindCalendarKey()
+        end
+    })
     menubar:setMenu(menuData)
 end
 
@@ -200,3 +220,15 @@ if obj.timer then
 end
 -- 第三个参数表示当发生异常情况时，定时器是否继续执行下去
 obj.timer = hs.timer.doEvery(3, scan, true):start()
+-- 按下添加快捷键时映射到活动监视器快捷键
+function bindActivityMonitorKey()
+    hs.eventtap.keyStroke({ "ctrl", "shift"}, "Q")
+end
+-- 按下添加快捷键时映射到磁盘工具快捷键
+function bindDiskKey()
+    hs.eventtap.keyStroke({ "ctrl", "shift"}, "D")
+end
+-- 按下添加快捷键时映射到日历快捷键
+function bindCalendarKey()
+    hs.eventtap.keyStroke({ "ctrl", "shift"}, "C")
+end
