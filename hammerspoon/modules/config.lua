@@ -27,7 +27,8 @@ defaultConfig = {{
     module = 'modules.weather',
     name = '天气预报',
     enable = true
-}, {
+}, 
+{
     module = 'modules.hotkey',
     name = '快捷键列表查看',
     enable = true
@@ -62,7 +63,6 @@ function loadConfig()
     file:close()
     return config
 end
-
 
 function saveConfig(config)
     -- 清空文件内容，然后写入新的文件内容
