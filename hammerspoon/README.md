@@ -11,9 +11,9 @@
   - https://github.com/KURANADO2/hammerspoon-kuranado
 
 ## TODO
-  [x] weather
-  [-] translate
-  [-] headphone
+ - [x] weather
+ - [-] translate
+ - [-] headphone
 
 
 ## 本工程提供功能
