@@ -85,3 +85,27 @@ function translate(to)
     end
   end)
 end
+
+
+function translatePopup(text, to, from)
+   local query=hs.http.encodeForQuery(text)
+   local url = "http://translate.google.com/translate_t?" ..
+      (from and ("sl=" .. from .. "&") or "") ..
+      (to and ("tl=" .. to .. "&") or "") ..
+      "text=" .. query
+   -- Persist the window between calls to reduce startup time on subsequent calls
+   if self.webview == nil then
+      local rect = hs.geometry.rect(0, 0, self.popup_size.w, self.popup_size.h)
+      rect.center = hs.screen.mainScreen():frame().center
+      self.webview=hs.webview.new(rect)
+         :allowTextEntry(true)
+         :windowStyle(self.popup_style)
+         :closeOnEscape(self.popup_close_on_escape)
+   end
+   self.webview:url(url)
+      :bringToFront()
+      :show()
+   self.webview:hswindow():focus()
+   return self
+end
+
