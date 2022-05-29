@@ -20,25 +20,15 @@ windows = {
     up = {prefix = hyperOpt, key = "Up", message = "Up Half"},
     -- 下半屏
     down = {prefix = hyperOpt, key = "Down", message = "Down Half"},
-    -- 左上角
-    top_left = {prefix = hyperOpt, key = "U", message = "Top Left"},
-    -- 右上角
-    top_right = {prefix = hyperOpt, key = "I", message = "Top Right"},
-    -- 左下角
-    left_bottom = {prefix = hyperOpt, key = "J", message = "Left Bottom"},
-    -- 右下角
-    right_bottom = {prefix = hyperOpt, key = "K", message = "Right Bottom"},
+    -- 左
+    win_left = {prefix = hyperOpt, key = "H", message = "Top Left"},
+    -- 右
+    win_right = {prefix = hyperOpt, key = "L", message = "Top Right"},
+    -- 下
+    win_bottom = {prefix = hyperOpt, key = "J", message = "Left Bottom"},
+    -- 上
+    win_top= {prefix = hyperOpt, key = "K", message = "Right Bottom"},
 
-    -- 左 1/3（横屏）或上 1/3（竖屏）
-    left_1_3 = {prefix = hyperOpt, key = "D", message = "Left 1/3(Horizontal screen) Or Top 1/3(Vertical screen)"},
-    -- 中 1/3
-    middle = {prefix = hyperOpt, key = "F", message = "Middle 1/3"},
-    -- 右 1/3（横屏）或下 1/3（竖屏）
-    right_1_3 = {prefix = hyperOpt, key = "G", message = "Right 1/3(Horizontal screen)Or Bottom 1/3(Vertical screen)"},
-    -- 左 2/3（横屏）或上 2/3（竖屏）
-    left_2_3 = {prefix = hyperOpt, key = "E", message = "Left 2/3(Horizontal screen) Or Top 2/3(Vertical screen)"},
-    -- 右 2/3（横屏）或下 2/3（竖屏）
-    right_2_3 = {prefix = hyperOpt, key = "T", message = "Right 2/3(Horizontal screen)Or Bottom 2/3(Vertical screen)"},
     -- 居中
     center = {prefix = hyperOpt, key = "C", message = "Center"},
     -- 等比例放大窗口
