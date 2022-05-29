@@ -1,14 +1,14 @@
 
-# hammerspoon
+<h1 align='center'> hammerspoon config</h1>
 <div align='center'>
   <img src='https://img.shields.io/badge/Hammerspoon-0.9.93-FFB100' alt='icon'/>
   <img src='https://img.shields.io/badge/Lua-5.4-00007C' alt='icon'/>
   <img src='https://img.shields.io/badge/Shell-417DDE' alt='icon'/>
 </div>
-## 
-  参考
-    https://github.com/sugood/hammerspoon
-    https://github.com/KURANADO2/hammerspoon-kuranado
+
+## 参考
+  - https://github.com/sugood/hammerspoon
+  - https://github.com/KURANADO2/hammerspoon-kuranado
 
 ## TODO
   [-] weather
@@ -20,19 +20,11 @@
 
 鼠标单击功能项，即可启用/禁用功能项
 
-<div align='center'>
-  <img src='./images/menu-doc.png' width='600'/>
-</div>
-
 ---
 
 ### 窗口移动
 
 替代 [Magnet](https://apps.apple.com/us/app/magnet/id441258766?mt=12) 进行窗口移动
-
-<div align='center'>
-  <img src='./images/window.png' width='700'/>
-</div>
 
 ---
 
@@ -132,21 +124,9 @@
 osascript -e 'id of app "Name of App"'
 ```
 
-<div align='center'>
-  <img src='./images/bundleid.png' width='500'/>
-</div>
-
 另外，如果你使用的是比较新的 Mac 系统，终端下输入 `ls /Applications` 可能是看不到系统自带应用的，如下图，`ll` 查看不到 Mac 自带的邮件应用，但 Finder 打开 /Applications 目录则可以看到邮件应用
 
-<div align='center'>
-  <img src='./images/applications.png' width='500'/>
-</div>
-
 此时我们可以在 Finder 中选中邮件应用，右键：显示包内容 -> Contents -> 打开 info.plist 文件，找到 CFBundleIdentifier 配置项，该配置项的值即为 bundle id，当然此方法也适应于自己安装的应用
-
-<div align='center'>
-  <img src='./images/mail.png' width='400'/>
-</div>
 
 ---
 
@@ -169,4 +149,3 @@ osascript -e 'id of app "Name of App"'
     └── window.lua 窗口管理模块
 ```
 
----
