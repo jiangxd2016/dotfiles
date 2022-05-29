@@ -145,7 +145,7 @@ osascript -e 'id of app "Name of App"'
     ├── hotkey.lua 快捷键列表查看模块
     ├── keystroke-visualizer.lua 按键回显模块
     ├── menu.lua 菜单模块
-    ├── network.lua 实时网速模块
+    ├── system.lua 系统信息模块
     └── window.lua 窗口管理模块
 ```
 
