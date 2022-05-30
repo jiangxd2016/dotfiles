@@ -65,26 +65,6 @@ hotkey.bind(windows.down.prefix, windows.down.key, nil, function()
     win:setFrame(f)
 end)
 
--- 左上角
-hotkey.bind(windows.top_left.prefix, windows.win_top.key, nil, function()
-    hs.grid.pushWindowUp(hs.window.focusedWindow())
-end)
-
--- 右上角
-hotkey.bind(windows.top_right.prefix, windows.win_left.key, nil, function()
-    hs.grid.pushWindowLeft(hs.window.focusedWindow())
-end)
-
--- 左下角
-hotkey.bind(windows.left_bottom.prefix, windows.win_bottom.key, nil, function()
-    hs.grid.pushWindowDown(hs.window.focusedWindow())
-end)
-
--- 右下角
-hotkey.bind(windows.right_bottom.prefix, windows.win_right.key, nil, function()
-    hs.grid.pushWindowRight(hs.window.focusedWindow())
-end)
-
 
 
 -- 判断指定屏幕是否为竖屏
