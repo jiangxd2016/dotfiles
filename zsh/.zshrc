@@ -103,3 +103,8 @@ tag() {
     git tag -a $tagname -m $detail
   fi
 }
+
+# pnpm
+export PNPM_HOME="/Users/xd/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end
