@@ -69,7 +69,7 @@ function scan()
         obj.disk_used = getRootVolumes()
         obj.mem_used = getVmStats()
         obj.down_bytes = obj.current_down - (obj.last_down or 0)
-        obj.up_bytes = obj.current_up - obj.last_up
+        obj.up_bytes = obj.current_up - (obj.last_up or 0)
     
         obj.down_speed = format_speed(obj.down_bytes)
         obj.up_speed = format_speed(obj.up_bytes)
