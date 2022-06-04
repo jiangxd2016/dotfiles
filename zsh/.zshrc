@@ -22,6 +22,11 @@ alias nr="pnpm run"
 alias nd="pnpm run dev"
 alias nb="pnpm run build"
 alias ns="pnpm run serve"
+
+alias ndd = "npm run docs:dev"
+alias ndb = "npm run docs:build"
+alias nds = "npm run docs:serve"
+
 alias nt="pnpm run test"
 alias pw="pnpm why"
 alias pr="pnpm -r"
