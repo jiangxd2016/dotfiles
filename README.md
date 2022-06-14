@@ -33,4 +33,5 @@ git submodule update --recursive --remote --depth 1
 - [ ] need fast search bookmarks(like use c/c++)
 - [ ] use sqlite3 parse history to search
 - [ ] refactor search code
+- [ ] tip page 
 - [ ] more
