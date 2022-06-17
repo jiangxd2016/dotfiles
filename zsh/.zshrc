@@ -47,6 +47,7 @@ alias cp="cp -i"
 alias mvim='mvim -v'
 alias ip="ifconfig en0 inet | grep inet | awk '{ print \$2 }'"
 
+alias cz="pnpm run cz"
 alias ga="git add"
 alias gd="git diff"
 alias gf="git fetch"
