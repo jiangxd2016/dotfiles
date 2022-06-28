@@ -56,7 +56,7 @@ applications = {
     {prefix = {"Option"}, key = "C", message="Chrome", bundleId="com.google.Chrome"},
     {prefix = {"Option"}, key = "J", message="IntelliJ IDEA", bundleId="com.jetbrains.intellij"},
     {prefix = {"Option"}, key = "D", message="DataGrip", bundleId="com.jetbrains.datagrip"},
-    {prefix = {"Option"}, key = "P", message="Postman", bundleId="com.postmanlabs.mac"},
+    -- {prefix = {"Option"}, key = "P", message="Postman", bundleId="com.postmanlabs.mac"},
     {prefix = {"Option"}, key = "O", message="Word", bundleId="com.microsoft.Word"},
     {prefix = {"Option"}, key = "E", message="Excel", bundleId="com.microsoft.Excel"},
     {prefix = {"Option"}, key = "S", message="SourceTree", bundleId="com.torusknot.SourceTreeNotMAS"},
