@@ -49,17 +49,21 @@ SeachUrl = {{
 toolbar = {{
     id = "search",
     label = "搜索",
+    short = "s",
     selectable = true
 }, {
     id = "app",
     label = "应用",
+    short = "a",
     selectable = true
 }, {
     id = "bookMark",
     label = "书签",
+    short = "b",
     selectable = true
 }, {
     id = "git",
+    short = 'g',
     label = "项目",
     selectable = true
 }}
@@ -95,7 +99,7 @@ chooser = hs.chooser.new(function(choice)
         hs.urlevent.openURLWithBundle(choice.url, default_browser)
     end
 end)
-chooser:width(26)
+chooser:width(30)
 chooser:rows(10)
 chooser:fgColor({
     hex = '#51c4d3'
@@ -236,6 +240,9 @@ select_key = hs.eventtap.new({hs.eventtap.event.types.keyDown}, function(event)
     row_contents = chooser:selectedRowContents(number)
 end):start()
 
+
+
+
 hs.hotkey.bind(search.prefix, search.key, function()
     allWindows = hs.window.allWindows();
     chooser:query('')
@@ -244,7 +251,8 @@ end)
 
 changed_chooser = chooser:queryChangedCallback(function()
     hs.timer.doAfter(0.1, function()
-        local query = chooser:query()
+        local query = chooser:query();
+        print(query)
         request(query)
     end)
 end)
