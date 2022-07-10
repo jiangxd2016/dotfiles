@@ -11,6 +11,7 @@ plugins=(
   zsh-syntax-highlighting
   zsh-z
   k
+  git-open
 )
 ZSH_DISABLE_COMPFIX="true"
 source $ZSH/oh-my-zsh.sh
@@ -28,17 +29,18 @@ alias ndb="npm run docs:build"
 alias nds="npm run docs:serve"
 
 alias nt="pnpm run test"
+alias ntw="pnpm run test:watch"
 alias pw="pnpm why"
 alias pr="pnpm -r"
 
-alias nw="p n p m watch"
+alias nw="pnpm watch"
 alias np="pnpm run play"
 alias nc="pnpm run typecheck"
 alias nl="pnpm run lint"
 alias nlf="pnpm run lint --fix"
 alias ne="pnpm run release"
 
-alias ra="rm -rf node_modules pnpm-lock.yaml yarn.lock package-lock.json"
+alias ra="rm -rf node_modules pnpm-lock.yaml yarn.lock package-lock.json yarn-error.json"
 
 alias cls="clear && printf '\e[3J'"
 alias ll="ls -la"

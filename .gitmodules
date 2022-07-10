@@ -22,3 +22,6 @@
 [submodule "zsh/plugins/k"]
 	path = zsh/plugins/k
 	url = git@github.com:supercrabtree/k.git
+[submodule "zsh/plugins/git-open"]
+	path = zsh/plugins/git-open
+	url = git@github.com:paulirish/git-open.git
