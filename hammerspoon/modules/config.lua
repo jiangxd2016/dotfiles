@@ -29,6 +29,11 @@ defaultConfig = {{
     enable = true
 }, 
 {
+    module = 'modules.clipboard',
+    name = '剪切板',
+    enable = true
+}, 
+{
     module = 'modules.hotkey',
     name = '快捷键列表查看',
     enable = true

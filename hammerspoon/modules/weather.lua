@@ -1,5 +1,5 @@
 local urlApi =
-    'http://v0.yiketianqi.com/api?unescape=1&version=v91&appid=43656176&appsecret=I42og6Lm&ext=&cityid=101191101'
+    'https://v0.yiketianqi.com/api?unescape=1&version=v91&appid=41178329&appsecret=VMjzuYu1&ext=&cityid=101191101'
 local menubar = hs.menubar.new()
 local menuData = {}
 local user_agent_str =

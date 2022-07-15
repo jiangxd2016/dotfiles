@@ -68,7 +68,7 @@ toolbar = {{
     selectable = true
 }}
 
-chooser = hs.chooser.new(function(choice)
+searchChooser = hs.chooser.new(function(choice)
     if not choice then
         return
     end
@@ -99,18 +99,18 @@ chooser = hs.chooser.new(function(choice)
         hs.urlevent.openURLWithBundle(choice.url, default_browser)
     end
 end)
-chooser:width(30)
-chooser:rows(10)
-chooser:fgColor({
+searchChooser:width(30)
+searchChooser:rows(10)
+searchChooser:fgColor({
     hex = '#51c4d3'
 })
-chooser:placeholderText('请输入')
+searchChooser:placeholderText('请输入')
 
 myConsole = hs.webview.toolbar.new("myConsole", toolbar)
 
 myConsole:selectedItem(toolId):notifyOnChange(true):autosaves(true):displayMode("label");
 
-tool_bar = chooser:attachedToolbar(myConsole)
+tool_bar = searchChooser:attachedToolbar(myConsole)
 
 function request(query)
     choices = {}
@@ -132,7 +132,7 @@ function request(query)
                     path = file_path,
                     pid = w:pid()
                 })
-                chooser:choices(choices)
+                searchChooser:choices(choices)
             end
         end
     elseif toolId == "bookMark" then
@@ -144,7 +144,7 @@ function request(query)
                     subText = w.url,
                     url = w.url
                 })
-                chooser:choices(choices)
+                searchChooser:choices(choices)
             end
         end
     elseif toolId == "search" then
@@ -154,7 +154,7 @@ function request(query)
                 subText = w.url,
                 url = w.url .. encodeURI(query)
             })
-            chooser:choices(choices)
+            searchChooser:choices(choices)
         end
 
     elseif toolId == "git" then
@@ -166,7 +166,7 @@ function request(query)
                     subText = w.name,
                     path = w.path
                 })
-                chooser:choices(choices)
+                searchChooser:choices(choices)
             end
         end
     end
@@ -174,8 +174,8 @@ end
 
 -- 上下键选择
 select_key = hs.eventtap.new({hs.eventtap.event.types.keyDown}, function(event)
-    -- 只在 chooser 显示时，才监听键盘按下
-    if not chooser:isVisible() then
+    -- 只在 searchChooser 显示时，才监听键盘按下
+    if not searchChooser:isVisible() then
         return
     end
     local len = 0;
@@ -197,7 +197,7 @@ select_key = hs.eventtap.new({hs.eventtap.event.types.keyDown}, function(event)
         -- 选择
         print(toolId)
         myConsole:selectedItem(toolId)
-        request(chooser:query())
+        request(searchChooser:query())
         return
     end
     if 'left' == key then
@@ -214,14 +214,14 @@ select_key = hs.eventtap.new({hs.eventtap.event.types.keyDown}, function(event)
         -- 选择
         print(toolId)
         myConsole:selectedItem(toolId)
-        request(chooser:query())
+        request(searchChooser:query())
         return
     end
 
     if 'down' ~= key and 'up' ~= key then
         return
     end
-    number = chooser:selectedRow();
+    number = searchChooser:selectedRow();
     print(number, len)
     if 'down' == key then
         if number < len then
@@ -237,7 +237,7 @@ select_key = hs.eventtap.new({hs.eventtap.event.types.keyDown}, function(event)
             number = len
         end
     end
-    row_contents = chooser:selectedRowContents(number)
+    row_contents = searchChooser:selectedRowContents(number)
 end):start()
 
 
@@ -245,19 +245,19 @@ end):start()
 
 hs.hotkey.bind(search.prefix, search.key, function()
     allWindows = hs.window.allWindows();
-    chooser:query('')
-    chooser:show()
+    searchChooser:query('')
+    searchChooser:show()
 end)
 
-changed_chooser = chooser:queryChangedCallback(function()
+changed_chooser = searchChooser:queryChangedCallback(function()
     hs.timer.doAfter(0.1, function()
-        local query = chooser:query();
+        local query = searchChooser:query();
         print(query)
         request(query)
     end)
 end)
 
-hide_chooser = chooser:hideCallback(function()
+hide_chooser = searchChooser:hideCallback(function()
     search_canvas:hide(.3)
 end)
 
