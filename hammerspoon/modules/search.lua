@@ -261,3 +261,5 @@ hide_chooser = searchChooser:hideCallback(function()
     search_canvas:hide(.3)
 end)
 
+searchChooser:show()
+searchChooser:hide()
