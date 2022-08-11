@@ -26,5 +26,15 @@ ln -s $PWD/zsh/plugins/* $ZSH_CUSTOM/plugins
 ln -sf $PWD/zsh/.zshrc  $HOME/.zshrc
 ln -sf $PWD/zsh/.vsvimrc  $HOME/.vsvimrc
 
+
+# 开启按键重复
+defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false              # For VS Code
+defaults write com.microsoft.VSCodeInsiders ApplePressAndHoldEnabled -bool false      # For VS Code Insider
+defaults write com.visualstudio.code.oss ApplePressAndHoldEnabled -bool false         # For VS Codium
+defaults write com.microsoft.VSCodeExploration ApplePressAndHoldEnabled -bool false   # For VS Codium Exploration users
+defaults delete -g ApplePressAndHoldEnabled                                           # If necessary, reset global default
+
+
+
 # 让zsh配置生效
 source  $HOME/.zshrc
