@@ -34,7 +34,5 @@ defaults write com.visualstudio.code.oss ApplePressAndHoldEnabled -bool false   
 defaults write com.microsoft.VSCodeExploration ApplePressAndHoldEnabled -bool false   # For VS Codium Exploration users
 defaults delete -g ApplePressAndHoldEnabled                                           # If necessary, reset global default
 
-
-
 # 让zsh配置生效
 source  $HOME/.zshrc
