@@ -19,11 +19,7 @@ defaultConfig = {{
     module = 'modules.keystroke-visualizer',
     name = '按键回显',
     enable = true
-}, {
-    module = 'modules.search',
-    name = '超级搜索',
-    enable = true
-}, {
+},{
     module = 'modules.weather',
     name = '天气预报',
     enable = true

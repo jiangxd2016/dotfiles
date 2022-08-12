@@ -1,15 +1,3 @@
-[submodule "zsh/theme/--force"]
-	path = zsh/theme/--force
-	url = git@github.com:spaceship-prompt/spaceship-prompt.git
-[submodule "zsh/theme/zsh/theme/spaceship-prompt"]
-	path = zsh/theme/zsh/theme/spaceship-prompt
-	url = git@github.com:spaceship-prompt/spaceship-prompt.git
-[submodule "spaceship-prompt"]
-	path = spaceship-prompt
-	url = git@github.com:spaceship-prompt/spaceship-prompt.git
-[submodule "zsh/themes/spaceship-prompt"]
-	path = zsh/themes/spaceship-prompt
-	url = git@github.com:spaceship-prompt/spaceship-prompt.git
 [submodule "zsh/plugins/zsh-autosuggestions"]
 	path = zsh/plugins/zsh-autosuggestions
 	url = git@github.com:zsh-users/zsh-autosuggestions.git

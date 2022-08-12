@@ -261,5 +261,12 @@ hide_chooser = searchChooser:hideCallback(function()
     search_canvas:hide(.3)
 end)
 
-searchChooser:show()
-searchChooser:hide()
+
+-- / test open choose
+openChoose = function()
+    print("openChoose")
+    searchChooser:query('')
+    searchChooser:show()
+end
+handelChoose = hs.timer.delayed.new(0.15, openChoose)
+handelChoose.start()

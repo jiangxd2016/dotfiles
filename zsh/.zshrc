@@ -3,8 +3,7 @@ export UPDATE_ZSH_DAYS=13
 export ZSH="/Users/xd/.oh-my-zsh"
 
 
-ZSH_THEME="spaceship"
-
+eval "$(starship init zsh)"
 plugins=(
   git
   zsh-autosuggestions

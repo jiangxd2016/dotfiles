@@ -14,9 +14,7 @@ ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
 #  zsh config
 # # # # # # # # # # # # # # # # # # # 
 
-# themes
-ln -s $PWD/zsh/themes/* $ZSH_CUSTOM/themes
-ln -s "$MY_ZSH/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
+brew install starship
 
 # plugins
 ln -s $PWD/zsh/plugins/* $ZSH_CUSTOM/plugins
