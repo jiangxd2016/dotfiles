@@ -125,7 +125,7 @@ ignore() {
 }
 
 # template
-template() {
+tvue() {
   if [ ! $1 ]; then
     echo "请输入模板名称"
     return 0
@@ -137,6 +137,20 @@ template() {
     pnpx degit jiangxd2016/vite-template $1 && echo "正在打开$1" && code $1 && cd $1 && echo '正在下载依赖' && nio || nio || nio || echo '安装依赖失败，请重新尝试' && echo "正在执行 nr $2" && nr $2 || eval ${2}
   fi
 }
+tts() {
+  if [ ! $1 ]; then
+    echo "请输入模板名称"
+    return 0
+  fi
+  echo "正在创建$1目录,下载vitesse-lite模板,请稍等..."
+  if [ ! $2 ]; then
+    pnpx degit jiangxd2016/starter-ts $1 && echo "正在打开$1" && code $1 && cd $1 && echo '正在下载依赖' && nio
+  else
+    pnpx degit jiangxd2016/starter-ts $1 && echo "正在打开$1" && code $1 && cd $1 && echo '正在下载依赖' && nio || nio || nio || echo '安装依赖失败，请重新尝试' && echo "正在执行 nr $2" && nr $2 || eval ${2}
+  fi
+}
+
+
 export PATH="/usr/local/opt/node@16/bin:$PATH"
 export PATH="/usr/local/opt/openjdk/bin:$PATH"
 
