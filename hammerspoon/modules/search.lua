@@ -264,9 +264,15 @@ end)
 
 -- / test open choose
 openChoose = function()
-    print("openChoose")
+    print("open choose")
     searchChooser:query('')
     searchChooser:show()
+    searchChooser:hide()
+
+    print("close choose")
+
 end
+
+
 handelChoose = hs.timer.delayed.new(0.15, openChoose)
 handelChoose.start()
