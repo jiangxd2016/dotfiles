@@ -33,19 +33,23 @@ search_canvas = hs.canvas.new({
 choices = {}
 allWindws = {};
 
+
+
 SeachUrl = {{
+    key = "g",
     text = "Goolge",
     url = "https://www.google.com/search?q="
 }, {
+    key = "b",
     text = "Baidu",
     url = "https://www.baidu.com/s?wd="
 }, {
+    key = "h",
     text = "Github",
     url = "https://github.com/search?q="
-}, {
-    text = "Bing",
-    url = "https://www.bing.com/search?q="
 }}
+
+
 toolbar = {{
     id = "search",
     label = "搜索",
