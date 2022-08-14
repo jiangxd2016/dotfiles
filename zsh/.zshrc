@@ -2,11 +2,10 @@
 export UPDATE_ZSH_DAYS=13
 export ZSH="/Users/xd/.oh-my-zsh"
 
-
 eval "$(starship init zsh)"
+
 plugins=(
   git
-  zsh-autosuggestions
   zsh-syntax-highlighting
   zsh-z
   k
