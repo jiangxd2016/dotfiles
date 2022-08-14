@@ -2,10 +2,11 @@
 export UPDATE_ZSH_DAYS=13
 export ZSH="/Users/xd/.oh-my-zsh"
 
-eval "$(starship init zsh)"
 
+eval "$(starship init zsh)"
 plugins=(
   git
+  zsh-autosuggestions
   zsh-syntax-highlighting
   zsh-z
   k
@@ -157,6 +158,11 @@ export PATH="/usr/local/opt/openjdk/bin:$PATH"
 export PNPM_HOME="/Users/xd/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
+
+
+# bind auto key
+bindkey '^E' autosuggest-accept
+bindkey '^H' autosuggest-clear
 
 
 export NODEJS_ORG_MIRROR="https://cdn.npmmirror.com/binaries/node"
