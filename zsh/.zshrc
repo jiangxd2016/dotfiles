@@ -160,6 +160,11 @@ export PATH="$PNPM_HOME:$PATH"
 # pnpm end
 
 
+# bind auto key
+bindkey '^E' autosuggest-accept
+bindkey '^H' autosuggest-clear
+
+
 export NODEJS_ORG_MIRROR="https://cdn.npmmirror.com/binaries/node"
 export NVM_NODEJS_ORG_MIRROR="https://cdn.npmmirror.com/binaries/node"
 export PHANTOMJS_CDNURL="https://cdn.npmmirror.com/binaries/phantomjs"

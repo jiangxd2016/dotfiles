@@ -49,17 +49,8 @@ windows = {
 
 -- 应用切换快捷键配置
 applications = {
-    {prefix = {"Option"}, key = "Q", message="QQ", bundleId="com.tencent.qq"},
-    {prefix = {"Option"}, key = "W", message="WeChat", bundleId="com.tencent.xinWeChat"},
     {prefix = {"Option"}, key = "V", message="VSCode", bundleId="com.microsoft.VSCode"},
-    {prefix = {"Option"}, key = "F", message="Finder", bundleId="com.apple.finder"},
     {prefix = {"Option"}, key = "C", message="Chrome", bundleId="com.google.Chrome"},
-    {prefix = {"Option"}, key = "J", message="IntelliJ IDEA", bundleId="com.jetbrains.intellij"},
-    {prefix = {"Option"}, key = "D", message="DataGrip", bundleId="com.jetbrains.datagrip"},
-    -- {prefix = {"Option"}, key = "P", message="Postman", bundleId="com.postmanlabs.mac"},
-    {prefix = {"Option"}, key = "O", message="Word", bundleId="com.microsoft.Word"},
-    {prefix = {"Option"}, key = "E", message="Excel", bundleId="com.microsoft.Excel"},
-    {prefix = {"Option"}, key = "S", message="SourceTree", bundleId="com.torusknot.SourceTreeNotMAS"},
     {prefix = {"Option"}, key = "T", message="Terminal", bundleId="com.apple.Terminal"},
     {prefix = {"Option"}, key = "M", message="QQMusic", bundleId="com.tencent.QQMusicMac"}
 }
