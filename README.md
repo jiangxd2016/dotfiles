@@ -28,6 +28,10 @@ git submodule update --recursive --remote --depth 1
 ```
 
 
+# karabiner
+在登录项时将这个本目录下Karabiner-Loader.app设置为开机自启，至此以后电脑开机就不会Karabiner的窗口
+
+
 ## TODO
 <!-- - [x]  -->
 - [ ] need fast search bookmarks(like use c/c++)
