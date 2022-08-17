@@ -1,7 +1,9 @@
 #!/bin/sh
 
-KAR_DIR="$HOME/.config/karabiner/assets/complex_modifications"
-if [ -d KAR_DIR ]
+KAR_DIR="$HOME/.config/karabiner/assets/complex_modifications/"
+
+echo $KAR_DIR
+if [ -e $KAR_DIR ]
   ln -sf $PWD/karabiner/* $KAR_DIR
 then
     mkdir -p $KAR_DIR
