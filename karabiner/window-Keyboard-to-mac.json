@@ -74,6 +74,27 @@
           ]
         }
       ]
+    },
+    {
+      "description": "Swap Caps Lock with Ctrl",
+      "manipulators":[
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "caps_lock",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_control"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
