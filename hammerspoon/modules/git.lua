@@ -8,18 +8,7 @@ if (gitfile == nil) then
     gitfile = {}
 end
 
-local screen = hs.window.focusedWindow():screen():frame()
-
--- 占屏幕宽度的 20%（居中）
-local WIDTH = 600
-local HEIGHT = 600
-local CHOOSER_WIDTH = screen.w * .3
-local COORIDNATE_X = screen.w / 3 + CHOOSER_WIDTH / 3 + 5
-local COORIDNATE_Y = screen.h / 3 - 800
-local toolId = "search"
-
 choices = {}
-allWindws = {};
 
 searchChooser = hs.chooser.new(function(choice)
     if not choice then
@@ -32,7 +21,6 @@ searchChooser = hs.chooser.new(function(choice)
         print("w.title==>", w:title())
         if string.find(w:title(), choice.text) == nil then
         else
-            print("find--------------------")
             local app = hs.application.get(w.pid);
             app:activate()
             return

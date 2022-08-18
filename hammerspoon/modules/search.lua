@@ -1,17 +1,7 @@
 require 'modules.base'
 require 'modules.shortcut'
 
-local screen = hs.window.focusedWindow():screen():frame()
-
--- 占屏幕宽度的 20%（居中）
-local WIDTH = 600
-local HEIGHT = 600
-local CHOOSER_WIDTH = screen.w * .3
-local COORIDNATE_X = screen.w / 3 + CHOOSER_WIDTH / 3 + 5
-local COORIDNATE_Y = screen.h / 3 - 800
-
 choices = {}
-allWindws = {};
 
 SeachUrl = {{
     key = "g",
