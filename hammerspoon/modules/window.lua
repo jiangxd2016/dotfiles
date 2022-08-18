@@ -151,6 +151,7 @@ end)
 
 -- 将窗口移动到左侧屏幕
 hotkey.bind(windows.to_left.prefix, windows.to_left.key, nil, function()
+    print("to_left")
     local win =window.focusedWindow()
     if (win) then
         win:moveOneScreenWest()

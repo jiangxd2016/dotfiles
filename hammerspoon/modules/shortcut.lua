@@ -1,10 +1,10 @@
--- 此文件为示例文件，用户请勿修改，如需自定义快捷键，请修改 shortcut.lua 文件，如不存在 shortcut.lua 文件，则执行命令 cp shortcut.lua.example shortcut.lua 创建一份即可
--- 快捷键配置版本号
-shortcut_config = {
-    version = 1.0
-}
-hyperOpt = {"Ctrl", "Option"}
-hyperOptCmd = {"Ctrl", "Option", "Command"}
+
+
+--  功能键(窗口管理,弹出层)使用 hyperOpt
+-- 窗口跨屏幕管理使用 hyperOptCmd
+OptionKey = {"Option"}
+hyperOpt = {"Option","shift"}
+hyperOptCmd = {"shift", "Option", "Command"}
 
 -- prefix：表示快捷键前缀，可选值：Ctrl、Option、Command
 -- key：可选值 [A-Z]、[1-9]、Left、Right、Up、Down、-、=、/
@@ -13,22 +13,13 @@ hyperOptCmd = {"Ctrl", "Option", "Command"}
 -- 窗口管理快捷键配置
 windows = {
     -- 左半屏
-    left = {prefix = hyperOpt, key = "Left", message = "Left Half"},
+    left = {prefix = hyperOpt, key = "H", message = "Left Half"},
     -- 右半屏
-    right = {prefix = hyperOpt, key = "Right", message = "Right Half"},
+    right = {prefix = hyperOpt, key = "L", message = "Right Half"},
     -- 上半屏
-    up = {prefix = hyperOpt, key = "Up", message = "Up Half"},
+    up = {prefix = hyperOpt, key = "K", message = "Up Half"},
     -- 下半屏
-    down = {prefix = hyperOpt, key = "Down", message = "Down Half"},
-    -- 左
-    win_left = {prefix = hyperOpt, key = "H", message = "Top Left"},
-    -- 右
-    win_right = {prefix = hyperOpt, key = "L", message = "Top Right"},
-    -- 下
-    win_bottom = {prefix = hyperOpt, key = "J", message = "Left Bottom"},
-    -- 上
-    win_top= {prefix = hyperOpt, key = "K", message = "Right Bottom"},
-
+    down = {prefix = hyperOpt, key = "J", message = "Down Half"},
     -- 居中
     center = {prefix = hyperOpt, key = "C", message = "Center"},
     -- 等比例放大窗口
@@ -38,13 +29,13 @@ windows = {
     -- 最大化
     max = {prefix = hyperOpt, key = "Return", message = "Max Window"},
     -- 将窗口移动到上方屏幕
-    to_up = {prefix = hyperOptCmd, key = "Up", message = "Move To Up Screen"},
+    to_up = {prefix = hyperOptCmd, key = "k", message = "Move To Up Screen"},
     -- 将窗口移动到下方屏幕
-    to_down = {prefix = hyperOptCmd, key = "Down", message = "Move To Down Screen"},
+    to_down = {prefix = hyperOptCmd, key = "J", message = "Move To Down Screen"},
     -- 将窗口移动到左侧屏幕
-    to_left = {prefix = hyperOptCmd, key = "Left", message = "Move To Left Screen"},
+    to_left = {prefix = hyperOptCmd, key = "H", message = "Move To Left Screen"},
     -- 将窗口移动到右侧屏幕
-    to_right = {prefix = hyperOptCmd, key = "Right", message = "Move To Right Screen"}
+    to_right = {prefix = hyperOptCmd, key = "L", message = "Move To Right Screen"}
 }
 
 -- 应用切换快捷键配置
@@ -56,22 +47,15 @@ applications = {
 }
 
 
-color ={
-    prefix = {
-        "Option"
-    },
-    key = "H",
-}
-
-
 -- 搜索快捷键配置
 search = {
-    prefix = {
-        "Option"
-    },
-    key = "K"
+    prefix = hyperOpt,
+    key = "S"
 }
-
+ git = {
+    prefix = hyperOpt,
+    key = "G"
+}
 
 Lock = {
     prefix = {

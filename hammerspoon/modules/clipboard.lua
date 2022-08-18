@@ -135,4 +135,4 @@ watcher = hs.timer.new(0.5, function()
 end)
 watcher:start()
 
-hs.hotkey.bind({ "cmd", "shift" }, "v", showClipboard)
+hs.hotkey.bind({ "option", "shift" }, "v", showClipboard)
