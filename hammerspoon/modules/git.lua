@@ -26,6 +26,8 @@ searchChooser = hs.chooser.new(function(choice)
         return
     end
     choice.text = trim(choice.text)
+    print("choice.text==>", choice.text)
+    -- 当项目已打开，就直接切换到项目
     for _, w in ipairs(allWindows) do
         print("w.title==>", w:title())
         if string.find(w:title(), choice.text) == nil then
@@ -36,6 +38,8 @@ searchChooser = hs.chooser.new(function(choice)
             return
         end
     end
+    local command = "open -a \"Visual Studio Code\" " .. choice.path
+    hs.execute(command)
 end)
 searchChooser:width(30)
 searchChooser:rows(10)
