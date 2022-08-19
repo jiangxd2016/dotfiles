@@ -1,9 +1,9 @@
 require 'modules.base'
 require 'modules.shortcut'
 require "cache.bookmarks"
-choices = {}
+local choices = {}
 
-searchChooser = hs.chooser.new(function(choice)
+bookmarksChooser = hs.chooser.new(function(choice)
     if not choice then
         return
     end
@@ -11,14 +11,14 @@ searchChooser = hs.chooser.new(function(choice)
     local default_browser = hs.urlevent.getDefaultHandler('http')
     hs.urlevent.openURLWithBundle(choice.url, default_browser)
 end)
-searchChooser:width(30)
-searchChooser:rows(10)
-searchChooser:fgColor({
+bookmarksChooser:width(30)
+bookmarksChooser:rows(10)
+bookmarksChooser:fgColor({
     hex = '#51c4d3'
 })
-searchChooser:placeholderText('请输入')
+bookmarksChooser:placeholderText('请输入')
 
-function request(query)
+local function request(query)
     choices = {}
     query = trim(query)
     if query == '' then
@@ -34,21 +34,21 @@ function request(query)
                 subText = w.url,
                 url = w.url
             })
-            searchChooser:choices(choices)
+            bookmarksChooser:choices(choices)
         end
     end
 end
 -- 上下键选择
-select_key = hs.eventtap.new({hs.eventtap.event.types.keyDown}, function(event)
-    -- 只在 searchChooser 显示时，才监听键盘按下
-    if not searchChooser:isVisible() then
+local select_key = hs.eventtap.new({hs.eventtap.event.types.keyDown}, function(event)
+    -- 只在 bookmarksChooser 显示时，才监听键盘按下
+    if not bookmarksChooser:isVisible() then
         return
     end
     local len = 0;
     local keycode = event:getKeyCode()
     local key = hs.keycodes.map[keycode]
 
-    number = searchChooser:selectedRow();
+    number = bookmarksChooser:selectedRow();
     print(number, len)
     if 'down' == key then
         if number < len then
@@ -64,19 +64,19 @@ select_key = hs.eventtap.new({hs.eventtap.event.types.keyDown}, function(event)
             number = len
         end
     end
-    row_contents = searchChooser:selectedRowContents(number)
+    row_contents = bookmarksChooser:selectedRowContents(number)
 end):start()
 
 hs.hotkey.bind(bookmarkKey.prefix, bookmarkKey.key, function()
     print("bookmarks dialog open event")
     allWindows = hs.window.allWindows();
-    searchChooser:query('')
-    searchChooser:show()
+    bookmarksChooser:query('')
+    bookmarksChooser:show()
 end)
 
-changed_chooser = searchChooser:queryChangedCallback(function()
+local changed_chooser = bookmarksChooser:queryChangedCallback(function()
     hs.timer.doAfter(0.1, function()
-        local query = searchChooser:query();
+        local query = bookmarksChooser:query();
         print(query)
         request(query)
     end)

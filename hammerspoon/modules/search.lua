@@ -1,9 +1,9 @@
 require 'modules.base'
 require 'modules.shortcut'
 
-choices = {}
+local choices = {}
 
-SeachUrl = {{
+local SeachUrl = {{
     key = "g",
     text = "Goolge",
     url = "https://www.google.com/search?q="
@@ -17,7 +17,7 @@ SeachUrl = {{
     url = "https://github.com/search?q="
 }}
 
-searchChooser = hs.chooser.new(function(choice)
+local searchChooser = hs.chooser.new(function(choice)
     if not choice then
         return
     end
@@ -32,7 +32,7 @@ searchChooser:fgColor({
 })
 searchChooser:placeholderText('请输入')
 
-function request(query)
+local function request(query)
     choices = {}
     query = trim(query)
     if query == '' then
@@ -51,7 +51,7 @@ function request(query)
     end
 end
 -- 上下键选择
-select_key = hs.eventtap.new({hs.eventtap.event.types.keyDown}, function(event)
+local select_key = hs.eventtap.new({hs.eventtap.event.types.keyDown}, function(event)
     -- 只在 searchChooser 显示时，才监听键盘按下
     if not searchChooser:isVisible() then
         return
@@ -86,7 +86,7 @@ hs.hotkey.bind(search.prefix, search.key, function()
     searchChooser:show()
 end)
 
-changed_chooser = searchChooser:queryChangedCallback(function()
+local changed_chooser = searchChooser:queryChangedCallback(function()
     hs.timer.doAfter(0.1, function()
         local query = searchChooser:query();
         print(query)

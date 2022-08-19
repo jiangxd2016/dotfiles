@@ -8,9 +8,9 @@ if (gitfile == nil) then
     gitfile = {}
 end
 
-choices = {}
+local choices = {}
 
-searchChooser = hs.chooser.new(function(choice)
+local gitChooser = hs.chooser.new(function(choice)
     if not choice then
         return
     end
@@ -29,15 +29,15 @@ searchChooser = hs.chooser.new(function(choice)
     local command = "open -a \"Visual Studio Code\" " .. choice.path
     hs.execute(command)
 end)
-searchChooser:width(30)
-searchChooser:rows(10)
-searchChooser:fgColor({
+gitChooser:width(30)
+gitChooser:rows(10)
+gitChooser:fgColor({
     hex = '#51c4d3'
 })
-searchChooser:placeholderText('请输入')
+gitChooser:placeholderText('请输入')
 
 
-function request(query)
+local function request(query)
     choices = {}
     query = trim(query)
     if query == '' then
@@ -53,21 +53,21 @@ function request(query)
                 subText = w.name,
                 path = w.path
             })
-            searchChooser:choices(choices)
+            gitChooser:choices(choices)
         end
     end
 end
 
 -- 上下键选择
-select_key = hs.eventtap.new({hs.eventtap.event.types.keyDown}, function(event)
-    -- 只在 searchChooser 显示时，才监听键盘按下
-    if not searchChooser:isVisible() then
+local select_key = hs.eventtap.new({hs.eventtap.event.types.keyDown}, function(event)
+    -- 只在 gitChooser 显示时，才监听键盘按下
+    if not gitChooser:isVisible() then
         return
     end
     local len = 0;
     local keycode = event:getKeyCode()
     local key = hs.keycodes.map[keycode]
-    number = searchChooser:selectedRow();
+    number = gitChooser:selectedRow();
     print(number, len)
     if 'down' == key then
         if number < len then
@@ -83,7 +83,7 @@ select_key = hs.eventtap.new({hs.eventtap.event.types.keyDown}, function(event)
             number = len
         end
     end
-    row_contents = searchChooser:selectedRowContents(number)
+    row_contents = gitChooser:selectedRowContents(number)
 end):start()
 
 
@@ -92,13 +92,13 @@ end):start()
 hs.hotkey.bind(git.prefix, git.key, function()
     print("git dialog open event")
     allWindows = hs.window.allWindows();
-    searchChooser:query('')
-    searchChooser:show()
+    gitChooser:query('')
+    gitChooser:show()
 end)
 
-changed_chooser = searchChooser:queryChangedCallback(function()
+local changed_chooser = gitChooser:queryChangedCallback(function()
     hs.timer.doAfter(0.1, function()
-        local query = searchChooser:query();
+        local query = gitChooser:query();
         print(query)
         request(query)
     end)
