@@ -56,6 +56,14 @@ search = {
     prefix = hyperOpt,
     key = "G"
 }
+translate = {
+    prefix = hyperOpt,
+    key = "T"
+}
+rephrase = {
+    prefix = hyperOpt,
+    key = "R"
+}
 
 Lock = {
     prefix = {

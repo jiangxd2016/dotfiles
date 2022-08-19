@@ -80,6 +80,7 @@ select_key = hs.eventtap.new({hs.eventtap.event.types.keyDown}, function(event)
 end):start()
 
 hs.hotkey.bind(search.prefix, search.key, function()
+    print("search dialog open event")
     allWindows = hs.window.allWindows();
     searchChooser:query('')
     searchChooser:show()

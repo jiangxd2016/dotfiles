@@ -18,10 +18,10 @@ searchChooser = hs.chooser.new(function(choice)
     print("choice.text==>", choice.text)
     -- 当项目已打开，就直接切换到项目
     for _, w in ipairs(allWindows) do
-        print("w.title==>", w:title())
         if string.find(w:title(), choice.text) == nil then
         else
-            local app = hs.application.get(w.pid);
+            local appName = w:pid()
+            local app = hs.application.get(appName);
             app:activate()
             return
         end
@@ -90,6 +90,7 @@ end):start()
 
 
 hs.hotkey.bind(git.prefix, git.key, function()
+    print("git dialog open event")
     allWindows = hs.window.allWindows();
     searchChooser:query('')
     searchChooser:show()
