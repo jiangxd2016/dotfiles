@@ -64,6 +64,10 @@ rephrase = {
     prefix = hyperOpt,
     key = "R"
 }
+bookmarkKey= {
+    prefix = hyperOpt,
+    key = "M"
+}
 
 Lock = {
     prefix = {
