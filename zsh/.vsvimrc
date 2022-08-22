@@ -1,5 +1,5 @@
 " 设置前导键
-let mapleader=";"
+let mapleader=" "
 
 " 暂时取消搜索高亮快捷键
 nnoremap <silent> <Leader>l :<C-u>nohlsearch<CR><C-l>
