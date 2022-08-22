@@ -17,7 +17,12 @@ git submodule add git@github.com:zsh-users/zsh-syntax-highlighting.git ./zsh/plu
 git submodule add git@github.com:agkozak/zsh-z.git ./zsh/plugins/zsh-z --depth=1
 git submodule add git@github.com:supercrabtree/k.git ./zsh/plugins/k --depth=1
 git submodule add git@github.com:jeffreytse/zsh-vi-mode.git ./zsh/plugins/zsh-vi-mode --depth=1
+
+
 ```
+
+> zhs-vim-mode会使代码的高亮消失,所以不再使用
+
 first install
 ```
  git submodule update --init --depth 1

@@ -32,6 +32,5 @@ defaults write com.microsoft.VSCodeExploration ApplePressAndHoldEnabled -bool fa
 defaults delete -g ApplePressAndHoldEnabled                                           # If necessary, reset global default
 
 
-source $ZSH_CUSTOM/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 # 让zsh配置生效
 source  $HOME/.zshrc
