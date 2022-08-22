@@ -13,7 +13,6 @@ ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
 # # # # # # # # # # # # # # # # # # #
 #  zsh config
 # # # # # # # # # # # # # # # # # # # 
-
 brew install starship
 
 # plugins
@@ -32,5 +31,7 @@ defaults write com.visualstudio.code.oss ApplePressAndHoldEnabled -bool false   
 defaults write com.microsoft.VSCodeExploration ApplePressAndHoldEnabled -bool false   # For VS Codium Exploration users
 defaults delete -g ApplePressAndHoldEnabled                                           # If necessary, reset global default
 
+
+source $ZSH_CUSTOM/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 # 让zsh配置生效
 source  $HOME/.zshrc

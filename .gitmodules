@@ -13,3 +13,6 @@
 [submodule "zsh/plugins/git-open"]
 	path = zsh/plugins/git-open
 	url = git@github.com:paulirish/git-open.git
+[submodule "zsh/plugins/zsh-vi-mode"]
+	path = zsh/plugins/zsh-vi-mode
+	url = git@github.com:jeffreytse/zsh-vi-mode.git

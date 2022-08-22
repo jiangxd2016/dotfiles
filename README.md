@@ -16,7 +16,7 @@ git submodule add git@github.com:zsh-users/zsh-autosuggestions.git ./zsh/plugins
 git submodule add git@github.com:zsh-users/zsh-syntax-highlighting.git ./zsh/plugins/zsh-syntax-highlighting --depth=1
 git submodule add git@github.com:agkozak/zsh-z.git ./zsh/plugins/zsh-z --depth=1
 git submodule add git@github.com:supercrabtree/k.git ./zsh/plugins/k --depth=1
-
+git submodule add git@github.com:jeffreytse/zsh-vi-mode.git ./zsh/plugins/zsh-vi-mode --depth=1
 ```
 first install
 ```
