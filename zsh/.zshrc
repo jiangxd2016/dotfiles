@@ -10,7 +10,6 @@ plugins=(
   zsh-syntax-highlighting
   zsh-z
   k
-  zsh-vi-mode
   git-open
 )
 ZSH_DISABLE_COMPFIX="true"
