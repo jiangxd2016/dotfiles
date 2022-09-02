@@ -63,6 +63,10 @@ alias hp="hexo clean && hexo g && hexo d"
 alias gacp="git add . && git ci -m 'update' && git push"
 alias aga="alias | grep git" # all git command abbreviations
 
+alias python='/usr/bin/python3'
+alias pip='/usr/local/bin/pip3'
+export PATH=$HOME/Documents/esp/xtensa-esp32-elf/bin:$PATH
+export IDF_PATH=$HOME/Documents/esp/esp-idf
 # nvm config
 export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"
