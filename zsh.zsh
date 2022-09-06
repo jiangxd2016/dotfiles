@@ -35,3 +35,4 @@ defaults delete -g ApplePressAndHoldEnabled                                     
 
 # 让zsh配置生效
 source  $HOME/.zshrc
+source  $HOME/.ideavimrc
