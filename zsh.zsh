@@ -21,6 +21,7 @@ ln -s $PWD/zsh/plugins/* $ZSH_CUSTOM/plugins
 
 # 生成软链接
 ln -sf $PWD/zsh/.zshrc  $HOME/.zshrc
+ln -sf $PWD/zsh/.ideavimrc  $HOME/.ideavimrc
 ln -sf $PWD/zsh/.vsvimrc  $HOME/.vsvimrc
 
 
