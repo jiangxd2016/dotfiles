@@ -65,8 +65,12 @@ alias aga="alias | grep git" # all git command abbreviations
 
 alias python='/usr/bin/python3'
 alias pip='/usr/local/bin/pip3'
-export PATH=$HOME/Documents/esp/xtensa-esp32-elf/bin:$PATH
-export IDF_PATH=$HOME/Documents/esp/esp-idf
+
+# customer 
+alias www="/Users/xd/Documents/www"
+alias work="/Users/xd/Documents/work"
+alias source="/Users/xd/Documents/source"
+
 # nvm config
 export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"
