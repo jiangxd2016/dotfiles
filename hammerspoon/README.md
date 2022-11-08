@@ -12,8 +12,8 @@
 
 ## TODO
  - [x] weather
- - [ ] translate
- - [ ] headphone
+ - [x] translate
+ - [x] headphone
 
 
 ## 本工程提供功能

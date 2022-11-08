@@ -66,7 +66,7 @@ alias aga="alias | grep git" # all git command abbreviations
 alias python='/usr/bin/python3'
 alias pip='/usr/local/bin/pip3'
 
-# customer 
+# customer directory
 alias www="/Users/xd/Documents/www"
 alias work="/Users/xd/Documents/work"
 alias source="/Users/xd/Documents/source"

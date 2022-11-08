@@ -102,7 +102,7 @@ function render(key)
         -- 在当前画布上追加字符
         list[1].text = list[1].text .. key
     else
-        -- 重新初始化画布属性∑
+        -- 重新初始化画布属性
         list[1].text = key
         list[1].line_number = 0
         list[1].first_line = true
