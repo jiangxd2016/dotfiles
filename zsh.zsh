@@ -13,7 +13,6 @@ ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
 # # # # # # # # # # # # # # # # # # #
 #  zsh config
 # # # # # # # # # # # # # # # # # # # 
-brew install starship
 
 # plugins
 ln -s $PWD/zsh/plugins/* $ZSH_CUSTOM/plugins

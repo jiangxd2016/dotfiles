@@ -67,7 +67,7 @@ alias pip='/usr/local/bin/pip3'
 # customer directory
 alias www="/Users/xd/Documents/www"
 alias work="/Users/xd/Documents/work"
-alias source="/Users/xd/Documents/source"
+alias depository="/Users/xd/Documents/depository"
 
 # nvm config
 export NVM_DIR="$HOME/.nvm"
