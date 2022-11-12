@@ -3,7 +3,6 @@ export UPDATE_ZSH_DAYS=13
 export ZSH="/Users/xd/.oh-my-zsh"
 
 
-eval "$(starship init zsh)"
 plugins=(
   git
   zsh-autosuggestions
@@ -13,7 +12,6 @@ plugins=(
   git-open
 )
 ZSH_DISABLE_COMPFIX="true"
-source $ZSH/oh-my-zsh.sh
 
 # alias
 alias ni="pnpm i"
