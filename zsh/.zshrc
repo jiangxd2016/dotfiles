@@ -1,16 +1,19 @@
 
-export UPDATE_ZSH_DAYS=13
 export ZSH="/Users/xd/.oh-my-zsh"
 
+ZSH_THEME="agnoster"
+# ZSH_THEME="robbyrussell"
 
 plugins=(
   git
   zsh-autosuggestions
   zsh-syntax-highlighting
-  zsh-z
+  z
   k
   git-open
 )
+
+
 ZSH_DISABLE_COMPFIX="true"
 
 # alias
@@ -157,8 +160,8 @@ tts() {
 }
 
 
-export PATH="/usr/local/opt/node@16/bin:$PATH"
-export PATH="/usr/local/opt/openjdk/bin:$PATH"
+# export PATH="/usr/local/opt/node@16/bin:$PATH"
+# export PATH="/usr/local/opt/openjdk/bin:$PATH"
 
 # pnpm
 export PNPM_HOME="/Users/xd/Library/pnpm"
@@ -167,8 +170,8 @@ export PATH="$PNPM_HOME:$PATH"
 
 
 # bind auto key
-bindkey '^E' autosuggest-accept
-bindkey '^H' autosuggest-clear
+# bindkey '^E' autosuggest-accept
+# bindkey '^H' autosuggest-clear
 
 
 export NODEJS_ORG_MIRROR="https://cdn.npmmirror.com/binaries/node"

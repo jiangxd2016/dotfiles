@@ -56,7 +56,7 @@ custom_zsh=${ZSH:+yes}
 # Default settings
 ZSH="${ZSH:-$HOME/.oh-my-zsh}"
 REPO=${REPO:-ohmyzsh/ohmyzsh}
-REMOTE=${REMOTE:-https://github.com/${REPO}.git}
+REMOTE=${REMOTE:-https://gitee.com/mirrors/oh-my-zsh.git}
 BRANCH=${BRANCH:-master}
 
 # Other options
