@@ -6,13 +6,11 @@ ZSH_CUSTOM="$HOME/.oh-my-zsh/custom/plugins"
 
 
 # plugins
-# 软连接的方式不靠谱，容易网络错误
-# ln -sf $PWD/zsh/plugins/* $ZSH_CUSTOM/plugins
 
 if [ ! -d $ZSH_CUSTOM/zsh-syntax-highlighting ]
 then
    git clone --depth=1 \
-    https://github.com/zsh-users/zsh-syntax-highlighting.git \
+    https://github.91chi.fun/https://github.com/zsh-users/zsh-syntax-highlighting.git --depth=1 \
      $ZSH_CUSTOM/zsh-syntax-highlighting
 fi
 
@@ -20,7 +18,7 @@ fi
 if [ ! -d $ZSH_CUSTOM/zsh-syntax-highlighting ]
 then
     git clone --depth=1 \
-     https://github.com/zsh-users/zsh-autosuggestions.git \
+     https://github.91chi.fun/https://github.com/zsh-users/zsh-autosuggestions.git --depth=1 \
       $ZSH_CUSTOM/zsh-autosuggestions
 fi
 
@@ -28,7 +26,7 @@ fi
 if [ ! -d $ZSH_CUSTOM/k ]
 then
   git clone --depth=1 \
-      https://github.com/supercrabtree/k.git \
+      https://github.91chi.fun/https://github.com/supercrabtree/k.git --depth=1 \
       $ZSH_CUSTOM/k
 fi
 
@@ -36,7 +34,7 @@ fi
 if [ ! -d $ZSH_CUSTOM/git-open ]
 then
    git clone --depth=1 \
-    https://github.com/paulirish/git-open.git \
+    https://github.91chi.fun/https://github.com/paulirish/git-open.git --depth=1 \
      $ZSH_CUSTOM/git-open
 fi
 

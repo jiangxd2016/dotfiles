@@ -1,8 +1,10 @@
 
-export ZSH="/Users/xd/.oh-my-zsh"
 
-ZSH_THEME="agnoster"
-# ZSH_THEME="robbyrussell"
+export ZSH="$HOME/.oh-my-zsh"
+
+ZSH_THEME="robbyrussell"
+
+source $ZSH/oh-my-zsh.sh
 
 plugins=(
   git
@@ -73,9 +75,9 @@ alias work="/Users/xd/Documents/work"
 alias depository="/Users/xd/Documents/depository"
 
 # nvm config
-export NVM_DIR="$HOME/.nvm"
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"
-[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"
+# [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"
 
 # nvm hook
 
@@ -190,3 +192,6 @@ export SAUCECTL_INSTALL_BINARY_MIRROR="https://cdn.npmmirror.com/binaries/saucec
 export npm_config_sharp_binary_host="https://cdn.npmmirror.com/binaries/sharp"
 export npm_config_sharp_libvips_binary_host="https://cdn.npmmirror.com/binaries/sharp-libvips"
 export npm_config_robotjs_binary_host="https://cdn.npmmirror.com/binaries/robotj"
+
+
+
