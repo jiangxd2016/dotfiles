@@ -4,7 +4,6 @@ export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="robbyrussell"
 
-source $ZSH/oh-my-zsh.sh
 
 plugins=(
   git
@@ -17,6 +16,8 @@ plugins=(
 
 
 ZSH_DISABLE_COMPFIX="true"
+
+
 
 # alias
 alias ni="pnpm i"
@@ -195,3 +196,4 @@ export npm_config_robotjs_binary_host="https://cdn.npmmirror.com/binaries/robotj
 
 
 
+source $ZSH/oh-my-zsh.sh
