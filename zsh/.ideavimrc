@@ -1,11 +1,8 @@
 " ================================================================================================
 " = Leader commands ===================================== Start
-" ================================================================================================
+" ================================================================================================;
 " leaderkey
 let mapleader=" "
-set timeoutlen=500
-" 防止按leader键乱移动
-nnoremap <SPACE> <nop>
 " nohl 关闭搜索高亮显示
 nnoremap <leader>nl :nohlsearch<CR>
 
@@ -85,8 +82,7 @@ vnoremap <leader>ec :action IntroduceConstant<CR>
 vnoremap <leader>ef :action IntroduceField<CR>
 " extract variable
 vnoremap <leader>ev :action IntroduceVariable<CR>
-" rollback line
-nnoremap <leader>rb :action Vcs.RollbackChangedLines<CR>
+" rollback line nnoremap <leader>rb :action Vcs.RollbackChangedLines<CR>
 
 " ================================================ Debug ================================================
 nnoremap <leader>db :action ToggleLineBreakpoint<CR>

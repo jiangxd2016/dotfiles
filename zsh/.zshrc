@@ -73,7 +73,8 @@ alias pip='/usr/local/bin/pip3'
 # customer directory
 alias www="/Users/xd/Documents/www"
 alias work="/Users/xd/Documents/work"
-alias depository="/Users/xd/Documents/depository"
+alias dep="/Users/xd/Documents/depository"
+alias ws="open -a webstorm"
 
 # nvm config
 export NVM_DIR="$HOME/.nvm"
