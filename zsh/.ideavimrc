@@ -1,224 +1,219 @@
-" ================================================================================================
-" = Leader commands ===================================== Start
-" ================================================================================================;
-" leaderkey
-let mapleader=" "
-" nohl 关闭搜索高亮显示
-nnoremap <leader>nl :nohlsearch<CR>
+" M->cmd, A->option, C->control
+" <ESC> - escape, <BS> - backspace, <CR> - return
 
-" ReformatCode 格式化代码CodeStyle
-nnoremap <leader>fm :action ReformatCode<CR>
+" leader
+let mapleader = " "
 
-" Optimise Imports 格式化imports
-nnoremap <leader>fi :action OptimizeImports<CR>
-
-" Run code
-nnoremap <leader>rr :action Rerun<CR>
-nnoremap <leader>rt :action RerunTests<CR>
-" Refresh gradle
-nnoremap <leader>rg :action ExternalSystem.RefreshAllProjects<CR>
-
-" Insert into next bracket 直接跳转到下一个括号内开始插入
-nnoremap <leader>i f(a
-vnoremap <leader>i f(a
-
-" Add ; at the end of current line 直接跳转到本行末尾插入;号
-nnoremap <leader>j A;<ESC>
-vnoremap <leader>j A;<ESC>
-
-" Gotos 文档跳转
-nnoremap ge :action GotoNextError<CR>
-vnoremap ge :action GotoNextError<CR>
-nnoremap gt :action GotoTest<CR>
-nnoremap gm :action MethodUp<CR>
-
-nnoremap <leader>ck :action CallHierarchy<CR>
-nnoremap <leader>mk :action MethodHierarchy<CR>
-
-" show bookmarks
-" instead of use `s` to represent show, use `w` instead
-" 🔥🔥 🔥🔥 🔥🔥 Here I want to use nnoremap <leader>ss :action FileStructurePopup<CR>
-
-nnoremap <leader>wb :action ShowBookmarks<ESC>
-vnoremap <leader>wb :action ShowBookmarks<ESC>
-nnoremap <leader>ws :action FileStructurePopup<CR>
-
-" ========================================= Git =========================================
-nnoremap <leader>gh :action Vcs.ShowTabbedFileHistory<CR>
-
-nnoremap <leader>gc :action Compare.Selected<CR>
-
-nnoremap <leader>gb :action Git.CompareWithBranch<CR>
-
-" Fold and unFold
-nnoremap <leader>zc :action CollapseAllRegions<CR>
-nnoremap <leader>zo :action ExpandAllRegions<CR>
-
-" ========================================= window & pane & split ========================================
-" Unsplit editor 最大化显示当前编辑器pane, 关闭其他split
-nnoremap <leader>wo :action UnsplitAll<CR>
-vnoremap <leader>wo :action UnsplitAll<CR>
-
-nnoremap <leader>zz :action MaximizeEditorInSplit<CR>
-vnoremap <leader>zz :action MaximizeEditorInSplit<CR>
-
-" Close active pane
-nnoremap <leader>wc <c-w>c
-vnoremap <leader>wc <c-w>c
-
-" ============================================ Floating Window ===========================================
-nnoremap sd :action QuickJavaDoc<CR>
-nnoremap se :action ShowErrorDescription<CR>
-nnoremap st :action ExpressionTypeInfo<CR>
-
-" ================================================ Refactor ================================================
-" refactor -> rename
-map <leader>rn :action RenameElement<CR>
-" extract method/function
-vnoremap <leader>em :action ExtractMethod<CR>
-" extract constant
-vnoremap <leader>ec :action IntroduceConstant<CR>
-" extract field
-vnoremap <leader>ef :action IntroduceField<CR>
-" extract variable
-vnoremap <leader>ev :action IntroduceVariable<CR>
-" rollback line nnoremap <leader>rb :action Vcs.RollbackChangedLines<CR>
-
-" ================================================ Debug ================================================
-nnoremap <leader>db :action ToggleLineBreakpoint<CR>
-nnoremap <leader>di :action StepInto<CR>
-nnoremap <leader>dn :action StepOver<CR>
-nnoremap <leader>dr :action Resume<CR>
-
-" Hide All windows
-nnoremap <leader>cc :action HideAllWindows<CR>
-vnoremap <leader>cc :action HideAllWindows<CR>
+" 启用vim surround功能
+set surround
+" 启用multi cursor
+set multiple-cursors
+" 显示行号
+set nu
+" 显示相对行号
+set rnu
+" 高亮搜索
+set hlsearch
+" 自动定位到输入中的字符串，不需要回车搜索
+set incsearch
+" 显示当前的模式
+set showmode
+" 共享系统粘贴板
+set clipboard=unnamed
+set clipboard+=ideaput
+" 搜索时智能匹配大小写
+set ignorecase smartcase
 
 
+
+" multiple cursors
+map <A-M>  <A-N>
+" Insert
+inoremap jk <Esc>
+" Normal
+nnoremap dd ddzz
+" Visual
+vnoremap d dzz
+
+" Normal + Visual
+noremap # #zz
+noremap * *zz
+noremap w wzz
+noremap W Wzz
+noremap e ezz
+noremap E Ezz
+noremap b bzz
+noremap B Bzz
+noremap H Hzz
+noremap L Lzz
+noremap 0 0zz
+noremap $ $zz
+noremap ^ ^zz
+noremap j jzz
+noremap k kzz
+noremap G Gzz
+noremap u uzz
+noremap ( (zz
+noremap ) )zz
+noremap { {zz
+noremap } }zz
+noremap [{ [{zz
+noremap ]} ]}zz
+noremap gd gdzz
+noremap <C-O> <ESC>:action Back<CR>
+noremap <C-I> <ESC>:action Forward<CR>
+noremap <C-D> <C-D>zz
+noremap <C-U> <C-U>zz
+" E和R是为了保持与Chrome中的SurfingKeys的键位一致
+noremap E gT
+noremap R gt
+noremap J <ESC>:action EditorJoinLines<CR>
+
+
+" Leader key relevant
+" quit
+noremap <leader>q :wq<CR>
+" write to favorite
+noremap <leader>w <ESC>:action AddToFavoritesPopup<CR>
+" error description
+noremap <leader>e <ESC>:action ShowErrorDescription<CR>
+" return
+noremap <leader>r <ESC>:action Rerun<CR>
+" Windows或者MacOS的快捷键都与t相关, 所以选择t作为键
+noremap <leader>t <ESC>:action Refactorings.QuickListPopupAction<CR>
+" y
+"noremap <leader>y <ESC>:action <CR>
+" usage
+noremap <leader>u <ESC>:action ShowUsages<CR>
+" import
+noremap <leader>i <ESC>:action Maven.Reimport<CR>
+" open file path
+noremap <leader>o <ESC>:action ShowFilePath<CR>
+" show projects
+noremap <leader>p <ESC>:action ManageRecentProjects<CR>
+
+" ace jump
+noremap <leader>a <ESC>:action emacsIDEAs.AceJumpWord<CR>
+" structure
+noremap <leader>s <ESC>:action FileStructurePopup<CR>
+" debug option
+noremap <leader>d <ESC>:action ChooseDebugConfiguration<CR>
+" 同样也是debug，因为d已经被ChooseDebugConfiguration占领, 所以就放在了d键隔壁.
+noremap <leader>f <ESC>:action DebugClass<CR>
+" g
+noremap <leader>g <ESC>:action Generate<CR>
+" hide all
+noremap <leader>h <ESC>:action HideAllWindows<CR>
+" jump to next error
+noremap <leader>j <ESC>:action GotoNextError<CR>
+" jump to previous error，就近原则
+noremap <leader>k <ESC>:action GotoPreviousError<CR>
+" light up
+noremap <leader>l <ESC>:action HighlightUsagesInFile<CR>
+" 粘贴最近复制寄存器
+noremap <leader>; "0p
+
+" 本行皆为debug所用
+" resume - z
+noremap <leader>z <ESC>:action Resume<CR>
+" step over
+noremap <leader>x <ESC>:action StepOver<CR>
+" step into
+noremap <leader>c <ESC>:action SmartStepInto<CR>
+" evaluate expression - v
+noremap <leader>v <ESC>:action EvaluateExpression<CR>
+" breakpoints
+noremap <leader>b <ESC>:action ViewBreakpoints<CR>
+" 因为属于breakpoint范畴的功能, 所以就选择了b和m的隔壁
+noremap <leader>n <ESC>:action ToggleLineBreakpoint<CR>
+" mute breakpoints
+noremap <leader>m <ESC>:action XDebugger.MuteBreakpoints<CR>
+
+" g key relevant
+"
+" q
+"noremap gq <ESC>:action <CR>
+" switcher
+noremap gw <ESC>:action RecentFiles<CR>
+" e
+"noremap ge <ESC>:action <CR>
+" r
+"noremap gr <ESC>:action <CR>
+" translator(third party plugin)
+noremap gt <ESC>:action $EditorTranslateAction<CR>
+" y
+noremap gy <ESC>:action CopyReference<CR>
+" u
+"noremap gu <ESC>:action <CR>
+" intention
+noremap gi <ESC>:action ShowIntentionActions<CR>
+" o
+"noremap go <ESC>:action <CR>
+" param info
+noremap gp <ESC>:action ParameterInfo<CR>
+
+" a
+"noremap ga <ESC>:action <CR>
+" goto source
+noremap gs <ESC>:action GotoImplementation<CR>
+" goto declaration
+noremap gd <ESC>:action GotoDeclaration<CR>
+" goto file
+noremap gf <ESC>:action GotoFile<CR>
+" g
+"noremap gg <ESC>:action MUST_NOT_BE_CHANGED!!!<CR>
+" hierarchy
+noremap ghc <ESC>:action CallHierarchy<CR>
+noremap ght <ESC>:action TypeHierarchy<CR>
+noremap ghm <ESC>:action MethodHierarchy<CR>
+" j analyze data flow in
+noremap gj <ESC>:action SliceBackward<CR>
+" k analyze data flow out
+noremap gk <ESC>:action SliceForward<CR>
+" l
+"noremap gl <ESC>:action <CR>
+
+" z
+"noremap gz <ESC>:action <CR>
+" close all but this
+noremap gx <ESC>:action CloseAllEditorsButActive<CR>
+" compile
+noremap gc <ESC>:action CompileDirty<CR>
+" v
+"noremap gv <ESC>:action <CR>
+" b
+noremap gb <ESC>:action FindBugs.CurrentFileAction<CR>
+" goto class
+noremap gn <ESC>:action GotoClass<CR>
+" goto method
+noremap gm <ESC>:action GotoSymbol<CR>
+
+
+" global find
+noremap g/ <ESC>:action FindInPath<CR>
+" gloaal replace
+noremap g' <ESC>:action ReplaceInPath<CR>
+" find
+noremap / <ESC>:action Find<CR>
+" replace
+noremap ' <ESC>:action Replace<CR>
+" previous method
+noremap [[ <ESC>:action MethodUp<CR>
+" next method
+noremap ]] <ESC>:action MethodDown<CR>
+
+nnoremap H 5h
+nnoremap J 5j
+nnoremap K 5k
+nnoremap L 5l
 
 " 像vscode一样行移动
 vnoremap J :action MoveLineDown<CR>
 vnoremap K :action MoveLineUp<CR>
 
 
-
-" 后退功能
-nnoremap <leader>gb :action Back<CR>
-nnoremap <leader>gb :action JumpToLastChange<CR>
-
-
-" 打上断点或取消断点
-nnoremap <leader>dt :action ToggleLineBreakpoint<CR>
-" 取消所有的断点
-nnoremap <leader>dT :action Debugger.RemoveAllBreakpointsInFile<CR>
-" debug上次运行的类
-nnoremap <leader>dd :action Debug<CR>
-" debug当前(now)类
-nnoremap <leader>dc :action DebugClass<CR>
-" debug神器
-" StepInto (F7)
-nnoremap <leader>di :action ForceStepInto<CR>
-" ForceStepInto(CMD + SHIFT + F7)
-nnoremap <leader>dI :action ForceStepInto
-" StepOver (F8)
-nnoremap <leader>do :action StepOver<CR>
-" Resume (跳到下个断点运行)
-nnoremap <leader>dr :action Resume<CR>
-" StepOut (SHIFT+F8)
-nnoremap <leader>du :action StepOut<CR>
-" debug强制运行到光标处
-nnoremap <leader>dC :action ForceRunToCursor<CR>
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""""""""""""""""""""""""""""Create"""""""""""""""""""""""""""
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 新建类
-nnoremap <leader>nc :action NewClass<CR>
-" 新建项目
-nnoremap <leader>np :action NewProject<CR>
-" 新建文件 (嘻嘻,啥都可以直接用快捷键建立,一个字爽)
-nnoremap <leader>ne :action NewElement<CR>
-" 删除当前文件 (快速删除)
-nnoremap <leader>nd :action SafeDelete<CR>
-" 复制文件元素
-nnoremap <leader>ny :action CopyElement<CR>
-" 代码环绕(快速添加if 或者while)
-nnoremap <leader>ns :action SurroundWith<CR>
-vnoremap <leader>ns :action SurroundWith<CR>
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""""""""""""""""""""""""""""文件和跳转"""""""""""""""""""""""""
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" next split
+nnoremap ns :action NextSplitter<CR>
+nnoremap gns :action UnsplitAll<CR>
 " 重命名文件
 nnoremap <leader>rn :action RenameFile<CR>
-"最近改动文件间相互跳转
-nnoremap <leader>rf mm`m:action RecentChangedFiles<CR>
-" 查找文件
-nnoremap <leader>ff mm`m:action GotoFile<CR>
-" 最近查看文件间相互跳转
-nnoremap <leader>fr mm`m:action RecentFiles<CR>
-" 查找用法
-nnoremap <leader>fu :action FindUsages<CR>
-"跳转到声明
-nnoremap gd mm`m:action GotoDeclaration<CR>
-" 打开General菜单
-nnoremap go :action Generate<CR>
-"跳转到实现类
-nnoremap gi mm`m:action GotoImplementation<CR>
-" 查找类
-nnoremap gc mm`m:action GotoClass<CR>
-" 跳转SuperMethod
-nnoremap gs mm`m:action GotoSuperMethod<CR>
-" 目前还不熟悉 (后面搞懂回来补充)
-nnoremap gf mm`m:action FileStructurePopup<CR>
-" 搜索 action
-nnoremap <leader>ga :action GotoAction<CR>
-"相当于鼠标右键
-nnoremap <leader>sp :action ShowPopupMenu<CR>
-
-" ================================================================================================
-" = Extensions ===================================== Start
-" ================================================================================================
-set surround
-set argtextobj
-set ReplaceWithRegister
-set NERDTree
-
-nnoremap ma mA
-nnoremap 'a 'A
-nnoremap ms mS
-nnoremap 's 'S
-nnoremap md mD
-nnoremap 'd 'D
-nnoremap mf mF
-nnoremap 'f 'F
-
-nnoremap ga '.
-
-nnoremap <leader>e :action ActivateProjectToolWindow<CR>
-
-" argtextobj
-let g:argtextobj_pairs="(:),{:},<:>"
-
-" ================================================================================================
-" = Other settings ===================================== Start
-" ================================================================================================
-set clipboard+=unnamed
-set ignorecase
-set scrolloff=30
-set history=200
-
-set number
-set relativenumber
-
-set incsearch
-set hlsearch
-set easymotion
-set keep-english-in-normal
-set which-key
-set timeoutlen = 5000
-
-
-let g:WhichKeyDesc_windows_maximize = "<leader>wm maximize"
