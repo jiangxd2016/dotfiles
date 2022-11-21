@@ -135,13 +135,7 @@ noremap <leader>m <ESC>:action XDebugger.MuteBreakpoints<CR>
 "noremap gq <ESC>:action <CR>
 " switcher
 noremap gw <ESC>:action RecentFiles<CR>
-" e
-"noremap ge <ESC>:action <CR>
-" r
-"noremap gr <ESC>:action <CR>
-" translator(third party plugin)
-noremap gt <ESC>:action $EditorTranslateAction<CR>
-" y
+
 noremap gy <ESC>:action CopyReference<CR>
 " u
 "noremap gu <ESC>:action <CR>
@@ -151,7 +145,9 @@ noremap gi <ESC>:action ShowIntentionActions<CR>
 "noremap go <ESC>:action <CR>
 " param info
 noremap gp <ESC>:action ParameterInfo<CR>
-
+vnoremap ge :action GotoNextError<CR>
+nnoremap gt :action GotoTest<CR>
+nnoremap gm :action MethodUp<CR>
 " a
 "noremap ga <ESC>:action <CR>
 " goto source
@@ -172,21 +168,6 @@ noremap gj <ESC>:action SliceBackward<CR>
 noremap gk <ESC>:action SliceForward<CR>
 " l
 "noremap gl <ESC>:action <CR>
-
-" z
-"noremap gz <ESC>:action <CR>
-" close all but this
-noremap gx <ESC>:action CloseAllEditorsButActive<CR>
-" compile
-noremap gc <ESC>:action CompileDirty<CR>
-" v
-"noremap gv <ESC>:action <CR>
-" b
-noremap gb <ESC>:action FindBugs.CurrentFileAction<CR>
-" goto class
-noremap gn <ESC>:action GotoClass<CR>
-" goto method
-noremap gm <ESC>:action GotoSymbol<CR>
 
 
 " global find
@@ -215,5 +196,76 @@ vnoremap K :action MoveLineUp<CR>
 " next split
 nnoremap ns :action NextSplitter<CR>
 nnoremap gns :action UnsplitAll<CR>
+nnoremap <leader>gb :action JumpToLastChange<CR>
+
+
+" 打上断点或取消断点
+nnoremap <leader>dt :action ToggleLineBreakpoint<CR>
+" 取消所有的断点
+nnoremap <leader>dT :action Debugger.RemoveAllBreakpointsInFile<CR>
+" debug上次运行的类
+nnoremap <leader>dd :action Debug<CR>
+" debug当前(now)类
+nnoremap <leader>dc :action DebugClass<CR>
+" debug神器
+" StepInto (F7)
+nnoremap <leader>di :action ForceStepInto<CR>
+" ForceStepInto(CMD + SHIFT + F7)
+nnoremap <leader>dI :action ForceStepInto
+" StepOver (F8)
+nnoremap <leader>do :action StepOver<CR>
+" Resume (跳到下个断点运行)
+nnoremap <leader>dr :action Resume<CR>
+" StepOut (SHIFT+F8)
+nnoremap <leader>du :action StepOut<CR>
+" debug强制运行到光标处
+nnoremap <leader>dC :action ForceRunToCursor<CR>
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""Create"""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 新建类
+nnoremap <leader>nc :action NewClass<CR>
+" 新建项目
+nnoremap <leader>np :action NewProject<CR>
+" 新建文件 (嘻嘻,啥都可以直接用快捷键建立,一个字爽)
+nnoremap <leader>ne :action NewElement<CR>
+" 删除当前文件 (快速删除)
+nnoremap <leader>nd :action SafeDelete<CR>
+" 复制文件元素
+nnoremap <leader>ny :action CopyElement<CR>
+" 代码环绕(快速添加if 或者while)
+nnoremap <leader>ns :action SurroundWith<CR>
+vnoremap <leader>ns :action SurroundWith<CR>
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""文件和跳转"""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 重命名文件
 nnoremap <leader>rn :action RenameFile<CR>
+"最近改动文件间相互跳转
+nnoremap <leader>rf mm`m:action RecentChangedFiles<CR>
+" 查找文件
+nnoremap <leader>ff mm`m:action GotoFile<CR>
+" 最近查看文件间相互跳转
+nnoremap <leader>fr mm`m:action RecentFiles<CR>
+" 查找用法
+nnoremap <leader>fu :action FindUsages<CR>
+"跳转到声明
+nnoremap gd mm`m:action GotoDeclaration<CR>
+" 打开General菜单
+nnoremap go :action Generate<CR>
+"跳转到实现类
+nnoremap gi mm`m:action GotoImplementation<CR>
+" 查找类
+nnoremap gc mm`m:action GotoClass<CR>
+" 跳转SuperMethod
+nnoremap gs mm`m:action GotoSuperMethod<CR>
+" 目前还不熟悉 (后面搞懂回来补充)
+nnoremap gf mm`m:action FileStructurePopup<CR>
+" 搜索 action
+nnoremap <leader>ga :action GotoAction<CR>
+"相当于鼠标右键
+nnoremap <leader>sp :action ShowPopupMenu<CR>
