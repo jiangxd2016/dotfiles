@@ -5,6 +5,6 @@ require "modules.tiny"
 -- require 'modules.git'
 -- require 'modules.bookMark'
 -- require 'modules.DeepLTranslate'
-function setCache()
-    hs.execute('sudo node ./cache.js',true)
-end
+-- function setCache()
+--     hs.execute('sudo node ./cache.js',true)
+-- end
