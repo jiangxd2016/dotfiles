@@ -195,6 +195,8 @@ export npm_config_sharp_binary_host="https://cdn.npmmirror.com/binaries/sharp"
 export npm_config_sharp_libvips_binary_host="https://cdn.npmmirror.com/binaries/sharp-libvips"
 export npm_config_robotjs_binary_host="https://cdn.npmmirror.com/binaries/robotj"
 
-
+# rust proxy
+export RUSTUP_DIST_SERVER="https://rsproxy.cn"
+export RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"
 
 source $ZSH/oh-my-zsh.sh
