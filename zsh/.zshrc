@@ -14,12 +14,14 @@ plugins=(
   git-open
 )
 
-
+source $ZSH/oh-my-zsh.sh
 ZSH_DISABLE_COMPFIX="true"
 
 
 
 # alias
+alias v='nvim'
+
 alias ni="pnpm i"
 alias nio="pnpm i --prefer-offline"
 alias nr="pnpm run"
@@ -199,4 +201,3 @@ export npm_config_robotjs_binary_host="https://cdn.npmmirror.com/binaries/robotj
 export RUSTUP_DIST_SERVER="https://rsproxy.cn"
 export RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"
 
-source $ZSH/oh-my-zsh.sh

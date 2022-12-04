@@ -45,8 +45,10 @@ ln -sf $PWD/zsh/.ideavimrc  $HOME/.ideavimrc
 ln -sf $PWD/zsh/.vsvimrc  $HOME/.vsvimrc
 
 
-# 开启按键重复
-defaults write -g ApplePressAndHoldEnabled -bool false
+# 开启vscode按键重复
+$ defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false              # For VS Code
+$ defaults write com.microsoft.VSCodeInsiders ApplePressAndHoldEnabled -bool false      # For VS Code Insider
+$ defaults delete -g ApplePressAndHoldEnabled                                           # If necessary, reset global default
 
 # 让zsh配置生效
 source  $HOME/.zshrc

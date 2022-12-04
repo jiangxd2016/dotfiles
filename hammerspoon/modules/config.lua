@@ -31,11 +31,12 @@ defaultConfig = {{
     name = '剪切板',
     enable = true
 }, 
-{
-    module = 'modules.hotkey',
-    name = '快捷键列表查看',
-    enable = true
-}}
+-- {
+--     module = 'modules.hotkey',
+--     name = '快捷键列表查看',
+--     enable = true
+-- }
+}
 
 base_path = os.getenv("HOME") .. '/.hammerspoon/'
 -- 本地配置文件路径
