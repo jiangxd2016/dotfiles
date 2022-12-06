@@ -43,7 +43,12 @@ applications = {
     {prefix = {"Option"}, key = "V", message="VSCode", bundleId="com.microsoft.VSCode"},
     {prefix = {"Option"}, key = "C", message="Chrome", bundleId="com.google.Chrome"},
     {prefix = {"Option"}, key = "T", message="Terminal", bundleId="com.apple.Terminal"},
-    {prefix = {"Option"}, key = "M", message="QQMusic", bundleId="com.tencent.QQMusicMac"}
+    {prefix = {"Option"}, key = "M", message="QQMusic", bundleId="com.tencent.QQMusicMac"},
+    {prefix = {"Option"}, key = "w", message="WebStorm", bundleId="com.jetbrains.WebStorm"},
+    {prefix = {"Option"}, key = "d", message="Typora", bundleId="abnerworks.Typora"},
+    {prefix = {"Option"}, key = "i", message="IDEA", bundleId="com.jetbrains.intellij"},
+    {prefix = {"Option"}, key = "a", message="apipost", bundleId="com.apipost.apipost.fe.desctop.cn.7.x"}
+   
 }
 
 
@@ -67,6 +72,10 @@ rephrase = {
 bookmarkKey= {
     prefix = hyperOpt,
     key = "M"
+}
+colorkKey= {
+    prefix = hyperOpt,
+    key = "p"
 }
 
 Lock = {

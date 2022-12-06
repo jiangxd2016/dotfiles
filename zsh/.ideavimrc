@@ -222,6 +222,6 @@ nnoremap gf mm`m:action FileStructurePopup<CR>
 nnoremap <leader>ga :action GotoAction<CR>
 "相当于鼠标右键
 nnoremap <leader>sp :action ShowPopupMenu<CR>
-
+nnoremap <leader>sa :action ShowIntentionActions<CR>
 
 nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<cr>
