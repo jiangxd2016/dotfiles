@@ -1,12 +1,12 @@
-;  M->cmd, A->option, C->control
-;  <ESC> - escape, <BS> - backspace, <CR> - return
+" M->cmd, A->option, CE->control
+"  <ESC> - escape, <BS> - backspace, <CR> - return
 let mapleader=" "
-;  which key (需要从plguin中安装)
+"  which key (需要从plugin中安装)
 set which-key
 set notimeout
 " 启用vim surround功能
 set surround
-" 启用multi cursor
+" 启用multi cursor 多光标使用
 set multiple-cursors
 " 显示行号
 set nu
@@ -24,6 +24,8 @@ set clipboard+=ideaput
 " 搜索时智能匹配大小写
 set ignorecase smartcase
 
+set quickscope
+
 
 
 " multiple cursors
@@ -35,31 +37,19 @@ nnoremap dd ddzz
 " Visual
 vnoremap d dzz
 
-" Normal + Visual
-noremap # #zz
-noremap * *zz
-noremap w wzz
-noremap W Wzz
-noremap e ezz
-noremap E Ezz
-noremap b bzz
-noremap B Bzz
-noremap H Hzz
-noremap L Lzz
-noremap 0 0zz
-noremap $ $zz
-noremap ^ ^zz
-noremap j jzz
-noremap k kzz
-noremap G Gzz
-noremap u uzz
-noremap ( (zz
-noremap ) )zz
-noremap { {zz
-noremap } }zz
-noremap [{ [{zz
-noremap ]} ]}zz
-noremap gd gdzz
+inoremap <c-e> <c-o>$
+inoremap <c-a> <c-o>^
+
+nmap <c-h> <c-w>h
+nmap <c-j> <c-w>j
+nmap <c-k> <c-w>k
+nmap <c-l> <c-w>l
+
+" Do incremental searching.
+set incsearch
+nnoremap [[ :action MethodUp<CR>
+nnoremap ]] :action MethodDown<CR>
+
 noremap <C-O> <ESC>:action Back<CR>
 noremap <C-I> <ESC>:action Forward<CR>
 noremap <C-D> <C-D>zz
@@ -92,8 +82,7 @@ noremap <leader>o <ESC>:action ShowFilePath<CR>
 " show projects
 noremap <leader>p <ESC>:action ManageRecentProjects<CR>
 
-" ace jump
-noremap <leader>a <ESC>:action emacsIDEAs.AceJumpWord<CR>
+
 " structure
 noremap <leader>s <ESC>:action FileStructurePopup<CR>
 " debug option
@@ -225,3 +214,4 @@ nnoremap <leader>sp :action ShowPopupMenu<CR>
 nnoremap <leader>sa :action ShowIntentionActions<CR>
 
 nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<cr>
+
