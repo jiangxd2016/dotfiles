@@ -42,7 +42,7 @@ windows = {
 applications = {
     {prefix = {"Option"}, key = "V", message="VSCode", bundleId="com.microsoft.VSCode"},
     {prefix = {"Option"}, key = "C", message="Chrome", bundleId="com.google.Chrome"},
-    {prefix = {"Option"}, key = "T", message="Terminal", bundleId="com.apple.Terminal"},
+    {prefix = {"Option"}, key = "T", message="Terminal", bundleId="com.googlecode.iterm2"},
     {prefix = {"Option"}, key = "M", message="QQMusic", bundleId="com.tencent.QQMusicMac"},
     {prefix = {"Option"}, key = "w", message="WebStorm", bundleId="com.jetbrains.WebStorm"},
     {prefix = {"Option"}, key = "d", message="Typora", bundleId="abnerworks.Typora"},
