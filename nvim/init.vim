@@ -1,4 +1,7 @@
 call plug#begin('~/.config/nvim/autoload') 
+
+
+
 Plug 'navarasu/onedark.nvim'  
 
 Plug 'preservim/nerdtree' 
@@ -18,7 +21,7 @@ Plug 'nvim-tree/nvim-tree.lua'
 
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 
-    Plug 'tpope/vim-surround'
+Plug 'tpope/vim-surround'
 
 
 call plug#end()  
