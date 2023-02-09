@@ -1,7 +1,7 @@
- call plug#begin('~/.config/nvim/autoload') 
+call plug#begin('~/.config/nvim/autoload') 
 Plug 'navarasu/onedark.nvim'  
 
- Plug 'preservim/nerdtree' 
+Plug 'preservim/nerdtree' 
 
 Plug 'Pocco81/auto-save.nvim'  
 
@@ -15,6 +15,10 @@ Plug 'tpope/vim-commentary',
 
 Plug 'nvim-tree/nvim-web-devicons',
 Plug 'nvim-tree/nvim-tree.lua'
+
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+
+    Plug 'tpope/vim-surround'
 
 
 call plug#end()  
