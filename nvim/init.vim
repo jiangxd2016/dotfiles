@@ -23,6 +23,8 @@ Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 
 Plug 'tpope/vim-surround'
 
+Plug 'skywind3000/asyncrun.vim'
+
 
 call plug#end()  
 
