@@ -1,15 +1,14 @@
 call plug#begin('~/.config/nvim/autoload') 
 
- Plugin 'VundleVim/Vundle.vim'
-Plugin 'ryanoasis/vim-devicons'                     "图标支持， 需要安装 Nerdfont 字体
-Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'    "nerdtree 根据文件类型高亮
-Plugin 'Xuyuanp/nerdtree-git-plugin'                "nerdtree git 支持
 Plugin 'octol/vim-cpp-enhanced-highlight'           "对c++语法高亮增强
 Plugin 'neoclide/coc.nvim', {'branch' : 'release'}  "自动补全
 Plugin 'skywind3000/asyncrun.vim'                   "执行 shell 命令 主要用于编译运行代码
 Plugin 'SirVer/ultisnips'                           "代码片段插件 
 Plug 'navarasu/onedark.nvim'                        "主题
 Plug 'preservim/nerdtree'                           "文件管理器
+Plugin 'ryanoasis/vim-devicons'                     "图标支持， 需要安装 Nerdfont 字体
+Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'    "nerdtree 根据文件类型高亮
+Plugin 'Xuyuanp/nerdtree-git-plugin'                "nerdtree git 支持
 Plug 'Pocco81/auto-save.nvim'                       "自动保存
 Plug 'leafOfTree/vim-matchtag'                      "匹配标签
 Plug 'mhinz/vim-startify'                           "启动界面
