@@ -17,8 +17,6 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 ZSH_DISABLE_COMPFIX="true"
 
-
-
 # alias
 alias v='nvim'
 
@@ -75,13 +73,13 @@ alias pip='/usr/local/bin/pip3'
 # customer directory
 alias www="/Users/xd/Documents/www"
 alias work="/Users/xd/Documents/work"
-alias dep="/Users/xd/Documents/depository"
+alias dep="/Users/xd/Documents/dep"
 alias ws="open -a webstorm"
 
 # nvm config
-export NVM_DIR="$HOME/.nvm"
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"
-[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"
+# [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"
 
 # nvm hook
 
@@ -102,7 +100,7 @@ export NVM_DIR="$HOME/.nvm"
 #     echo "Reverting to nvm default version"
 #     nvm use default
 #   fi
-# }
+}
 # add-zsh-hook chpwd load-nvmrc
 # load-nvmrc
 
@@ -200,6 +198,3 @@ export npm_config_robotjs_binary_host="https://cdn.npmmirror.com/binaries/robotj
 # rust proxy
 export RUSTUP_DIST_SERVER="https://rsproxy.cn"
 export RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"
-
-export PATH="/usr/local/opt/node@18/bin:$PATH"
-export PATH="/usr/local/opt/node@14/bin:$PATH"
