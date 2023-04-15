@@ -100,7 +100,7 @@ alias ws="open -a webstorm"
 #     echo "Reverting to nvm default version"
 #     nvm use default
 #   fi
-}
+# }
 # add-zsh-hook chpwd load-nvmrc
 # load-nvmrc
 
