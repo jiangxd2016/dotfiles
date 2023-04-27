@@ -1,0 +1,330 @@
+/**
+控制台快捷键
+⌃ + u：清空当前行
+⌃ + a：移动到行首
+⌃ + e：移动到行尾
+⌃ + f：向前移动
+⌃ + b：向后移动
+⌃ + p：上一条命令
+⌃ + n：下一条命令
+⌃ + r：搜索历史命令
+⌃ + y：召回最近用命令删除的文字
+⌃ + h：删除光标之前的字符
+⌃ + d：删除光标所指的字符
+⌃ + w：删除光标之前的单词
+⌃ + k：删除从光标到行尾的内容
+⌃ + t：交换光标和之前的字符
+——————————————————————————————————
+**/
+/**
+  option 为hammerspoon的功能键
+  option + shift 为hammerspoon的扩展功能键
+
+  cmd 为编辑器的控制键
+  cmd + shift 为编辑器的扩展控制键
+**/
+/**
+
+vim 相关
+
+ // vim-easymotion#
+  <leader><leader> w 像后移动 到单词开头
+  <leader><leader> b 像前移动到单词开头
+  <leader><leader> e 向后移动到单词结尾
+  <leader><leader> ge 向前移动到单词结尾
+  <leader><leader> l 向光标位置右后部分全局移动
+  <leader><leader> h 向光标位置左上部分移动
+  <leader><leader> j 向下移动到某一行开头
+  <leader><leader> k 向上移动到某一行开头
+  <leader><leader><leader> j 全局移动 `
+
+  // 处理包裹的字符
+    c s ' 将'改为
+    y s i w { 给一个单词加花括号
+    y s i w <div>t 单词包裹标签
+    d s " 删除字符周围的"
+    可视化模式下使用选择范围 + S
+
+  // 批量大小写
+    gu + 范围 小写
+    gU + 范围 大写
+    u + 范围 可视化模式下 小写
+    U + 范围 可视化模式下大写
+    ~ 大小写互换
+
+
+  // 
+    ctrl + f 向下移动一屏
+    ctrl + b 向上移动一屏
+    ctrl + d 向下滚动半屏
+    ctrl + u 向上滚动半屏
+    Ctrl + e 向下滚动一行
+    ctrl + y 向上滚动一行
+    zz 将当前行置于屏幕中央
+    zt 将当前行置于屏幕顶部
+    zb 将当前行置于屏幕底部
+    gg 调到文件首
+    G 调到文件尾
+    行数 + gg/G 调到指定行
+  
+**/
+[
+  /********************************/
+  /* cmd+number(数字键),切换左侧控制 */
+  /*******************************/
+  // 资源管理器
+  {
+    "key": "cmd+1",
+    "command": "workbench.view.explorer",
+    "when": "viewContainer.workbench.view.explorer.enabled"
+  },
+  //  搜索
+  {
+    "key": "cmd+2",
+    "command": "workbench.view.search",
+    "when": "workbench.view.search.active"
+  },
+  // git 代码管理
+  {
+    "key": "cmd+3",
+    "command": "workbench.view.scm",
+    "when": "workbench.scm.active"
+  },
+  /************************************/
+  /*  cmd+number(数字键) end */
+  /************************************/
+  /************************************/
+  /*  当进入编辑器的文件管理(资源管理器)时,使用单独的按键控制 */
+  /************************************/
+  // 新建文件
+  {
+    "key": "i",
+    "command": "explorer.newFile",
+    "when": " explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus "
+  },
+  // 新建目录
+  {
+    "key": "o",
+    "command": "explorer.newFolder",
+    "when": " explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus "
+  },
+  // 刷新资源管理器
+  {
+    "key": "r",
+    "command": "workbench.files.action.refreshFilesExplorer",
+    "when": " explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus "
+  },
+  // 重命名文件或目录
+  {
+    "key": "a",
+    "command": "renameFile",
+    "when": " explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus "
+  },
+  // 删除文件或目录
+  {
+    "key": "d",
+    "command": "deleteFile",
+    "when": " explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus "
+  },
+  // 剪切文件或目录
+  {
+    "key": "x",
+    "command": "filesExplorer.cut",
+    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  // 复制文件或目录
+  {
+    "key": "y",
+    "command": "filesExplorer.copy",
+    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !inputFocus"
+  },
+  // 粘贴文件或目录
+  {
+    "key": "p",
+    "command": "filesExplorer.paste",
+    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
+  },
+  /****************************************/
+  /*  当进入编辑器的文件管理(资源管理器)时,使用单独的按键控制 end */
+  /****************************************/
+  /****************************************/
+  /* cmd + ? */
+  /****************************************/
+  // 当前文件内替换
+  {
+    "key": "cmd+r",
+    "command": "editor.action.startFindReplaceAction",
+    "when": "editorFocus || editorIsOpen"
+  },
+  // 返回
+  {
+    "key": "ctrl+-",
+    "command": "workbench.action.navigateBack",
+    "when": "canNavigateBack"
+  },
+  // 前进
+  {
+    "key": "ctrl+=",
+    "command": "workbench.action.navigateForward",
+    "when": "canNavigateForward"
+  },
+  // 触发帮助提示
+  {
+    "key": "cmd+h",
+    "command": "editor.action.showHover",
+    "when": "editorTextFocus"
+  },
+  // 触发参数提示
+  {
+    "key": "cmd+l",
+    "command": "editor.action.triggerParameterHints",
+    "when": "editorHasSignatureHelpProvider && editorTextFocus"
+  },
+  // 触发建议提示
+  {
+    "key": "cmd+i",
+    "command": "editor.action.triggerSuggest",
+    "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly"
+  },
+  // 移动到下一个建议
+  {
+    "key": "cmd+n",
+    "command": "selectNextSuggestion",
+    "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+  },
+  // 移动到上一个建议
+  {
+    "key": "cmd+p",
+    "command": "selectPrevSuggestion",
+    "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+  },
+  // 转到实现
+  {
+    "key": "cmd+k",
+    "command": "editor.action.goToImplementation",
+    "when": "editorHasImplementationProvider && editorTextFocus && !isInEmbeddedEditor"
+  },
+  // 速览定义（快速浏览定义的代码）
+  {
+    "key": "cmd+d",
+    "command": "editor.action.peekDefinition",
+    "when": "editorHasDefinitionProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
+  },
+  // 转到定义
+  {
+    "key": "cmd+;",
+    "command": "editor.action.revealDefinition",
+    "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
+  },
+  // 聚集在第一个选项卡中
+  {
+    "key": "cmd+e",
+    "command": "workbench.action.focusFirstEditorGroup",
+    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus || terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+  },
+  //--------------------//
+  // 终端相关,只在终端获取焦点时生效
+  // 拆分终端 ==> cmd+ |
+
+  //在终端中聚焦下一个终端
+  {
+    "key": "cmd+shift+]",
+    "command": "workbench.action.terminal.focusPreviousPane",
+    "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+  },
+  //在终端中聚焦上一个终端
+  {
+    "key": "cmd+shift+[",
+    "command": "workbench.action.terminal.focusNextPane",
+    "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+  },
+  // 删除当前聚焦到终端
+  {
+    "key": "cmd+w",
+    "command": "workbench.action.terminal.kill",
+    "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+  },
+  //--------------------//
+  // 按名称搜索文件时，下一个匹配项
+  {
+    "key": "cmd+j",
+    "command": "workbench.action.quickOpenNavigateNextInFilePicker",
+    "when": "inFilesPicker && inQuickOpen"
+  },
+  // 转到实现
+  {
+    "key": "cmd+k",
+    "command": "workbench.action.quickOpenNavigatePreviousInFilePicker",
+    "when": "inFilesPicker && inQuickOpen"
+  },
+
+  /****************************************/
+  /* ctrl + ?  end */
+  /****************************************/
+  {
+    "key": "shift+cmd+r",
+    "command": "workbench.action.replaceInFiles"
+  },
+  {
+    "key": "shift+cmd+h",
+    "command": "-workbench.action.replaceInFiles"
+  },
+  {
+    "key": "shift+cmd+e",
+    "command": "-workbench.view.explorer",
+    "when": "viewContainer.workbench.view.explorer.enabled"
+  },
+  // 切换到上一个选项卡
+  {
+    "key": "cmd+shift+[",
+    "command": "workbench.action.previousEditor",
+    "when": "editorFocus"
+  },
+  // 切换到下一个选项卡
+  {
+    "key": "cmd+shift+]",
+    "command": "workbench.action.nextEditor",
+    "when": "editorFocus"
+  },
+  // 取消默认的上一个选项卡 ,如上,添加编辑器聚焦的条件
+  {
+    "key": "shift+cmd+[",
+    "command": "-workbench.action.previousEditor"
+  },
+  // 拆分一个左右分屏 cmd + |
+  // 取消默认的zoom
+  {
+    "key": "ctrl+shift+-",
+    "command": "-workbench.action.navigateForward",
+    "when": "canNavigateForward"
+  },
+  // 格式化代码
+  {
+    "key": "cmd+shift+l",
+    "command": "editor.action.formatDocument",
+    "when": "editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly && !inCompositeEditor"
+  },
+  // 检索的下一个匹配相
+  {
+    "key": "cmd+shift+k",
+    "command": "search.action.focusNextSearchResult",
+    "when": "hasSearchResult || inSearchEditor"
+  },
+  // 检索时，上一个匹配
+  {
+    "key": "cmd+shift+j",
+    "command": "search.action.focusPreviousSearchResult",
+    "when": "hasSearchResult || inSearchEditor"
+  },
+  // 当编辑器获取焦点时,shift+cmd+t 聚焦控制台
+  {
+    "key": "shift+cmd+t",
+    "command": "workbench.action.terminal.focus",
+    "when": "editorFocus"
+  },
+  {
+    "key": "ctrl+u",
+    "command": "cursorPageUp",
+    "when": "textInputFocus"
+  },
+]
