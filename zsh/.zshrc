@@ -15,6 +15,7 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
+
 ZSH_DISABLE_COMPFIX="true"
 
 # alias
