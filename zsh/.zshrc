@@ -165,8 +165,8 @@ tts() {
 }
 
 
-export PATH="/usr/local/opt/node@18/bin:$PATH"
-export PATH="/usr/local/opt/openjdk/bin:$PATH"
+# export PATH="/usr/local/opt/node@18/bin:$PATH"
+# export PATH="/usr/local/opt/openjdk/bin:$PATH"
 
 # pnpm
 export PNPM_HOME="/Users/xd/Library/pnpm"
