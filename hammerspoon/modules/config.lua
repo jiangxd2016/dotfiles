@@ -15,8 +15,7 @@ defaultConfig = {{
     module = 'modules.system',
     name = '系统信息',
     enable = true
-}, 
--- {
+}, -- {
 --     module = 'modules.keystroke-visualizer',
 --     name = '按键回显',
 --     enable = true
@@ -25,13 +24,11 @@ defaultConfig = {{
     module = 'modules.weather',
     name = '天气预报',
     enable = true
-}, 
-{
+}, {
     module = 'modules.clipboard',
     name = '剪切板',
     enable = true
-}, 
--- {
+} -- {
 --     module = 'modules.hotkey',
 --     name = '快捷键列表查看',
 --     enable = true

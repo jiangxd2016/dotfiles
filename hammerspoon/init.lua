@@ -4,4 +4,5 @@ require "modules.tiny"
 require "modules.jq"
 require 'modules.search'
 require 'modules.git'
-require 'modules.bookMark'
+require 'modules.bookmark'
+require "modules.cache"

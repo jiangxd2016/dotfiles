@@ -57,75 +57,134 @@ function init()
 end
 
 function scan()
-        if interface then
-            obj.current_down = hs.execute('netstat -ibn | grep -e ' .. interface .. ' -m 1 | awk \'{print $7}\'')
-            obj.current_up = hs.execute('netstat -ibn | grep -e ' .. interface .. ' -m 1 | awk \'{print $10}\'')
-        else
-            obj.current_down  = 0
-            obj.current_up = 0
-        end
+    if interface then
+        obj.current_down = hs.execute('netstat -ibn | grep -e ' .. interface .. ' -m 1 | awk \'{print $7}\'')
+        obj.current_up = hs.execute('netstat -ibn | grep -e ' .. interface .. ' -m 1 | awk \'{print $10}\'')
+    else
+        obj.current_down = 0
+        obj.current_up = 0
+    end
 
-        obj.cpu_used = getCpu()
-        obj.disk_used = getRootVolumes()
-        obj.mem_used = getVmStats()
-        obj.down_bytes = obj.current_down - (obj.last_down or 0)
-        obj.up_bytes = obj.current_up - (obj.last_up or 0)
-    
-        obj.down_speed = format_speed(obj.down_bytes)
-        obj.up_speed = format_speed(obj.up_bytes)
-    
-        obj.display_text = hs.styledtext.new('▲ ' .. obj.up_speed .. '\n'..'▼ ' .. obj.down_speed , {font={size=9}, color={hex='#FFFFFF'}, paragraphStyle={alignment="left", maximumLineHeight=18}})
-        obj.display_disk_text = hs.styledtext.new(obj.disk_used ..'\n'.. 'SSD ' , {font={size=9}, color={hex='#FFFFFF'}, paragraphStyle={alignment="left", maximumLineHeight=18}})
-        obj.display_mem_text = hs.styledtext.new(obj.mem_used ..'\n'.. 'MEM ' , {font={size=9}, color={hex='#FFFFFF'}, paragraphStyle={alignment="left", maximumLineHeight=18}})
-        obj.display_cpu_text = hs.styledtext.new(obj.cpu_used ..'\n'.. 'CPU ' , {font={size=9}, color={hex='#FFFFFF'}, paragraphStyle={alignment="left", maximumLineHeight=18}})
-    
-        obj.last_down = obj.current_down
-        obj.last_up = obj.current_up
+    obj.cpu_used = getCpu()
+    obj.disk_used = getRootVolumes()
+    obj.mem_used = getVmStats()
+    obj.down_bytes = obj.current_down - (obj.last_down or 0)
+    obj.up_bytes = obj.current_up - (obj.last_up or 0)
 
-        obj.display_text = hs.styledtext.new('▲ ' .. obj.up_speed .. '\n▼ ' .. obj.down_speed, {
-            font = {
-                size = 9
-            },
-            color = {
-                hex = '#FFFFFF'
-            },
-            paragraphStyle = {
-                alignment = "left",
-                maximumLineHeight = 18
-            }
-        })
+    obj.down_speed = format_speed(obj.down_bytes)
+    obj.up_speed = format_speed(obj.up_bytes)
 
-        obj.last_down = obj.current_down
-        obj.last_up = obj.current_up
-
-        local canvas = hs.canvas.new {
-            x = 0,
-            y = 0,
-            h = 24,
-            w = 30+30+30+60
+    obj.display_text = hs.styledtext.new('▲ ' .. obj.up_speed .. '\n' .. '▼ ' .. obj.down_speed, {
+        font = {
+            size = 9
+        },
+        color = {
+            hex = '#FFFFFF'
+        },
+        paragraphStyle = {
+            alignment = "left",
+            maximumLineHeight = 18
         }
-        canvas:appendElements({
-            type = "text",
-            text = obj.display_cpu_text,
-            trackMouseEnterExit = true,
-            },{
-            type = "text",
-            text = obj.display_disk_text,
-            trackMouseEnterExit = true,
-            frame = { x = 30, y = "0", h = "1", w = "1", }
-            },{
-            type = "text",
-            text = obj.display_mem_text,
-            trackMouseEnterExit = true,
-            frame = { x = 60, y = "0", h = "1", w = "1", }
-            },{
-            type = "text",
-            text = obj.display_text,
-            trackMouseEnterExit = true,
-            frame = { x = 90, y = "0", h = "1", w = "1", }
-            })
-        menubar:setIcon(canvas:imageFromCanvas())
-        canvas = nil
+    })
+    obj.display_disk_text = hs.styledtext.new(obj.disk_used .. '\n' .. 'SSD ', {
+        font = {
+            size = 9
+        },
+        color = {
+            hex = '#FFFFFF'
+        },
+        paragraphStyle = {
+            alignment = "left",
+            maximumLineHeight = 18
+        }
+    })
+    obj.display_mem_text = hs.styledtext.new(obj.mem_used .. '\n' .. 'MEM ', {
+        font = {
+            size = 9
+        },
+        color = {
+            hex = '#FFFFFF'
+        },
+        paragraphStyle = {
+            alignment = "left",
+            maximumLineHeight = 18
+        }
+    })
+    obj.display_cpu_text = hs.styledtext.new(obj.cpu_used .. '\n' .. 'CPU ', {
+        font = {
+            size = 9
+        },
+        color = {
+            hex = '#FFFFFF'
+        },
+        paragraphStyle = {
+            alignment = "left",
+            maximumLineHeight = 18
+        }
+    })
+
+    obj.last_down = obj.current_down
+    obj.last_up = obj.current_up
+
+    obj.display_text = hs.styledtext.new('▲ ' .. obj.up_speed .. '\n▼ ' .. obj.down_speed, {
+        font = {
+            size = 9
+        },
+        color = {
+            hex = '#FFFFFF'
+        },
+        paragraphStyle = {
+            alignment = "left",
+            maximumLineHeight = 18
+        }
+    })
+
+    obj.last_down = obj.current_down
+    obj.last_up = obj.current_up
+
+    local canvas = hs.canvas.new {
+        x = 0,
+        y = 0,
+        h = 24,
+        w = 30 + 30 + 30 + 60
+    }
+    canvas:appendElements({
+        type = "text",
+        text = obj.display_cpu_text,
+        trackMouseEnterExit = true
+    }, {
+        type = "text",
+        text = obj.display_disk_text,
+        trackMouseEnterExit = true,
+        frame = {
+            x = 30,
+            y = "0",
+            h = "1",
+            w = "1"
+        }
+    }, {
+        type = "text",
+        text = obj.display_mem_text,
+        trackMouseEnterExit = true,
+        frame = {
+            x = 60,
+            y = "0",
+            h = "1",
+            w = "1"
+        }
+    }, {
+        type = "text",
+        text = obj.display_text,
+        trackMouseEnterExit = true,
+        frame = {
+            x = 90,
+            y = "0",
+            h = "1",
+            w = "1"
+        }
+    })
+    menubar:setIcon(canvas:imageFromCanvas())
+    canvas = nil
 end
 
 function format_speed(bytes)
@@ -144,8 +203,6 @@ function format_speed(bytes)
         end
     end
 end
-
-
 
 function getCpu()
     local data = hs.host.cpuUsage()
@@ -172,17 +229,17 @@ function getVmStats()
     -- --第二种方法使用 总内存-缓存内存-空闲内存 = 已使用内存
     -- local megsUsed = totalMegs - megsCached - freeMegs
 
-    --第三种方法，由于部分设备pageSize获取不正确，所以只能通过已使用页数+缓存页数+空闲页数计算总页数
-    local megsUsed =  vmStats.pagesWiredDown -- 联动内存
+    -- 第三种方法，由于部分设备pageSize获取不正确，所以只能通过已使用页数+缓存页数+空闲页数计算总页数
+    local megsUsed = vmStats.pagesWiredDown -- 联动内存
     megsUsed = megsUsed + vmStats.pagesUsedByVMCompressor -- 被压缩内存
-    megsUsed = megsUsed + vmStats.pagesActive +vmStats.pagesSpeculative -- APP内存
+    megsUsed = megsUsed + vmStats.pagesActive + vmStats.pagesSpeculative -- APP内存
 
-    local megsCached = vmStats.fileBackedPages   --缓存内存
-    local freeMegs = vmStats.pagesFree   --空闲内存
+    local megsCached = vmStats.fileBackedPages -- 缓存内存
+    local freeMegs = vmStats.pagesFree -- 空闲内存
 
     local totalMegs = megsUsed + megsCached + freeMegs
 
-    local usedMem = megsUsed/totalMegs * 100
+    local usedMem = megsUsed / totalMegs * 100
     return formatPercent(usedMem)
 end
 
@@ -191,8 +248,8 @@ function getRootVolumes()
     for key, vol in pairs(vols) do
         local size = vol.NSURLVolumeTotalCapacityKey
         local free = vol.NSURLVolumeAvailableCapacityKey
-        local usedSSD = (1-free/size) * 100
-        if ( string.find(vol.NSURLVolumeNameKey,'Macintosh') ~= nil) then
+        local usedSSD = (1 - free / size) * 100
+        if (string.find(vol.NSURLVolumeNameKey, 'Macintosh') ~= nil) then
             return formatPercent(usedSSD)
         end
     end
@@ -200,17 +257,16 @@ function getRootVolumes()
 end
 
 function formatPercent(percent)
-    if ( percent <= 0 ) then
+    if (percent <= 0) then
         return "  1%"
-    elseif ( percent < 10 ) then
+    elseif (percent < 10) then
         return "  " .. string.format("%.f", percent) .. "%"
-    elseif  (percent > 99 )then
+    elseif (percent > 99) then
         return "100%"
     else
         return string.format("%.f", percent) .. "%"
     end
 end
-
 
 init()
 scan()

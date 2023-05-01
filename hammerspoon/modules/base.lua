@@ -184,15 +184,31 @@ function encodeURI(s)
     return string.gsub(s, " ", "+")
 end
 
-function string.starts(String,Start)
-    return string.sub(String,1,string.len(Start))==Start
- end
-  
- function string.ends(String,End)
-    return End=='' or string.sub(String,-string.len(End))==End
- end
+function string.starts(String, Start)
+    return string.sub(String, 1, string.len(Start)) == Start
+end
 
--- 是否是git项目，判断目录里是否有 .git 文件夹
- function isGitSync(dir)
-    return lfs.attributes(dir .. "/.git", "mode") == "directory"
-  end
+function string.ends(String, End)
+    return End == '' or string.sub(String, -string.len(End)) == End
+end
+
+function isEmpty(tbl)
+    if next(tbl) ~= nil then
+        return true
+    else
+        return false
+    end
+end
+-- git 项目读取的文件夹
+findDir = "Documents"
+-- 书签位置
+chromeDir = 'Library/Application Support/Google/Chrome/Default/'
+
+USER_HOME = os.getenv("HOME") or os.getenv("USERPROFILE")
+dir = USER_HOME .. "/" .. findDir
+BookmarksPath = USER_HOME .. "/" .. chromeDir .. "Bookmarks"
+
+CacheDir = os.getenv("HOME") .. "/.cache"
+
+bookmarksFile = CacheDir .. "/bookmarks.json"
+gitCacheFile = CacheDir .. "/git.json"

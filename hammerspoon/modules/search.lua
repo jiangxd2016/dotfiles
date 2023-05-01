@@ -14,8 +14,14 @@ local SeachUrl = {{
 }, {
     key = "h",
     text = "Github",
-    url = "https://github.com/search?q="
-}}
+    url = "https://github.com/search?q=",
+},
+ {
+    key = "n",
+    text = "npm",
+    url = "https://www.npmjs.com/search?q",
+}
+}
 
 local searchChooser = hs.chooser.new(function(choice)
     if not choice then
@@ -39,8 +45,6 @@ local function request(query)
         return
     end
 
-    print(toolId)
-
     for _, w in ipairs(SeachUrl) do
         table.insert(choices, {
             text = w.text,
@@ -61,7 +65,6 @@ local select_key = hs.eventtap.new({hs.eventtap.event.types.keyDown}, function(e
     local key = hs.keycodes.map[keycode]
 
     number = searchChooser:selectedRow();
-    print(number, len)
     if 'down' == key then
         if number < len then
             number = number + 1
@@ -80,7 +83,6 @@ local select_key = hs.eventtap.new({hs.eventtap.event.types.keyDown}, function(e
 end):start()
 
 hs.hotkey.bind(search.prefix, search.key, function()
-    print("search dialog open event")
     allWindows = hs.window.allWindows();
     searchChooser:query('')
     searchChooser:show()
@@ -89,7 +91,6 @@ end)
 local changed_chooser = searchChooser:queryChangedCallback(function()
     hs.timer.doAfter(0.1, function()
         local query = searchChooser:query();
-        print(query)
         request(query)
     end)
 end)

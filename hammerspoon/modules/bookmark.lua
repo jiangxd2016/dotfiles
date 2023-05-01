@@ -1,32 +1,36 @@
 require 'modules.base'
 require 'modules.shortcut'
-require "cache.bookmarks"
+require 'modules.cache'
+
 local choices = {}
 
-bookmarksChooser = hs.chooser.new(function(choice)
-    if not choice then
-        return
-    end
-    choice.text = trim(choice.text)
-    local default_browser = hs.urlevent.getDefaultHandler('http')
-    hs.urlevent.openURLWithBundle(choice.url, default_browser)
-end)
-bookmarksChooser:width(30)
-bookmarksChooser:rows(10)
-bookmarksChooser:fgColor({
-    hex = '#51c4d3'
-})
-bookmarksChooser:placeholderText('请输入')
+setBookMarksLuaFile()
 
+local function readCache()
+    hs.fs.mkdir(bookmarksFile)
+    local cacheFile = io.open(bookmarksFile, "r")
+    if cacheFile then
+        local content = cacheFile:read("*a")
+        if content ~= "" then
+            return hs.json.decode(content)
+        end
+    end
+    return {}
+end
+
+local bookmarks = {}
+
+if isEmpty(bookmarks) == false then
+    bookmarks = readCache()
+end
 local function request(query)
     choices = {}
     query = trim(query)
     if query == '' then
         return
     end
-
-    print(toolId)
     for _, w in ipairs(bookmarks) do
+        print(w)
         if (string.find(w.name, query) == nil and string.find(w.url, query) == nil) then
         else
             table.insert(choices, {
@@ -49,7 +53,6 @@ local select_key = hs.eventtap.new({hs.eventtap.event.types.keyDown}, function(e
     local key = hs.keycodes.map[keycode]
 
     number = bookmarksChooser:selectedRow();
-    print(number, len)
     if 'down' == key then
         if number < len then
             number = number + 1
@@ -67,8 +70,22 @@ local select_key = hs.eventtap.new({hs.eventtap.event.types.keyDown}, function(e
     row_contents = bookmarksChooser:selectedRowContents(number)
 end):start()
 
+bookmarksChooser = hs.chooser.new(function(choice)
+    if not choice then
+        return
+    end
+    choice.text = trim(choice.text)
+    local default_browser = hs.urlevent.getDefaultHandler('http')
+    hs.urlevent.openURLWithBundle(choice.url, default_browser)
+end)
+bookmarksChooser:width(30)
+bookmarksChooser:rows(10)
+bookmarksChooser:fgColor({
+    hex = '#51c4d3'
+})
+bookmarksChooser:placeholderText('请输入')
+
 hs.hotkey.bind(bookmarkKey.prefix, bookmarkKey.key, function()
-    print("bookmarks dialog open event")
     allWindows = hs.window.allWindows();
     bookmarksChooser:query('')
     bookmarksChooser:show()
@@ -77,7 +94,6 @@ end)
 local changed_chooser = bookmarksChooser:queryChangedCallback(function()
     hs.timer.doAfter(0.1, function()
         local query = bookmarksChooser:query();
-        print(query)
         request(query)
     end)
 end)

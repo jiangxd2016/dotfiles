@@ -209,7 +209,6 @@ function addGxc(t,zb)--恒星周年光行差计算(黄道坐标中)
     local dP=p-zb[1]
     zb[1]=zb[1] - (GXC_k * (math.cos(dL)-e*math.cos(dP)) / math.cos(zb[2]))
     zb[2]=zb[2] - (GXC_k * math.sin(zb[2]) * (math.sin(dL)-e*math.sin(dP)))
-    --print('aa', L,p,e,dL,dP,zb[1], zb[2])
     zb[1]=rad2mrad(zb[1])
 end
 
@@ -388,28 +387,22 @@ function Enn(F) --计算E10,E11,E20等,即:某一组周期项或泊松项算出,
     local v=0
     for i=1,#F,3 do
         v=v+F[i]*math.cos(F[i+1]+EnnT*F[i+2])
-        --print('Fsize=' .. #F, 'i=' .. i, 'v='..v, 'F[i]='..F[i], 'm='..math.cos(F[i+1]+EnnT*F[i+2]))
     end
     return v
 end
 
 function earCal(jd)--返回地球位置,日心Date黄道分点坐标
     EnnT=jd/365250
-    --print('EnnT=' .. EnnT)
     local llr={}
     local t1=EnnT
     local t2=t1*t1
     local t3=t2*t1
     local t4=t3*t1
     local t5=t4*t1
-    --print('t1='..t1, 't2='..t2, 't3='..t3, 't4='..t4, 't5='..t5)
     llr[1] =Enn(E10) +Enn(E11)*t1 +Enn(E12)*t2 +Enn(E13)*t3 +Enn(E14)*t4 +Enn(E15)*t5
-    --print('sppp')
     llr[2] =Enn(E20) +Enn(E21)*t1
-    --print('eppp')
     llr[3] =Enn(E30) +Enn(E31)*t1 +Enn(E32)*t2 +Enn(E33)*t3
     llr[1]=rad2mrad(llr[1])
-    --print('llr[0]='..llr[1], 'llr[1]='..llr[2], 'llr[2]='..llr[3])
     return llr
 end
 
@@ -472,7 +465,6 @@ function jiaoCai(lx,t,jiao)
     local sun=earCal(t)  --计算太阳真位置(先算出日心坐标中地球的位置)
     sun[1]=sun[1] + math.pi sun[2]=-sun[2] --转为地心坐标
     addGxc(t,sun)      --补周年光行差
-    --print('sun[1]=' .. sun[1], 'sun[2]=' .. sun[2])
     if lx==0 then
         local d=nutation(t)
         sun[1]=sun[1] + d.Lon --补黄经章动
@@ -498,10 +490,8 @@ function jiaoCal(t1,jiao,lx) --t1是J2000起算儒略日数
     end
     jiao=jiao*math.pi/180  --待搜索目标角
     --利用截弦法计算
-    --print('lx=' .. lx .. ', t1=' .. t1 .. ', t2=' .. t2 .. ', jiao=' .. jiao)
     local v1=jiaoCai(lx,t1,jiao)           --v1,v2为t1,t2时对应的黄经
     local v2=jiaoCai(lx,t2,jiao)
-    --print('v1=' .. v1 .. ', v2=' ..v2)
     if v1<v2 then v2=v2 - 2*math.pi end  --减2pi作用是将周期性角度转为连续角度
     local k=1,k2,i  --k是截弦的斜率
     for i=1,10 do       --快速截弦求根,通常截弦三四次就已达所需精度
@@ -524,7 +514,6 @@ function JQtest(y) --节气使计算范例,y是年分,这是个测试函数
     local i
     local jd=365.2422*(y-2000)
     local q,s1,s2
-    print("节气:世界时  原子时")
     for i=0,23 do
         q=jiaoCal(jd+i*15.2,i*15,0)+J2000+8/24  --计算第i个节气(i=0是春风),结果转为北京时
         print('q=' .. q)
@@ -554,20 +543,13 @@ function getCurrentJQ() --返回一年中各个节气的时间表，从春分开
   local jq = {}
   local jqcn = ''
   local now = os.time()
-  print(y)
-  print(jd)
   for i=0,23 do
     q=jiaoCal(jd+i*15.2,i*15,0)+J2000+8/24  --计算第i个节气(i=0是春风),结果转为北京时
     JDate:setFromJD(q,1)  
     jq[i+1] = JDate:JQ()  --将儒略日转成世界时
-    print('kkkk:'..q)
-    print('kkkk:'..jq[i+1])
     if jq[i+1]<now then
       jqcn = jqB[i+1]
     else
-      print(JDate:toStr())
-      print(jqB[i+1])
-       
     end		
   end
   print('xxxx:'..jqcn)

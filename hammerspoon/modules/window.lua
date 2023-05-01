@@ -11,7 +11,7 @@ window.animationDuration = 0
 -- 窗口移动
 -- 左半屏
 hotkey.bind(windows.left.prefix, windows.left.key, nil, function()
-    local win =window.focusedWindow()
+    local win = window.focusedWindow()
     local f = win:frame()
     local screen = win:screen()
     local max = screen:frame()
@@ -25,7 +25,7 @@ end)
 
 -- 右半屏
 hotkey.bind(windows.right.prefix, windows.right.key, nil, function()
-    local win =window.focusedWindow()
+    local win = window.focusedWindow()
     local f = win:frame()
     local screen = win:screen()
     local max = screen:frame()
@@ -39,7 +39,7 @@ end)
 
 -- 上半屏
 hotkey.bind(windows.up.prefix, windows.up.key, nil, function()
-    local win =window.focusedWindow()
+    local win = window.focusedWindow()
     local f = win:frame()
     local screen = win:screen()
     local max = screen:frame()
@@ -53,7 +53,7 @@ end)
 
 -- 下半屏
 hotkey.bind(windows.down.prefix, windows.down.key, nil, function()
-    local win =window.focusedWindow()
+    local win = window.focusedWindow()
     local f = win:frame()
     local screen = win:screen()
     local max = screen:frame()
@@ -64,8 +64,6 @@ hotkey.bind(windows.down.prefix, windows.down.key, nil, function()
     f.h = max.h / 2
     win:setFrame(f)
 end)
-
-
 
 -- 判断指定屏幕是否为竖屏
 function isVerticalScreen(screen)
@@ -78,7 +76,7 @@ end
 
 -- 居中
 hotkey.bind(windows.center.prefix, windows.center.key, nil, function()
-    local win =window.focusedWindow()
+    local win = window.focusedWindow()
     local f = win:frame()
     local screen = win:screen()
     local max = screen:frame()
@@ -92,7 +90,7 @@ end)
 
 -- 等比例放大窗口
 hotkey.bind(windows.zoom.prefix, windows.zoom.key, nil, function()
-    local win =window.focusedWindow()
+    local win = window.focusedWindow()
     local f = win:frame()
     local screen = win:screen()
     local max = screen:frame()
@@ -118,7 +116,7 @@ end)
 
 -- 等比例缩小窗口
 hotkey.bind(windows.narrow.prefix, windows.narrow.key, nil, function()
-    local win =window.focusedWindow()
+    local win = window.focusedWindow()
     local f = win:frame()
     f.w = f.w - 40
     f.h = f.h - 40
@@ -129,13 +127,13 @@ end)
 
 -- 最大化
 hotkey.bind(windows.max.prefix, windows.max.key, nil, function()
-    local win =window.focusedWindow()
+    local win = window.focusedWindow()
     win:maximize()
 end)
 
 -- 将窗口移动到上方屏幕
 hotkey.bind(windows.to_up.prefix, windows.to_up.key, nil, function()
-    local win =window.focusedWindow()
+    local win = window.focusedWindow()
     if (win) then
         win:moveOneScreenNorth()
     end
@@ -143,7 +141,7 @@ end)
 
 -- 将窗口移动到下方屏幕
 hotkey.bind(windows.to_down.prefix, windows.to_down.key, nil, function()
-    local win =window.focusedWindow()
+    local win = window.focusedWindow()
     if (win) then
         win:moveOneScreenSouth()
     end
@@ -151,8 +149,7 @@ end)
 
 -- 将窗口移动到左侧屏幕
 hotkey.bind(windows.to_left.prefix, windows.to_left.key, nil, function()
-    print("to_left")
-    local win =window.focusedWindow()
+    local win = window.focusedWindow()
     if (win) then
         win:moveOneScreenWest()
     end
@@ -160,7 +157,7 @@ end)
 
 -- 将窗口移动到右侧屏幕
 hotkey.bind(windows.to_right.prefix, windows.to_right.key, nil, function()
-    local win =window.focusedWindow()
+    local win = window.focusedWindow()
     if (win) then
         win:moveOneScreenEast()
     end
@@ -177,44 +174,40 @@ function moveWindowMonitor(direction)
     end
 end
 
-hs.hotkey.bind(hyperOptCmd, "n", "Move window to the right monitor",
-function()
+hs.hotkey.bind(hyperOptCmd, "n", "Move window to the right monitor", function()
     moveWindowMonitor("west")
 end)
 
-hs.hotkey.bind(hyperOptCmd, "m", "Move window to the left monitor",
-function()
+hs.hotkey.bind(hyperOptCmd, "m", "Move window to the left monitor", function()
     moveWindowMonitor("east")
 end)
-
-
 
 -- maximized active window and move to selected monitor
 local moveto = function(win, n)
     local screens = screen.allScreens()
     if n > #screens then
-      alert.show("Only " .. #screens .. " monitors ")
+        alert.show("Only " .. #screens .. " monitors ")
     else
-      local toWin = screen.allScreens()[n]:name()
-      alert.show("Move " .. win:application():name() .. " to " .. toWin)
-  
-      layout.apply({{nil, win:title(), toWin, layout.maximized, nil, nil}})
-      
+        local toWin = screen.allScreens()[n]:name()
+        alert.show("Move " .. win:application():name() .. " to " .. toWin)
+
+        layout.apply({{nil, win:title(), toWin, layout.maximized, nil, nil}})
+
     end
-  end
-  
-  -- move cursor to monitor 1 and maximize the window
-  hotkey.bind(hyperOpt, "1", function()
+end
+
+-- move cursor to monitor 1 and maximize the window
+hotkey.bind(hyperOpt, "1", function()
     local win = window.focusedWindow()
     moveto(win, 1)
-  end)
-  
-  hotkey.bind(hyperOpt, "2", function()
+end)
+
+hotkey.bind(hyperOpt, "2", function()
     local win = window.focusedWindow()
     moveto(win, 2)
-  end)
-  
-  hotkey.bind(hyperOpt, "3", function()
+end)
+
+hotkey.bind(hyperOpt, "3", function()
     local win = window.focusedWindow()
     moveto(win, 3)
-  end)
+end)

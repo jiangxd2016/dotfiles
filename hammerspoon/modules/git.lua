@@ -1,21 +1,16 @@
 require 'modules.base'
 require 'modules.shortcut'
-require "cache.git"
-
-
-if (gitfile == nil) then
-    print("[error]: gitfile is nil,please reload you cache")
-    gitfile = {}
-end
+require 'modules.cache'
+setGitLuaFile()
 
 local choices = {}
+local allWindows = {}
 
 local gitChooser = hs.chooser.new(function(choice)
     if not choice then
         return
     end
     choice.text = trim(choice.text)
-    print("choice.text==>", choice.text)
     -- 当项目已打开，就直接切换到项目
     for _, w in ipairs(allWindows) do
         if string.find(w:title(), choice.text) == nil then
@@ -29,13 +24,13 @@ local gitChooser = hs.chooser.new(function(choice)
     local command = "open -a \"Visual Studio Code\" " .. choice.path
     hs.execute(command)
 end)
+
 gitChooser:width(30)
 gitChooser:rows(10)
 gitChooser:fgColor({
     hex = '#51c4d3'
 })
 gitChooser:placeholderText('请输入')
-
 
 local function request(query)
     choices = {}
@@ -44,8 +39,8 @@ local function request(query)
         return
     end
 
-    print(toolId)
-    for _, w in ipairs(gitfile) do
+    local filesList = readFileList(FIND_PATH)
+    for _, w in ipairs(filesList) do
         if string.find(w.name, query) == nil then
         else
             table.insert(choices, {
@@ -64,11 +59,10 @@ local select_key = hs.eventtap.new({hs.eventtap.event.types.keyDown}, function(e
     if not gitChooser:isVisible() then
         return
     end
-    local len = 0;
     local keycode = event:getKeyCode()
     local key = hs.keycodes.map[keycode]
-    number = gitChooser:selectedRow();
-    print(number, len)
+    local number = gitChooser:selectedRow();
+    local len = #choices
     if 'down' == key then
         if number < len then
             number = number + 1
@@ -86,11 +80,7 @@ local select_key = hs.eventtap.new({hs.eventtap.event.types.keyDown}, function(e
     row_contents = gitChooser:selectedRowContents(number)
 end):start()
 
-
-
-
 hs.hotkey.bind(git.prefix, git.key, function()
-    print("git dialog open event")
     allWindows = hs.window.allWindows();
     gitChooser:query('')
     gitChooser:show()
@@ -99,8 +89,6 @@ end)
 local changed_chooser = gitChooser:queryChangedCallback(function()
     hs.timer.doAfter(0.1, function()
         local query = gitChooser:query();
-        print(query)
         request(query)
     end)
 end)
-
