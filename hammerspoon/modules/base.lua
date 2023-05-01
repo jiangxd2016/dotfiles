@@ -191,4 +191,8 @@ function string.starts(String,Start)
  function string.ends(String,End)
     return End=='' or string.sub(String,-string.len(End))==End
  end
- 
+
+-- 是否是git项目，判断目录里是否有 .git 文件夹
+ function isGitSync(dir)
+    return lfs.attributes(dir .. "/.git", "mode") == "directory"
+  end
