@@ -19,7 +19,7 @@ local SeachUrl = {{
  {
     key = "n",
     text = "npm",
-    url = "https://www.npmjs.com/search?q",
+    url = "https://www.npmjs.com/search?q=",
 }
 }
 
@@ -41,6 +41,24 @@ searchChooser:placeholderText('请输入')
 local function request(query)
     choices = {}
     query = trim(query)
+
+        -- 如果查询字符串中包含冒号，则解析快捷方式
+    if string.find(query, ":") then
+        local shortcut = string.sub(query, 1, string.find(query, ":") - 1)
+        local searchStr = string.sub(query, string.find(query, ":") + 1)
+        for _, w in ipairs(SeachUrl) do
+            if w.key == shortcut then
+                table.insert(choices, {
+                    text = w.text,
+                    subText = w.url,
+                    url = w.url .. encodeURI(searchStr)
+                })
+            end
+        end
+        searchChooser:choices(choices)
+        return
+    end
+
     if query == '' then
         return
     end

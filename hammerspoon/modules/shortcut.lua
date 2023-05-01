@@ -152,14 +152,8 @@ colorkKey = {
     prefix = hyperOpt,
     key = "p"
 }
-
 Lock = {
     prefix = {"Option"},
     key = "L"
 }
 
--- 快捷键查看面板快捷键配置
-hotkey = {
-    prefix = {"Option"},
-    key = "/"
-}
