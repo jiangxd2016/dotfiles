@@ -41,7 +41,6 @@ function loadBookMarks()
     local bookmarksList = hs.json.decode(bookmarks);
     for _, item in pairs(bookmarksList) do
         if (type(item) == "table") then
-            print(hs.json.encode(item.bookmark_bar.children[1]))
             return readBookMarks(item.bookmark_bar.children[1].children)
         end
     end

@@ -30,7 +30,6 @@ local function request(query)
         return
     end
     for _, w in ipairs(bookmarks) do
-        print(w)
         if (string.find(w.name, query) == nil and string.find(w.url, query) == nil) then
         else
             table.insert(choices, {
