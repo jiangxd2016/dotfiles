@@ -1,0 +1,106 @@
+{
+  "vue2": {
+    "prefix": "vue2",
+    "body": [
+      "<template>",
+      "    <div class=\"main\">\n",
+      "    </div>",
+      "</template>",
+      "<script>",
+      "export default {",
+      "   data() {",
+      "      return {",
+      "      }",
+      "   },",
+      "   methods: {",
+      "     clickHandler() {}",
+      "   },",
+      "   mounted(){}",
+      "}",
+      "</script>",
+      "<style lang='css' scoped>",
+      "</style>",
+      "$2"
+    ],
+    "description": "Log output to console"
+  },
+  "script": {
+    "prefix": "script setup",
+    "body": [
+      "<script setup lang=\"ts\">",
+      "const props = defineProps<{ modelValue: boolean }>()",
+      "</script>\n",
+      "<template>",
+      "  <div>",
+      "    <slot />",
+      "  </div>",
+      "</template>\n",
+      "<style scoped>",
+      "</style>"
+    ],
+    "description": "Log output to console"
+  },
+  "useAttrs": {
+    "prefix": "useAttrs",
+    "body": [
+      "const attrs = useAttrs()"
+    ],
+    "description": "useAttrs"
+  },
+  "defineProps": {
+    "prefix": "defineProps",
+    "body": [
+      "const props = defineProps<{name:any}>()"
+    ],
+    "description": "defineProps"
+  },
+  "ref": {
+    "prefix": "ref",
+    "body": [
+      "const {$1} = ref(${2})"
+    ],
+    "description": "ref"
+  },
+  "reactive": {
+    "prefix": "reactive",
+    "body": [
+      "const {$1} = reactive(${2})"
+    ],
+    "description": "reactive"
+  },
+  "slot": {
+    "prefix": "slot",
+    "body": [
+      "<slot />"
+    ],
+    "description": "slot"
+  },
+  "ts": {
+    "prefix": "<ts",
+    "body": [
+      "<script lang=\"ts\">",
+      "export default {",
+      "  inheritAttrs: false,",
+      "}",
+      "</script>"
+    ]
+  },
+  "defineComponent": {
+    "prefix": "defineComponent",
+    "body": [
+      "import { defineComponent } from 'vue'",
+      "export default defineComponent({",
+      "  name: '$1',",
+      "  props: {",
+      "    $2",
+      "  },",
+      "  setup(props, { attrs, slots }) {",
+      "    return {",
+      "      $3",
+      "    }",
+      "  }",
+      "})"
+    ],
+    "description": "defineComponent"
+  },
+}

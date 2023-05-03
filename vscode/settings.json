@@ -185,5 +185,5 @@
   "[typescript]": {
     "editor.defaultFormatter": "Vue.volar"
   },
-  "Codegeex.Privacy": false
+  "Codegeex.Privacy": false,
 }

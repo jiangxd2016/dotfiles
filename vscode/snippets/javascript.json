@@ -1,0 +1,142 @@
+{
+  "function": {
+    "prefix": "function 新建方法",
+    "body": "function ${1:name}() {${2}}",
+    "description": "方法"
+  },
+  "arrow": {
+    "prefix": "arrowFunction 新建方法",
+    "body": [
+      "const fn = (${1}) => {",
+      "  ${2}",
+      "};"
+    ],
+    "description": "方法"
+  },
+  "import": {
+    "prefix": "import 导入资源",
+    "body": "import {$0} from '';",
+    "description": "导入"
+  },
+  "require": {
+    "prefix": "require",
+    "body": "const {$1} = require('$2')",
+    "description": "require 导入模板"
+  },
+  "log": {
+    "prefix": "log 打印",
+    "body": [
+      "console.log('$1');",
+      "$2"
+    ],
+    "description": "Log output to console"
+  },
+  "forEach": {
+    "prefix": "forEach",
+    "body": [
+      "${1:array}.forEach((${2:i}) => {",
+      "  ${3}",
+      "}"
+    ],
+    "description": "forEach"
+  },
+  "map": {
+    "prefix": "map",
+    "body": [
+      "${1:array}.map((${2:i}) => {",
+      "  ${3}",
+      "}"
+    ],
+    "description": "map"
+  },
+  "filter": {
+    "prefix": "filter",
+    "body": [
+      "${1:array}.filter((${2:i}) => {",
+      "  ${3}",
+      "}"
+    ],
+    "description": "filter 过滤"
+  },
+  "useAttrs": {
+    "prefix": "useAttrs",
+    "body": [
+      "const attrs = useAttrs()"
+    ],
+    "description": "useAttrs"
+  },
+  "defineProps": {
+    "prefix": "defineProps",
+    "body": [
+      "const props = defineProps()"
+    ],
+    "description": "defineProps"
+  },
+  "ref": {
+    "prefix": "ref",
+    "body": [
+      "const {$1} = ref(${2})"
+    ],
+    "description": "ref"
+  },
+  "reactive": {
+    "prefix": "reactive",
+    "body": [
+      "const {$1} = reactive(${2})"
+    ],
+    "description": "reactive"
+  },
+  "useToggle": {
+    "prefix": "useToggle",
+    "body": [
+      "const toggle = useToggle(mode)"
+    ],
+    "description": "useToggle"
+  },
+  "useElementBounding": {
+    "prefix": "useElementBounding",
+    "body": [
+      "const rect = useElementBounding(el)"
+    ],
+    "description": "useElementBounding"
+  },
+  "watch": {
+    "prefix": "watch",
+    "body": [
+      "watch(${1:ref}, (value) => {",
+      "${2}",
+      "})"
+    ],
+    "description": "useElementBounding"
+  },
+  "computed": {
+    "prefix": "computed",
+    "body": [
+      "const result = computed(() => {",
+      "${1}",
+      "})"
+    ],
+    "description": "computed"
+  },
+  "useEventListener": {
+    "prefix": "useEventListener",
+    "body": "useEventListener('resize', update)",
+    "description": "useEventListener"
+  },
+  "watchEffect": {
+    "prefix": "watchEffect",
+    "body": [
+      "watchEffect(() => {",
+      "${1}",
+      "})"
+    ],
+    "description": "watchEffect"
+  },
+  "useStorage": {
+    "prefix": "useStorage",
+    "body": [
+      "useStorage('${1:key}', ${2:defaultValue})"
+    ],
+    "description": "useStorage"
+  }
+}
