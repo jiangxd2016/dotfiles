@@ -199,6 +199,15 @@ function isEmpty(tbl)
         return false
     end
 end
+
+
+--检查中文，存在则返回true
+function CheckChinese(query) 
+    local len = utf8.len(query)
+    local ratio = len / #query
+    return ratio > 0.5
+end
+
 -- git 项目读取的文件夹
 findDir = "Documents"
 -- 书签位置
