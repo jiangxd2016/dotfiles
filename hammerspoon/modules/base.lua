@@ -205,7 +205,8 @@ findDir = "Documents"
 chromeDir = 'Library/Application Support/Google/Chrome/Default/'
 
 USER_HOME = os.getenv("HOME") or os.getenv("USERPROFILE")
-dir = USER_HOME .. "/" .. findDir
+
+GIT_FILES_DIR= USER_HOME .. "/" .. findDir
 BookmarksPath = USER_HOME .. "/" .. chromeDir .. "Bookmarks"
 
 CacheDir = os.getenv("HOME") .. "/.cache"

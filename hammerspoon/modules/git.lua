@@ -5,6 +5,7 @@ setGitLuaFile()
 
 local choices = {}
 local allWindows = {}
+local filesList = readFileList(GIT_FILES_DIR)
 
 local gitChooser = hs.chooser.new(function(choice)
     if not choice then
@@ -39,7 +40,6 @@ local function request(query)
         return
     end
 
-    local filesList = readFileList(FIND_PATH)
     for _, w in ipairs(filesList) do
         if string.find(w.name, query) == nil then
         else

@@ -10,11 +10,11 @@ local function isGitSync(dir)
     end
 end
 
-function readFileList(dir)
+function readFileList(fileDir)
     local filesList = {}
-    for item in hs.fs.dir(dir) do
+    for item in hs.fs.dir(fileDir) do
         if item ~= "." and item ~= ".." and item ~= "node_modules" then
-            local fullPath = dir .. "/" .. item
+            local fullPath = fileDir .. "/" .. item
             local attr = hs.fs.attributes(fullPath, "mode")
             if attr == "directory" then
                 if isGitSync(fullPath) then
@@ -76,7 +76,7 @@ function readBookMarks(bar)
 end
 
 function setGitLuaFile()
-    local filesList = readFileList(dir);
+    local filesList = readFileList(GIT_FILES_DIR);
     local gitJson = hs.json.encode(filesList) -- 将表转换为JSON字符串
     local file = io.open(gitCacheFile, "w")
     file:write(gitJson)
