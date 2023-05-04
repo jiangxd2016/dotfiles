@@ -1,11 +1,11 @@
 require 'modules.base'
 require 'modules.shortcut'
 require 'modules.cache'
-setGitLuaFile()
+setFileInCache()
 
 local choices = {}
 local allWindows = {}
-local filesList = readFileList(GIT_FILES_DIR)
+local filesList = readFileInCache(GIT_FILES_DIR)
 
 local gitChooser = hs.chooser.new(function(choice)
     if not choice then

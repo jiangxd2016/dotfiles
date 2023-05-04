@@ -4,25 +4,10 @@ require 'modules.cache'
 
 local choices = {}
 
-setBookMarksLuaFile()
+setBMInCache()
 
-local function readCache()
-    hs.fs.mkdir(bookmarksFile)
-    local cacheFile = io.open(bookmarksFile, "r")
-    if cacheFile then
-        local content = cacheFile:read("*a")
-        if content ~= "" then
-            return hs.json.decode(content)
-        end
-    end
-    return {}
-end
+local bookmarks = readBMInCache()
 
-local bookmarks = {}
-
-if isEmpty(bookmarks) == false then
-    bookmarks = readCache()
-end
 local function request(query)
     choices = {}
     query = trim(query)

@@ -10,7 +10,7 @@ local function isGitSync(dir)
     end
 end
 
-function readFileList(fileDir)
+function readFileInCache(fileDir)
     local filesList = {}
     for item in hs.fs.dir(fileDir) do
         if item ~= "." and item ~= ".." and item ~= "node_modules" then
@@ -23,7 +23,7 @@ function readFileList(fileDir)
                         path = fullPath
                     })
                 else
-                    local subFilesList = readFileList(fullPath) -- 递归读取文件
+                    local subFilesList = readFileInCache(fullPath) -- 递归读取文件
                     for _, subItem in ipairs(subFilesList) do
                         table.insert(filesList, subItem)
                     end
@@ -75,15 +75,15 @@ function readBookMarks(bar)
     return bookMarKList
 end
 
-function setGitLuaFile()
-    local filesList = readFileList(GIT_FILES_DIR);
+function setFileInCache()
+    local filesList = readFileInCache(GIT_FILES_DIR);
     local gitJson = hs.json.encode(filesList) -- 将表转换为JSON字符串
     local file = io.open(gitCacheFile, "w")
     file:write(gitJson)
     file:close()
 end
 
-function setBookMarksLuaFile()
+function setBMInCache()
     local bookMarKList = loadBookMarks()
     local bmJson = hs.json.encode(bookMarKList) -- 将表转换为JSON字符串
     local file = io.open(bookmarksFile, "w")
@@ -91,3 +91,14 @@ function setBookMarksLuaFile()
     file:close()
 end
 
+function readBMInCache()
+    hs.fs.mkdir(bookmarksFile)
+    local cacheFile = io.open(bookmarksFile, "r")
+    if cacheFile then
+        local content = cacheFile:read("*a")
+        if content ~= "" then
+            return hs.json.decode(content)
+        end
+    end
+    return {}
+end
