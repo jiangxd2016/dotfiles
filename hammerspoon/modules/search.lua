@@ -8,11 +8,11 @@ local SeachUrl = {
     {key = "b", text = "Baidu", url = "https://www.baidu.com/s?wd="},
     {key = "h", text = "Github", url = "https://github.com/search?q="},
     {key = "n", text = "npm", url = "https://www.npmjs.com/search?q="},
-    {key = "f", text = "百度翻译", url = "https://fanyi.baidu.com/"},
+    {key = "f", text = "百度翻译", url = "https://fanyi.baidu.com/"}
 }
 
 local searchChooser = hs.chooser.new(function(choice)
-    if not choice then return end
+    if not choice then return endß
 
     choice.text = trim(choice.text)
     choice.query = trim(choice.query)
