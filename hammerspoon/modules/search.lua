@@ -12,8 +12,7 @@ local SeachUrl = {
 }
 
 local searchChooser = hs.chooser.new(function(choice)
-    if not choice then return endß
-
+    if not choice then return end
     choice.text = trim(choice.text)
     choice.query = trim(choice.query)
     local url = ""
