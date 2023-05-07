@@ -1,0 +1,190 @@
+{
+  "files.eol": "\n",
+  "files.autoSaveDelay": 500,
+  "files.insertFinalNewline": true,
+  "files.simpleDialog.enable": true,
+  "files.autoSave": "onWindowChange",
+  // file header 暂时弃用
+  "fileheader.customMade": {
+    "Author": "jiangxd<jiangxd2016@gmail.com>",
+    "Date": "Do not edit", // 设置后默认设置文件生成时间
+    "LastEditTime": "Do not edit", // 设置后，保存文件更改默认更新最后编辑时间
+    "LastEditors": "jiangxd<jiangxd2016@gmail.com>", // 设置后，保存文件更改默认更新最后编辑人
+    "Description": "",
+    "FilePath": "Do not edit" // 设置后，默认生成文件相对于项目的路径
+  },
+  // vim config
+  // "vim.foldfix": true,
+  "vim.hlsearch": true,  // 搜索后高亮显示匹配内容
+  "vim.incsearch": true, // 自动翻页
+  "vim.easymotion": true, // ex  <leader><leader>s<char> <-- 快速跳转到指定字符位置
+  "vim.useCtrlKeys": false, // 关闭vim的一些ctrl键命令
+  "vim.useSystemClipboard": true, // 使用系统剪切板
+  "vim.camelCaseMotion.enable": true,  // ？
+  // "vim.vimrc.enable": false,
+  // "vim.vimrc.path": "$HOME/.vsvimrc",
+  "vim.leader": "<space>",
+  "vim.normalModeKeyBindingsNonRecursive": [
+    // vim
+    {
+      "before": [ "J"],
+      "after": ["5", "j" ]
+    },
+    {
+      "before": [ "K"],
+      "after": ["5", "k" ]
+    },
+    {
+      "before": ["H"],
+      "after": [ "^"]
+    },
+    {
+      "before": ["L"],
+      "after": ["$"]
+    },
+    {
+      "before": ["g","["],
+        // 上一个有疑问的地方
+      "commands": ["editor.action.marker.prevInFiles"]
+    },
+    {
+      "before": ["g","]"],
+      // 下一个有问题的地方
+      "commands": [ "editor.action.marker.nextInFiles"]
+    },
+    {
+      "before": [ "g","x", "x"],
+        // 关闭其他标签
+      "commands": ["workbench.action.closeOtherEditors"]
+    },
+    {
+      "before": [ "<leader>", "f"],
+      // 格式化文档
+      "commands": ["editor.action.formatDocument"]
+    },
+    {
+      "before": ["<leader>","r"],
+    // -- run
+      "commands": ["workbench.action.files.save", "workbench.action.debug.run"]
+    },
+    {
+      "before": ["<leader>", "d","r" ],
+      // debug run 
+      "commands": [ "workbench.action.files.save","workbench.action.debug.start"]
+    },
+    // -- debug
+    {
+      "before": [ "<leader>", "d","b"],
+      // 切换断点
+      "commands": [ "editor.debug.action.toggleBreakpoint"]
+    },
+    {
+      "before": [ "<leader>", "d","c" ],
+      // 添加条件断点
+      "commands": [ "editor.debug.action.conditionalBreakpoint"]
+    },
+    // -- problem nav
+    {
+      "before": ["<leader>", "d", "k"],
+      // 转到上一个问题
+      "commands": [ "editor.action.marker.prev"]},
+    {
+      "before": ["<leader>","d","j"],
+      // 转到下一个问题
+      "commands": [ "editor.action.marker.next" ]
+    },
+    // -- git hunk nav
+    {
+      "before": [ "<leader>","k" ],
+      // 显示上一个更改
+      "commands": ["workbench.action.editor.previousChange","editor.action.dirtydiff.previous"]
+    },
+    {
+      "before": [ "<leader>","j"],
+      // 显示下一个更改
+      "commands": ["workbench.action.editor.nextChange","editor.action.dirtydiff.next"]
+    },
+    // -- rename symbol
+    {
+      "before": ["<leader>","r", "n" ],
+      "commands": ["editor.action.rename" ]
+    }
+  ],
+  /* vim settings end */
+  "vim.handleKeys": {
+    "<C-a>": false,
+    "<C-f>": false,
+    // 带有vim插件的vscode,它的Ctrl+w是由vscode控制，非vim插件扩展快捷键控制。若改为true,则就是了。
+    "<C-w>": false
+  },
+  // 自动切换输入法
+  "vim.autoSwitchInputMethod.enable": true,
+  "vim.autoSwitchInputMethod.defaultIM": "com.apple.keylayout.ABC",
+  "vim.autoSwitchInputMethod.obtainIMCmd": "/usr/local/bin/im-select",
+  "vim.autoSwitchInputMethod.switchIMCmd": "/usr/local/bin/im-select {im}",
+  "workbench.startupEditor": "none",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.editor.untitled.hint": "hidden",
+  "terminal.explorerKind": "external",
+  "terminal.integrated.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
+  "search.exclude": {
+    "**/.git": true,
+    "**/.github": true,
+    "**/.nuxt": true,
+    "**/.output": true,
+    "**/.pnpm": true,
+    "**/.vscode": true,
+    "**/.yarn": true,
+    "**/bower_components": true,
+    "**/dist/**": true,
+    "**/logs": true,
+    "**/node_modules": true,
+    "**/out/**": true,
+    "**/package-lock.json": true,
+    "**/pnpm-lock.yaml": true,
+    "**/tmp": true,
+    "**/yarn.lock": true
+  },
+  "typescript.inlayHints.variableTypes.enabled": false, //  显示类型提示 老是有莫名的错误，先关掉
+  "javascript.updateImportsOnFileMove.enabled": "always", // 启用或禁用在 VS Code 中重命名或移动文件时自动更新导入路径的功能。
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "security.workspace.trust.untrustedFiles": "open",
+  "editor.suggestSelection": "first",
+  "editor.tabSize": 2,
+  "editor.linkedEditing": true,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": "active",
+  "editor.accessibilitySupport": "off",
+  "eslint.packageManager": "pnpm",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true  // this allows ESLint to auto fix on save
+  },
+  "diffEditor.ignoreTrimWhitespace": false,
+  "workbench.tree.expandMode": "singleClick",
+  "workbench.tree.indent": 10,
+  "extensions.autoUpdate": "onlyEnabledExtensions",
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "git.enableSmartCommit": true,
+  "git.untrackedChanges": "separate",
+  "prettier.enable": false,
+  "workbench.colorTheme": "One Dark Pro",
+  "explorer.confirmDragAndDrop": false,
+  "extensions.experimental.affinity": {
+    "bradlc.vscode-tailwindcss": 1,
+    "vscodevim.vim": 2,
+    "csstools.postcss": 3,
+    "eamodio.gitlens": 7,
+    "antfu.unocss": 8,
+    "hollowtree.vue-snippets": 9
+},
+  "editor.inlineSuggest.enabled": true,
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "Vue.volar"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+"Codegeex.Privacy": false,
+  "window.commandCenter": true,
+}
