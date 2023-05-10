@@ -86,3 +86,13 @@ vim 相关
 
 > cmd+number(数字键),切换左侧控制 
  - ⌘ +1 
+
+
+
+### MacOS快捷键
+
+C + ⌘ + space 打开emoji
+
+C + ⌘ + f 全屏
+
+
