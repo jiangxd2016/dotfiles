@@ -107,3 +107,8 @@ C + ⌘ + space 打开emoji
 C + ⌘ + f 全屏
 
 
+### Surfingkeys (chrome extend)
+
+t 搜索书签/历史
+ab 添加书签
+: 执行js代码
