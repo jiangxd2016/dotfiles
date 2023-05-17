@@ -14,6 +14,10 @@
  - [x] weather
  - [x] translate
  - [x] headphone
+ - [ ] HSearch.spoon  阅读改进现有的检索
+ - [ ] HeadphoneAutoPause.lua 连接/断开耳机时播放/暂停音乐播放器 
+ - [ ] keymap fn+h/j/k/l ,映射为方向键，和karabiner功能相同，可以对比留一个使用
+ - [ ] MouseCircle 鼠标点击显示圆圈,可以在演示时使用
 
 
 ## 本工程提供功能

@@ -24,3 +24,5 @@ require "modules.window"
 require 'modules.reload'
 -- 缓存git和书签
 require "modules.cache"
+
+require "modules.autoIm"
