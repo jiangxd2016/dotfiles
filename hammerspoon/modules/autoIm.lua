@@ -58,16 +58,18 @@ hs.hotkey.bind({'ctrl', 'cmd'}, ".", function()
 end)
 
 
-
 -- esc时，切换英文输入法
-hs.eventtap.new({hs.eventtap.event.types.keyUp}, function(event)
+event = hs.eventtap.new({
+  hs.eventtap.event.types.keyUp
+}, function(event)
+  print(hs.keycodes.currentSourceID(),event:getKeyCode())
  if event:getKeyCode() == 53 and hs.keycodes.currentSourceID() == 'com.apple.inputmethod.SCIM.ITABC' then
       English()
-      hs.eventtap.event.newKeyEvent("escape", true):post()
  end
 end):start()
 
 
+print("Event",event)
 
 -- Handle cursor focus and application's screen manage.
 -- 窗口激活时自动切换输入法
