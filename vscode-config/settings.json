@@ -159,6 +159,7 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true  // this allows ESLint to auto fix on save
   },
+  "editor.suggest.snippetsPreventQuickSuggestions": false, // 默认选择第一个提示
   "diffEditor.ignoreTrimWhitespace": false,
   "workbench.tree.expandMode": "singleClick",
   "workbench.tree.indent": 10,
@@ -180,11 +181,11 @@
 },
   "editor.inlineSuggest.enabled": true,
   "[typescriptreact]": {
-    "editor.defaultFormatter": "Vue.volar"
+    "editor.defaultFormatter": "vscode.typescript-language-features"
   },
   "[typescript]": {
     "editor.defaultFormatter": "vscode.typescript-language-features"
   },
-"Codegeex.Privacy": false,
-  "window.commandCenter": true,
+  "Codegeex.Privacy": false,
+  "aws.telemetry": false,
 }

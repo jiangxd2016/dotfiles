@@ -1,6 +1,6 @@
 {
   "function": {
-    "prefix": "fn 新建方法j",
+    "prefix": "fn 新建方法",
     "body": "function ${1}() {${2}}",
     "description": "方法"
   },
