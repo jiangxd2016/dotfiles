@@ -25,4 +25,6 @@ require 'modules.reload'
 -- 缓存git和书签
 require "modules.cache"
 
+require "modules.tiny"
+
 require "modules.autoIm"
