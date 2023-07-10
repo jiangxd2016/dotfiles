@@ -9,8 +9,8 @@ brew install --cask font-hack-nerd-font
 
 # github clone socket proxy config 
 # 9981 is the port of shadowsocks
-git config --global http.https://github.com.proxy socks5://127.0.0.1:9981
-git config --global https.https://github.com.proxy socks5://127.0.0.1:9981
+git config --global http.https://github.com.proxy socks5://127.0.0.1:7890
+git config --global https.https://github.com.proxy socks5://127.0.0.1:7890
 
 echo $NVIM_DIR
 echo $PWD
