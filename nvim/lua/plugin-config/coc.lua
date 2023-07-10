@@ -45,7 +45,6 @@ function config()
     'coc-pyright',
     'coc-toml',
     'coc-solidity',
-    'coc-prettier',
     'coc-snippets',
     'coc-pairs',
     'coc-word',
