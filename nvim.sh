@@ -4,13 +4,13 @@ NVIM_DIR="$HOME/.config/"
 
 
 # Install neovim needed fonticons
-brew tap homebrew/cask-fonts
-brew install --cask font-hack-nerd-font
+# brew tap homebrew/cask-fonts
+# brew install --cask font-hack-nerd-font
 
 # github clone socket proxy config 
 # 9981 is the port of shadowsocks
-git config --global http.https://github.com.proxy socks5://127.0.0.1:7890
-git config --global https.https://github.com.proxy socks5://127.0.0.1:7890
+git config --global http.https://github.com.proxy socks5://127.0.0.1:9981
+git config --global https.https://github.com.proxy socks5://127.0.0.1:9981
 
 echo $NVIM_DIR
 echo $PWD
