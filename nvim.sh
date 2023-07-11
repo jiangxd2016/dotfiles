@@ -15,11 +15,7 @@ git config --global https.https://github.com.proxy socks5://127.0.0.1:7890
 echo $NVIM_DIR
 echo $PWD
 
-
-
 rm -rf $NVIM_DIR/nvim
 mkdir -p $NVIM_DIR
 
 cp -R $PWD/nvim $NVIM_DIR
-
-chmod 777 ~/.config/nvim/autoload
