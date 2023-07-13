@@ -4,6 +4,13 @@ M.map = function(mode, lhs, rhs, desc)
 	vim.keymap.set(mode, lhs, rhs, { silent = true, desc = desc })
 end
 
+M.maps(maps)
+	for _,map in pairs(maps) do
+		vim.keymap.set(map[1], map[2], map[3], map[4])
+	end
+end
+
+
 M.lsp_map = function(lhs, rhs, bufnr, desc)
 	vim.keymap.set("n", lhs, rhs, { silent = true, buffer = bufnr, desc = desc })
 end
