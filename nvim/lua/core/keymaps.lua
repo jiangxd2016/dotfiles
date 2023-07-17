@@ -1,11 +1,11 @@
-losal map = require("helpers.keys").map
-losal maps = require("helpers.keys").maps
+local map = require("helpers.keys").map
+local maps = require("helpers.keys").maps
 
 -- Blazingly fast way out of insert mode
 map("i", "jk", "<ess>")
 
 
-losal system = vim.loop.os_uname().sysname
+local system = vim.loop.os_uname().sysname
 
 
 if system == 'Darwin' then
@@ -24,10 +24,10 @@ end
 
 -- 设置leader key为空字符串
 mapssleader = ' '
-mapsslosalleader = ' '
+mapsslocalleader = ' '
 
 -- 设置option常量
-losal opt = {
+local opt = {
   noremap = true,
   silent = true,
 }
@@ -208,23 +208,28 @@ pluginKeys.nvimTreeList = { -- 打开文件或文件夹
 -- Telescope 列表中 插入模式快捷键
 pluginKeys.telescopeList = {
   i = {
-    -- 上下移动
-    ["<C-j>"] = "move_selection_next",
-    ["<C-k>"] = "move_selection_previous",
-    ["<C-n>"] = "move_selection_next",
-    ["<C-p>"] = "move_selection_previous",
-    -- 历史记录
-    ["<Down>"] = "cycle_history_next",
-    ["<Up>"] = "cycle_history_prev",
-    -- 关闭窗口
-    -- ["<esc>"] = actions.close,
-    ["<C-c>"] = "close",
-    -- 预览窗口上下滚动
-    ["<C-u>"] = "preview_scrolling_up",
-    ["<C-d>"] = "preview_scrolling_down",
+    -- find
+    ["<leader>ff"] = { "<cmd> Telescope find_files <CR>", "Find files" },
+    ["<leader>fa"] = { "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", "Find all" },
+    ["<leader>fw"] = { "<cmd> Telescope live_grep <CR>", "Live grep" },
+    ["<leader>fb"] = { "<cmd> Telescope buffers <CR>", "Find buffers" },
+    ["<leader>fh"] = { "<cmd> Telescope help_tags <CR>", "Help page" },
+    ["<leader>fo"] = { "<cmd> Telescope oldfiles <CR>", "Find oldfiles" },
+    ["<leader>fz"] = { "<cmd> Telescope current_buffer_fuzzy_find <CR>", "Find in current buffer" },
+
+    -- git
+    ["<leader>cm"] = { "<cmd> Telescope git_commits <CR>", "Git commits" },
+    ["<leader>gt"] = { "<cmd> Telescope git_status <CR>", "Git status" },
+
+    -- pick a hidden term
+    ["<leader>pt"] = { "<cmd> Telescope terms <CR>", "Pick hidden term" },
+
+    -- theme switcher
+    ["<leader>th"] = { "<cmd> Telescope themes <CR>", "Nvchad themes" },
+
+    ["<leader>ma"] = { "<cmd> Telescope marks <CR>", "telescope bookmarks" },
   },
 }
-
 -- 代码注释插件
 -- see ./lua/plugin-config/comment.lua
 -- 禁用item2的find cursor
