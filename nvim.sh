@@ -1,5 +1,4 @@
   #!/bin/sh
-  #!/bin/sh
 NVIM_DIR="$HOME/.config/"
 
 
@@ -17,5 +16,9 @@ echo $PWD
 
 rm -rf $NVIM_DIR/nvim
 mkdir -p $NVIM_DIR
+
+rm -rf $NVIM_DIR/kitty
+mkdir -p $NVIM_DIR/kitty
+ln -sf  ./kitty/* $NVIM_DIR/kitty/
 
 cp -R $PWD/nvim $NVIM_DIR

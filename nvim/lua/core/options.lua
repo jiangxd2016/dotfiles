@@ -181,6 +181,19 @@ end
 
 -- Fix markdown indentation settings
 vim.g.markdown_recommended_style = 0
+-- Codeium's default keybindings can be disabled by setting 
+-- @see https://github.com/Exafunction/codeium.vim
+vim.g.codeium_disable_bindings = 1
+
+-- nvim_treesitter options
+-- 开启 Folding 模块, 使用zc折叠代码，zo打开折叠代码
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+-- 默认不要折叠
+-- https://stackoverflow.com/questions/8316139/how-to-set-the-default-to-unfolded-when-you-open-a-file
+vim.opt.foldlevel = 99
+
+
 
 -- Set other options
 local colorscheme = require("helpers.colorscheme")
