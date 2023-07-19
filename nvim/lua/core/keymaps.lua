@@ -115,7 +115,7 @@ map('t', '<A-l>', [[ <C-\><C-N><C-w>l ]], opt)
 
 -- 文件浏览树相关配置
 maps({
-    {"n", "<leader>e", ":NeoTreeToggle<CR>", opt},
+    {"n", "<leader>e", ":NeoTreeShow<CR>", opt},
     {"n", "<leader>te", ":NeoTreeFocus<CR>", opt},
     {"n", "<leader>tc", ":NeoTreeClose<CR>", opt},
     -- 在文件树中打开文件
