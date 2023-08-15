@@ -28,3 +28,5 @@ require "modules.cache"
 require "modules.tiny"
 
 require "modules.autoIm"
+
+require "modules.remind"
