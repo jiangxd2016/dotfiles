@@ -21,7 +21,7 @@ function cleanCanvas(c)
     end
 end
 
--- 下班提醒
+-- 提醒
 function afterWork()
     local canvas = hs.canvas.new({x = COORIDNATE_X - WIDTH / 2, y = COORIDNATE_Y - HEIGHT / 2, w = WIDTH, h = HEIGHT})
     canvas:appendElements({
@@ -45,7 +45,7 @@ end
 -- afterWork()
 
 -- 上班
-kstart = hs.timer.doAt('08:50', hs.timer.days(1), afterWork):start()
+kstartWork = hs.timer.doAt('08:50', hs.timer.days(1), afterWork):start()
 
 -- 每天 18:00 提醒下班
 kstart = hs.timer.doAt('18:00', hs.timer.days(1), afterWork):start()
