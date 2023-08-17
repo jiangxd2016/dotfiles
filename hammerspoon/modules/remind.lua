@@ -46,9 +46,10 @@ end
 
 -- 上班
 kstartWork = hs.timer.doAt('08:50', hs.timer.days(1), afterWork):start()
-kstartWork2 = hs.timer.doAt('08:59', hs.timer.days(1), afterWork):start()
+kstartWork2 = hs.timer.doAt('09:35', hs.timer.days(1), afterWork):start()
 
 -- 每天 18:00 提醒下班
 kstart = hs.timer.doAt('18:00', hs.timer.days(1), afterWork):start()
+kstart2 = hs.timer.doAt('18:03', hs.timer.days(1), afterWork):start()
 -- 1 分钟后清除 Canvas
 -- kend = hs.timer.doAt('18:01', hs.timer.days(1), cleanCanvas):start()
