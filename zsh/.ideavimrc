@@ -1,13 +1,24 @@
 " M->cmd, A->option, CE->control
 "  <ESC> - escape, <BS> - backspace, <CR> - return
+
+
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'preservim/nerdtree'
+Plug 'easymotion/vim-easymotion'
+
+
+" leaderkey
 let mapleader=" "
-"  which key (需要从plugin中安装)
+
+set multicursor
 set which-key
 set notimeout
-" 启用vim surround功能
 set surround
-" 启用multi cursor 多光标使用
 set multiple-cursors
+
+
+
 " 显示行号
 set nu
 " 显示相对行号
