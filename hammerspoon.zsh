@@ -9,7 +9,7 @@ else
     rm -rf $HS_DIR
     mkdir -p $HS_DIR
 fi
-ln -sf $PWD/hammerspoon-kuranado-main/* $HS_DIR
+ln -sf $PWD/hammerspoon/* $HS_DIR
 
 
 
