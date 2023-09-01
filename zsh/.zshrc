@@ -83,6 +83,7 @@ alias ws="open -a webstorm"
   [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 # nvm hook
+autoload -U add-zsh-hook
 load-nvmrc() {
   local node_version="$(nvm version)"
   local nvmrc_path="$(nvm_find_nvmrc)"
@@ -100,6 +101,9 @@ load-nvmrc() {
     nvm use default
   fi
 }
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc
+
 
 
 #创建git tag
