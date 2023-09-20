@@ -222,3 +222,10 @@ export npm_config_robotjs_binary_host="https://cdn.npmmirror.com/binaries/robotj
 # rust proxy
 export RUSTUP_DIST_SERVER="https://rsproxy.cn"
 export RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"
+
+# bun completions
+[ -s "/Users/xd/.bun/_bun" ] && source "/Users/xd/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

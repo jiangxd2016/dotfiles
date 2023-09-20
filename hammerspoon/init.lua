@@ -9,7 +9,7 @@ require 'modules.git'
 -- 显示节气 暂时弃用
 -- require "modules.jq"
 -- 显示按下的按键
-require "modules.keystroke"
+-- require "modules.keystroke"
 -- 打开浏览器搜索 shift + option + s
 require 'modules.search'
 -- 显示系统信息
