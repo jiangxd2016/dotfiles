@@ -223,6 +223,7 @@ export npm_config_robotjs_binary_host="https://cdn.npmmirror.com/binaries/robotj
 export RUSTUP_DIST_SERVER="https://rsproxy.cn"
 export RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"
 
+
 # bun completions
 [ -s "/Users/xd/.bun/_bun" ] && source "/Users/xd/.bun/_bun"
 

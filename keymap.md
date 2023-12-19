@@ -38,6 +38,11 @@ vim 相关
   <leader><leader> k 向上移动到某一行开头
   <leader><leader><leader> j 全局移动 `
 
+
+
+   // t. 光标移动到.的位置
+   // tx 光标移动到x的位置
+
   // 处理包裹的字符
     c s '"将'改为" 
     y s i w { 给一个单词加花括号
