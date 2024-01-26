@@ -29,4 +29,4 @@ require "modules.tiny"
 
 require "modules.autoIm"
 
-require "modules.remind"
+-- require "modules.remind"
