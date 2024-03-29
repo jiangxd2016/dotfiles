@@ -28,6 +28,10 @@ alias nd="pnpm run dev"
 alias nb="pnpm run build"
 alias ns="pnpm run serve"
 
+alias nwd="pnpm run -w dev"
+alias nwb="pnpm run -w build"
+alias nws="pnpm run -w serve"
+
 alias ndd="npm run docs:dev"
 alias ndb="npm run docs:build"
 alias nds="npm run docs:serve"

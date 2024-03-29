@@ -76,7 +76,6 @@
     }
   },
   "tsserver.locale": "zh-CN",
-  // emmet插件的配置
   "emmet.showExpandedAbbreviation": "always",
   "emmet.showAbbreviationSuggestions": true,
   "emmet.includeLanguages": {
@@ -85,11 +84,9 @@
   },
   "emmet.excludeLanguages": ["markdown"],
   "colors.enable": false,
-  // coc-pairs配置
   "pairs.disableLanguages": [],
   "pairs.enableCharacters": ["(", "[", "{", "<", "'", "\"", "`"],
   "pairs.enableBackspace": true,
-  // coc-yank配置
   "yank.highlight.enable": true,
   "yank.highlight.duration": 500,
   "yank.list.maxsize": 300,
