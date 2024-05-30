@@ -1,5 +1,5 @@
 local urlApi =
-    'https://v0.yiketianqi.com/api?unescape=1&version=v91&appid=41178329&appsecret=VMjzuYu1&ext=&cityid=101191101'
+    'https://v1.yiketianqi.com/api?unescape=1&version=v91&appid=41178329&appsecret=VMjzuYu1&ext=&cityid=101191101'
 local menubar = hs.menubar.new()
 local menuData = {}
 local user_agent_str =
@@ -11,7 +11,7 @@ local requsetHeader = {
     ["Accept-Language"] = "zh-CN,zh;q=0.9",
     ["Cache-Control"] = "no-cache",
     ["Connection"] = "keep-alive",
-    ["Host"] = "v0.yiketianqi.com",
+    ["Host"] = "v1.yiketianqi.com",
     ["Pragma"] = "no-cache",
     ["Upgrade-Insecure-Requests"] = "1",
     ["User-Agent"] = user_agent_str
