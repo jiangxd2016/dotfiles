@@ -71,6 +71,7 @@ alias gk="git checkout ."
 alias hp="hexo clean && hexo g && hexo d"
 alias gacp="git add . && git ci -m 'update' && git push"
 alias aga="alias | grep git" # all git command abbreviations
+alias glt="git log --date format:'%Y-%m-%d %H:%M:%S'"
 
 alias python='/usr/bin/python3'
 alias pip='/usr/local/bin/pip3'
