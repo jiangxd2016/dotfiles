@@ -28,6 +28,10 @@ alias nd="pnpm run dev"
 alias nb="pnpm run build"
 alias ns="pnpm run serve"
 
+alias nwd="pnpm run -w dev"
+alias nwb="pnpm run -w build"
+alias nws="pnpm run -w serve"
+
 alias ndd="npm run docs:dev"
 alias ndb="npm run docs:build"
 alias nds="npm run docs:serve"
@@ -67,6 +71,7 @@ alias gk="git checkout ."
 alias hp="hexo clean && hexo g && hexo d"
 alias gacp="git add . && git ci -m 'update' && git push"
 alias aga="alias | grep git" # all git command abbreviations
+alias glt="git log --date format:'%Y-%m-%d %H:%M:%S'"
 
 alias python='/usr/bin/python3'
 alias pip='/usr/local/bin/pip3'
