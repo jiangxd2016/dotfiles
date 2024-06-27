@@ -163,9 +163,9 @@ tts() {
   fi
   echo "正在创建$1目录,下载starter-ts模板,请稍等..."
   if [ ! $2 ]; then
-    npx degit jiangxd2016/starter-ts $1 && echo "正在打开$1" && code $1 && cd $1 && echo '正在下载依赖' && nio
+    pnpx degit jiangxd2016/starter-ts $1 && echo "正在打开$1" && code $1 && cd $1 && echo '正在下载依赖' && nio
   else
-    npx degit jiangxd2016/starter-ts $1 && echo "正在打开$1" && code $1 && cd $1 && echo '正在下载依赖' && nio || nio || nio || echo '安装依赖失败，请重新尝试' && echo "正在执行 nr $2" && nr $2 || eval ${2}
+    pnpx degit jiangxd2016/starter-ts $1 && echo "正在打开$1" && code $1 && cd $1 && echo '正在下载依赖' && nio || nio || nio || echo '安装依赖失败，请重新尝试' && echo "正在执行 nr $2" && nr $2 || eval ${2}
   fi
 }
 tre() {
@@ -175,9 +175,9 @@ tre() {
   fi
   echo "正在创建$1目录,下载starter-react模板,请稍等..."
   if [ ! $2 ]; then
-    npx degit jiangxd2016/starter-react $1 && echo "正在打开$1" && code $1 && cd $1 && echo '正在下载依赖' && nio
+    pnpx degit jiangxd2016/starter-react $1 && echo "正在打开$1" && code $1 && cd $1 && echo '正在下载依赖' && nio
   else
-    npx degit jiangxd2016/starter-react $1 && echo "正在打开$1" && code $1 && cd $1 && echo '正在下载依赖' && nio || nio || nio || echo '安装依赖失败，请重新尝试' && echo "正在执行 nr $2" && nr $2 || eval ${2}
+    pnpx degit jiangxd2016/starter-react $1 && echo "正在打开$1" && code $1 && cd $1 && echo '正在下载依赖' && nio || nio || nio || echo '安装依赖失败，请重新尝试' && echo "正在执行 nr $2" && nr $2 || eval ${2}
   fi
 }
 tmo() {
@@ -187,9 +187,9 @@ tmo() {
   fi
   echo "正在创建$1目录,下载starter-monorepo模板,请稍等..."
   if [ ! $2 ]; then
-    npx degit jiangxd2016/starter-monorepo $1 && echo "正在打开$1" && code $1 && cd $1 && echo '正在下载依赖' && nio
+    pnpx degit jiangxd2016/starter-monorepo $1 && echo "正在打开$1" && code $1 && cd $1 && echo '正在下载依赖' && nio
   else
-    npx degit jiangxd2016/starter-monorepo $1 && echo "正在打开$1" && code $1 && cd $1 && echo '正在下载依赖' && nio || nio || nio || echo '安装依赖失败，请重新尝试' && echo "正在执行 nr $2" && nr $2 || eval ${2}
+    pnpx degit jiangxd2016/starter-monorepo $1 && echo "正在打开$1" && code $1 && cd $1 && echo '正在下载依赖' && nio || nio || nio || echo '安装依赖失败，请重新尝试' && echo "正在执行 nr $2" && nr $2 || eval ${2}
   fi
 }
 
