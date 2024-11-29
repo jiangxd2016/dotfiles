@@ -5,7 +5,6 @@
     "description": "方法"
   },
   "arrow": {
-    // arrowFunction
     "prefix": "afn 新建箭头函数",
     "body": [
       "const fn = (${1}) => {",

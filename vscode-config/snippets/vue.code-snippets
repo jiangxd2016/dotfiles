@@ -18,28 +18,29 @@
       "   mounted(){}",
       "}",
       "</script>",
-      "<style lang='css' scoped>",
+      "<style lang='scss' scoped>",
       "</style>",
       "$2"
     ],
     "description": "Log output to console"
   },
-  "script": {
-    "prefix": "vuesetup",
+  "vue3": {
+    "prefix": "vue3",
     "body": [
-      "<script setup lang=\"ts\">",
-      "const props = defineProps<{ modelValue: boolean }>()",
-      "</script>\n",
       "<template>",
-      "  <div>",
-      "    <slot />",
-      "  </div>",
+      " <div class=\"main\">",
+      "$1",
+      " </div>",
       "</template>\n",
-      "<style scoped>",
-      "</style>"
+      "<script setup lang=\"ts\">",
+      " const props = defineProps<{ modelValue: boolean }>()",
+      "</script>\n",
+      "<style lang=\"scss\" scoped>",
+      "</style>",
     ],
-    "description": "Log output to console"
+    "description": "vue3 snippets"
   },
+
   "useAttrs": {
     "prefix": "useAttrs 使用",
     "body": [
