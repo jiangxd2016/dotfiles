@@ -1,4 +1,3 @@
-
 [
   /********************************/
   /* ctrl+number(数字键),切换左侧控制 */
@@ -156,7 +155,6 @@
   //--------------------//
   // 终端相关,只在终端获取焦点时生效
   // 拆分终端 ==> ctrl+ |
-
   //在终端中聚焦下一个终端
   {
     "key": "ctrl+shift+]",
@@ -188,7 +186,6 @@
     "command": "workbench.action.quickOpenNavigatePreviousInFilePicker",
     "when": "inFilesPicker && inQuickOpen"
   },
-
   /****************************************/
   /* ctrl + ?  end */
   /****************************************/
@@ -253,11 +250,10 @@
     "command": "workbench.action.terminal.focus",
     "when": "editorFocus"
   },
-// ctrl+|  拆分终端
+  // ctrl+|  拆分终端
   {
     "key": "ctrl+oem_5",
     "command": "workbench.action.terminal.split",
     "when": "terminalFocus && terminalProcessSupported || terminalFocus && terminalWebExtensionContributedProfile"
   },
-
 ]

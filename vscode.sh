@@ -2,7 +2,6 @@
 
 VSCODE_CONFIG_DIR="$PWD/vscode-config"
 
-
 # function to detect OS type
 detect_os() {
     local uname_out="$(uname -s)"
@@ -45,6 +44,7 @@ if [ "$os_type" = "Mac" ]; then
 elif [ "$os_type" = "Windows" ]; then
     VSCODE_USER_DIR="$HOME/AppData/Roaming/Code/User"
     VSCODE_KEYBINDINGS_FILE="$VSCODE_CONFIG_DIR/keybindings-windows.json"
+    VSCODE_SETTINGS_FILE="$VSCODE_CONFIG_DIR/settings-windows.json"
 else
     echo "Unsupported OS. Skipping symlink creation."
     exit 1
@@ -54,7 +54,7 @@ echo "VSCode user directory: $VSCODE_USER_DIR"
 
 # create symlinks
 ln -sf "$VSCODE_KEYBINDINGS_FILE" "$VSCODE_USER_DIR/keybindings.json"
-ln -sf "$VSCODE_CONFIG_DIR/settings.json" "$VSCODE_USER_DIR/settings.json"
+ln -sf "$VSCODE_SETTINGS_FILE" "$VSCODE_USER_DIR/settings.json"
 
 # create snippets files symlinks
 for file in "$VSCODE_CONFIG_DIR"/snippets/*; do
@@ -63,5 +63,35 @@ for file in "$VSCODE_CONFIG_DIR"/snippets/*; do
         ln -sf "$file" "$VSCODE_USER_DIR/snippets/$filename"
     fi
 done
-
 echo "Symlinks created successfully."
+
+####### im-select installation #########
+# if im-select already exist, delete it and copy it again
+if [ "$os_type" = "Mac" ]; then
+    if [ -e /usr/local/bin/im-select ]; then
+        rm -f /usr/local/bin/im-select
+    fi
+
+    echo "* Copy im-select..."
+
+    cp ./im-select /usr/local/bin/im-select
+
+    chmod 755 /usr/local/bin/im-select
+
+    echo "* im-select is installed!"
+    echo "* now run \"im-select\" in your terminal!"
+elif [ "$os_type" = "Windows" ]; then
+# need have D:\ drive
+    if [ -e "D:\\iim-select.exe" ]; then
+        rm -f "D:\\iim-select.exe"
+    fi
+
+    echo "* Copy im-select..."
+
+    cp ./im-select.exe "D:\\im-select.exe"
+
+    chmod 755 "D:\\iim-select.exe"
+
+    echo "* im-select is installed!"
+    echo "* now run \"im-select\" in your terminal!"
+fi

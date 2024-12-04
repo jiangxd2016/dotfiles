@@ -215,9 +215,9 @@
   // 自动切换输入法
   "vim.autoSwitchInputMethod.enable": true,
   "vim.searchHighlightColor": "#5f00af",
-  "vim.autoSwitchInputMethod.defaultIM": "com.apple.keylayout.ABC",
-  "vim.autoSwitchInputMethod.obtainIMCmd": "/usr/local/bin/im-select",
-  "vim.autoSwitchInputMethod.switchIMCmd": "/usr/local/bin/im-select {im}",
+  "vim.autoSwitchInputMethod.defaultIM": "1033",
+  "vim.autoSwitchInputMethod.obtainIMCmd": "D:\\im-select.exe",
+  "vim.autoSwitchInputMethod.switchIMCmd": "D:\\im-select.exe{im}",
   "workbench.startupEditor": "none",
   "terminal.explorerKind": "external",
   "terminal.integrated.fontFamily": "monospace",
