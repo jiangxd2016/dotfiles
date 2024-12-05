@@ -20,7 +20,7 @@
   "vim.easymotion": true, // ex  <leader><leader>s<char> <-- 快速跳转到指定字符位置
   "vim.useCtrlKeys": false, // 关闭vim的一些ctrl键命令
   "vim.useSystemClipboard": true, // 使用系统剪切板
-  "vim.camelCaseMotion.enable": true, // ？
+  "vim.camelCaseMotion.enable": true, // // 启用对驼峰命名法（CamelCase）和下划线命名法（underscore_notation）的智能移动支持
   // "vim.vimrc.enable": false,
   // "vim.vimrc.path": "$HOME/.vsvimrc",
   "vim.leader": "<space>",
@@ -68,6 +68,30 @@
       // 上一个有疑问的地方
       "commands": [
         "editor.action.marker.prevInFiles"
+      ]
+    },
+    {
+      "before": ["g","d"],
+      // 跳转到定义
+      "commands": [
+        "editor.action.revealDefinition"
+      ]
+    },
+    {
+      "before": ["g","r"],
+      // 跳转到引用
+      "commands": [
+        "editor.action.goToReferences"
+      ]
+    },
+    {
+      "before": [
+        "g",
+        "i"
+      ],
+      // 跳转到变量类型的定义
+      "commands": [
+        "editor.action.revealTypeDefinition"
       ]
     },
     {
@@ -280,13 +304,10 @@
     "antfu.unocss": 8,
     "hollowtree.vue-snippets": 9
   },
-  "editor.inlineSuggest.enabled": true,
   "files.associations": {
     "*.css": "css"
   },
-  "editor.quickSuggestions": {
-    "strings": true
-  },
+
   "workbench.editor.empty.hint": "hidden",
   "window.commandCenter": false,
   "svg.preview.mode": "svg",
@@ -315,5 +336,5 @@
   "typescript.updateImportsOnFileMove.enabled": "always",
   "workbench.editor.enablePreview": false,
   "workbench.iconTheme": "material-icon-theme",
-  "workbench.colorTheme": "One Dark Pro",
+  "workbench.colorTheme": "One Dark Pro"
 }

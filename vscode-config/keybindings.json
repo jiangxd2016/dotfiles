@@ -257,5 +257,5 @@
     "key": "ctrl+u",
     "command": "cursorPageUp",
     "when": "textInputFocus"
-  },
+  }
 ]

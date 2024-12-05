@@ -14,13 +14,13 @@
     "FilePath": "Do not edit" // 设置后，默认生成文件相对于项目的路径
   },
   // vim config
-  // "vim.foldfix": true,
+  // "vim.foldfix": true, // 设置为 true 时，可以使得 j/k 移动到折行上方时不会自动展开折叠的代码块，从而保持代码的折叠状态
   "vim.hlsearch": true, // 搜索后高亮显示匹配内容
   "vim.incsearch": true, // 自动翻页
   "vim.easymotion": true, // ex  <leader><leader>s<char> <-- 快速跳转到指定字符位置
   "vim.useCtrlKeys": false, // 关闭vim的一些ctrl键命令
   "vim.useSystemClipboard": true, // 使用系统剪切板
-  "vim.camelCaseMotion.enable": true, // ？
+  "vim.camelCaseMotion.enable": true, //  启用对驼峰命名法（CamelCase）和下划线命名法（underscore_notation）的智能移动支持
   // "vim.vimrc.enable": false,
   // "vim.vimrc.path": "$HOME/.vsvimrc",
   "vim.leader": "<space>",
@@ -68,6 +68,30 @@
       // 上一个有疑问的地方
       "commands": [
         "editor.action.marker.prevInFiles"
+      ]
+    },
+    {
+      "before": ["g","d"],
+      // 跳转到定义
+      "commands": [
+        "editor.action.revealDefinition"
+      ]
+    },
+    {
+      "before": ["g","r"],
+      // 跳转到引用
+      "commands": [
+        "editor.action.goToReferences"
+      ]
+    },
+    {
+      "before": [
+        "g",
+        "i"
+      ],
+      // 跳转到变量类型的定义
+      "commands": [
+        "editor.action.revealTypeDefinition"
       ]
     },
     {

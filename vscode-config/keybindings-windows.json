@@ -255,5 +255,5 @@
     "key": "ctrl+oem_5",
     "command": "workbench.action.terminal.split",
     "when": "terminalFocus && terminalProcessSupported || terminalFocus && terminalWebExtensionContributedProfile"
-  },
+  }
 ]
