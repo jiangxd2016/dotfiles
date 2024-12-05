@@ -27,206 +27,110 @@
   "vim.normalModeKeyBindingsNonRecursive": [
     // vim
     {
-      "before": [
-        "J"
-      ],
-      "after": [
-        "5",
-        "j"
-      ]
+      "before": ["J"],
+      "after": ["5","j"]
     },
     {
-      "before": [
-        "K"
-      ],
-      "after": [
-        "5",
-        "k"
-      ]
+      "before": ["K"],
+      "after": ["5","k"]
     },
     {
-      "before": [
-        "H"
-      ],
-      "after": [
-        "^"
-      ]
+      "before": ["H"],
+      "after": ["^"]
     },
     {
-      "before": [
-        "L"
-      ],
-      "after": [
-        "$"
-      ]
+      "before": ["L"],
+      "after": ["$"]
     },
     {
-      "before": [
-        "g",
-        "["
-      ],
+      "before": ["g", "["],
       // 上一个有疑问的地方
-      "commands": [
-        "editor.action.marker.prevInFiles"
-      ]
+      "commands": [ "editor.action.marker.prevInFiles"]
     },
     {
       "before": ["g","d"],
       // 跳转到定义
-      "commands": [
-        "editor.action.revealDefinition"
-      ]
+      "commands": ["editor.action.revealDefinition"]
     },
     {
       "before": ["g","r"],
       // 跳转到引用
-      "commands": [
-        "editor.action.goToReferences"
-      ]
+      "commands": [ "editor.action.goToReferences" ]
     },
     {
-      "before": [
-        "g",
-        "i"
-      ],
+      "before": ["g","i" ],
       // 跳转到变量类型的定义
-      "commands": [
-        "editor.action.revealTypeDefinition"
-      ]
+      "commands": ["editor.action.revealTypeDefinition"]
     },
     {
-      "before": [
-        "g",
-        "]"
-      ],
+      "before": ["g","]"],
       // 下一个有问题的地方
-      "commands": [
-        "editor.action.marker.nextInFiles"
-      ]
+      "commands": ["editor.action.marker.nextInFiles" ]
     },
     {
-      "before": [
-        "g",
-        "x",
-        "x"
-      ],
+      "before": ["g","x","x" ],
       // 关闭其他标签
-      "commands": [
-        "workbench.action.closeOtherEditors"
-      ]
+      "commands": [  "workbench.action.closeOtherEditors" ]
     },
     {
-      "before": [
-        "<leader>",
-        "f"
-      ],
+      "before": ["<leader>","f"],
       // 格式化文档
-      "commands": [
-        "editor.action.formatDocument"
-      ]
+      "commands": ["editor.action.formatDocument" ]
     },
     {
-      "before": [
-        "<leader>",
-        "r"
-      ],
+      "before": ["<leader>", "r"],
       // -- run
-      "commands": [
-        "workbench.action.files.save",
-        "workbench.action.debug.run"
-      ]
+      "commands": [ "workbench.action.files.save","workbench.action.debug.run"]
     },
     {
-      "before": [
-        "<leader>",
-        "d",
-        "r"
-      ],
+      "before": ["<leader>", "d", "r"],
       // debug run 
-      "commands": [
-        "workbench.action.files.save",
-        "workbench.action.debug.start"
-      ]
+      "commands": ["workbench.action.files.save","workbench.action.debug.start"]
     },
     // -- debug
     {
-      "before": [
-        "<leader>",
-        "d",
-        "b"
-      ],
+      "before": [ "<leader>","d","b"],
       // 切换断点
-      "commands": [
-        "editor.debug.action.toggleBreakpoint"
-      ]
+      "commands": ["editor.debug.action.toggleBreakpoint"]
     },
     {
-      "before": [
-        "<leader>",
-        "d",
-        "c"
-      ],
+      "before": ["<leader>","d","c"],
       // 添加条件断点
-      "commands": [
-        "editor.debug.action.conditionalBreakpoint"
-      ]
+      "commands": [ "editor.debug.action.conditionalBreakpoint"]
     },
     // -- problem nav
     {
-      "before": [
-        "<leader>",
-        "d",
-        "k"
-      ],
+      "before": ["<leader>","d", "k" ],
       // 转到上一个问题
-      "commands": [
-        "editor.action.marker.prev"
-      ]
+      "commands": ["editor.action.marker.prev" ]
     },
     {
-      "before": [
-        "<leader>",
-        "d",
-        "j"
-      ],
+      "before": [ "<leader>", "d","j"],
       // 转到下一个问题
-      "commands": [
-        "editor.action.marker.next"
-      ]
+      "commands": ["editor.action.marker.next"]
     },
     // -- git hunk nav
     {
-      "before": [
-        "<leader>",
-        "k"
-      ],
+      "before": [ "<leader>", "k"],
       // 显示上一个更改
-      "commands": [
-        "workbench.action.editor.previousChange",
-        "editor.action.dirtydiff.previous"
-      ]
+      "commands": [ "workbench.action.editor.previousChange", "editor.action.dirtydiff.previous"]
     },
     {
-      "before": [
-        "<leader>",
-        "j"
-      ],
+      "before": ["<leader>","j"],
       // 显示下一个更改
-      "commands": [
-        "workbench.action.editor.nextChange",
-        "editor.action.dirtydiff.next"
+      "commands": ["workbench.action.editor.nextChange","editor.action.dirtydiff.next"
       ]
     },
     // -- rename symbol
     {
-      "before": [
-        "<leader>",
-        "r",
-        "n"
-      ],
-      "commands": [
-        "editor.action.rename"
-      ]
+      "before": ["<leader>","r","n"],
+      "commands": ["editor.action.rename"]
+    }
+  ],
+  "vim.insertModeKeyBindings": [
+    {
+        "before": ["j", "k"],
+        "after": ["<Esc>"]
     }
   ],
   /* vim settings end */
