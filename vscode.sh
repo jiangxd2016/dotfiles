@@ -41,6 +41,7 @@ fi
 if [ "$os_type" = "Mac" ]; then
     VSCODE_USER_DIR="$HOME/Library/Application Support/Code/User"
     VSCODE_KEYBINDINGS_FILE="$VSCODE_CONFIG_DIR/keybindings.json"
+    VSCODE_SETTINGS_FILE="$VSCODE_CONFIG_DIR/settings.json"
 elif [ "$os_type" = "Windows" ]; then
     VSCODE_USER_DIR="$HOME/AppData/Roaming/Code/User"
     VSCODE_KEYBINDINGS_FILE="$VSCODE_CONFIG_DIR/keybindings-windows.json"
@@ -50,6 +51,8 @@ else
     exit 1
 fi
 
+
+echo $VSCODE_SETTINGS_FILE
 echo "VSCode user directory: $VSCODE_USER_DIR"
 
 # create symlinks
