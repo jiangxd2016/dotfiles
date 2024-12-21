@@ -148,7 +148,7 @@
   "vim.autoSwitchInputMethod.switchIMCmd": "/usr/local/bin/im-select {im}",
   "workbench.startupEditor": "none",
   "terminal.explorerKind": "external",
-  "terminal.integrated.fontFamily": "monospace",
+  "terminal.integrated.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
   "search.exclude": {
     "**/.git": true,
     "**/.github": true,
@@ -228,10 +228,10 @@
     "editor.fontFamily"
   ],
   "editor.fontSize": 13,
+  "edit.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
   "explorer.confirmDelete": false,
   "files.autoSave": "onWindowChange",
   "git.ignoreRebaseWarning": true,
-  "editor.fontFamily": "JetBrains Mono, Consolas",
   "typescript.tsserver.maxTsServerMemory": 16384,
   "gitlens.advanced.messages": {
     "suppressLineUncommittedWarning": true

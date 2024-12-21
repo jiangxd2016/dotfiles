@@ -148,7 +148,7 @@
   "vim.autoSwitchInputMethod.switchIMCmd": "D:\\im-select.exe {im}",
   "workbench.startupEditor": "none",
   "terminal.explorerKind": "external",
-  "terminal.integrated.fontFamily": "monospace",
+  "terminal.integrated.fontFamily": "JetBrains Mono, Consolas",
   "search.exclude": {
     "**/.git": true,
     "**/.github": true,
