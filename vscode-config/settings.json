@@ -15,7 +15,6 @@
   "editor.bracketPairColorization.enabled": true, // 启用括号配对着色功能
   "editor.guides.bracketPairs": "active", // 仅在活动编辑器中显示括号配对指南
   "editor.accessibilitySupport": "off", // 关闭辅助功能支持，提升性能
-  "eslint.packageManager": "pnpm", // 指定 ESLint 使用的包管理器为 pnpm
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit" // 在保存时自动修复 ESLint 错误
   },
@@ -68,12 +67,12 @@
   "prettier.enable": false, // 禁用 Prettier 
   "extensions.autoUpdate": "onlyEnabledExtensions", // 仅自动更新已启用的扩展
   "extensions.experimental.affinity": { // 设置扩展之间的优先级 （将插件分配到独立的进程，减少主进程的负担）
-    "vscodevim.vim": 2,
-    "csstools.postcss": 3,
-    "eamodio.gitlens": 7,
-    "antfu.unocss": 8,
-    "bradlc.vscode-tailwindcss": 1,
-    "hollowtree.vue-snippets": 9
+    "vscodevim.vim": 1,
+    "csstools.postcss": 2,
+    "eamodio.gitlens": 3,
+    "antfu.unocss": 4,
+    "bradlc.vscode-tailwindcss": 5,
+    "hollowtree.vue-snippets": 6
 },
   // file header 暂时弃用
   "fileheader.customMade": {
