@@ -202,8 +202,9 @@
   // 分别切换你的输入法(中文 和英文) , 然后运行.\im-select.exe，理论上你应该得到两个不同的数字，比如我的英文是1033, 中文（搜狗输入法）是2052
 
   "vim.autoSwitchInputMethod.enable": true,
-  "vim.autoSwitchInputMethod.defaultIM": "com.apple.keylayout.ABC", // 默认输入法
-  "vim.autoSwitchInputMethod.obtainIMCmd": "/usr/local/bin/im-select", // 获取输入法命令
-  "vim.autoSwitchInputMethod.switchIMCmd": "/usr/local/bin/im-select {im}" // 切换输入法命令
+  "vim.searchHighlightColor": "#5f00af",
+  "vim.autoSwitchInputMethod.defaultIM": "1033",
+  "vim.autoSwitchInputMethod.obtainIMCmd": "D:\\im-select.exe",
+  "vim.autoSwitchInputMethod.switchIMCmd": "D:\\im-select.exe {im}",
   //  ----------------------- vim config end  -------------------------
 }
