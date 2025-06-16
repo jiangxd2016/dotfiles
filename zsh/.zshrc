@@ -82,10 +82,14 @@ alias work="/Users/xd/Documents/work"
 alias dep="/Users/xd/Documents/dep"
 alias ws="open -a webstorm"
 
-# nvm config
-  export NVM_DIR="$HOME/.nvm"
-  [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+# nvm config for mac
+  # export NVM_DIR="$HOME/.nvm"
+  # [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+  # [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # nvm hook
 # autoload -U add-zsh-hook
@@ -235,3 +239,8 @@ export RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+
+if [ -f ~/.mac_keys_xmodmap ]; then
+    xmodmap ~/.mac_keys_xmodmap
+fi

@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 
 MY_ZSH="$PWD/zsh"
-
-ZSH_CUSTOM="$HOME/.oh-my-zsh/custom/plugins"
+# config for mac
+# ZSH_CUSTOM="$HOME/.oh-my-zsh/custom/plugins"
+# config for linux
+ZSH_CUSTOM="/home/ziyang/.oh-my-zsh/custom/plugins"
 
 
 # plugins
