@@ -20,6 +20,7 @@ xmodmap -pke > ~/.Xmodmap
 
 # 添加至开机自启动
 echo "[[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap" >> ~/.bashrc
+echo "[[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap" >> ~/.zshrc
 
 # 验证并提示
 echo "键位已调整为 macOS 风格！"
