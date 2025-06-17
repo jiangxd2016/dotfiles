@@ -11,7 +11,7 @@
   // ------------------- edit config start --------------------------
   "editor.suggestSelection": "first", // 在代码补全时默认选择第一个建议
   "editor.tabSize": 2, // 设表符的宽度为 2 个空格
-  "editor.fontSize": 13, // 编辑器中字体的大小为 13 像素
+  "editor.fontSize": 14, // 编辑器中字体的大小为 13 像素
   "editor.fontFamily": "JetBrains Mono, Consolas", // 使用 JetBrains Mono 字体
   "editor.linkedEditing": true, // 启用链接编辑功能，允许同时编辑多个相同的文本
   "editor.bracketPairColorization.enabled": true, // 启用括号配对着色功能
@@ -23,13 +23,14 @@
   // ---------------------- edit config end ----------------------
 
 
-
   // ----------------------- git config start  -------------------------
   "git.autofetch": true, // 启用自动获取更新
   "git.confirmSync": false, // 在同步时不弹出确认对话框
   "git.enableSmartCommit": true, // 启用智能提交
   "git.untrackedChanges": "separate", // 将未跟踪的更改单独显示
   // ----------------------- git config end  -------------------------
+
+
   // ----------------------- workbench config start  -------------------------
   "workbench.startupEditor": "none", // 启动时不打开任何编辑器
   "workbench.iconTheme": "material-icon-theme", // 设置图标主题为 Material Icon Theme
@@ -50,7 +51,7 @@
   // ----------------------- terminal config end  -------------------------
 
 
-
+  // ----------------------- other config start  -------------------------
   "search.exclude": { // 配置搜索时排除的文件和文件夹
     "**/.git": true,
     "**/.github": true,
@@ -74,16 +75,18 @@
   "typescript.updateImportsOnFileMove.enabled": "always", // 始终在重命名或移动文件时自动更新 TypeScript 的导入路径
   "security.workspace.trust.untrustedFiles": "open", // 允许打开不受信任的文件
   "explorer.confirmDragAndDrop": false, // 拖放文件时不弹出确认对话框
-  "diffEditor.ignoreTrimWhitespace": false, // 在比较文件时不忽略空白字符的差异
-  "prettier.enable": false, // 禁用 Prettier 
+  "diffEditor.ignoreTrimWhitespace": true, // 在比较文件时不忽略空白字符的差异
+  "prettier.enable": false, // 禁用 Prettier
+  "i18n-ally.displayLanguage": "zh",
   "extensions.autoUpdate": "onlyEnabledExtensions", // 仅自动更新已启用的扩展
   "extensions.experimental.affinity": { // 设置扩展之间的优先级 （将插件分配到独立的进程，减少主进程的负担）
-    "vscodevim.vim": 1,
-    "csstools.postcss": 2,
-    "eamodio.gitlens": 3,
-    "antfu.unocss": 4,
-    "bradlc.vscode-tailwindcss": 5,
-    "hollowtree.vue-snippets": 6
+    "dbaeumer.vscode-eslint": 1,
+    "vscodevim.vim": 2,
+    "csstools.postcss": 3,
+    "eamodio.gitlens": 4,
+    "antfu.unocss": 5,
+    "bradlc.vscode-tailwindcss": 6,
+    "hollowtree.vue-snippets": 7
   },
   // file header 暂时弃用
   // "fileheader.customMade": {
@@ -95,10 +98,11 @@
   //   "FilePath": "Do not edit" // 设置后，默认生成文件相对于项目的路径
   // },
 
+// ----------------------- other config end  -------------------------
 
-  
+
   // ----------------------- vim config start  -------------------------
-  // "vim.foldfix": true,
+  "vim.foldfix": true, // 避免 光标上下移动导致折叠代码块自动展开
   "vim.hlsearch": true, // 搜索后高亮显示匹配内容
   "vim.incsearch": true, // 自动翻页
   "vim.easymotion": true, // ex  <leader><leader>s<char> <-- 快速跳转到指定字符位置
@@ -298,13 +302,17 @@
   },
   // 自动切换输入法
   // windows上一定要安装2种输入法
-  // 进入cmder/powershell之类的终端（最快的方法是在 C:\im-select 文件夹下，shift+右键，出现一个在poworshell下打开）
+  // 进入cmder/powershell之类的终端（最快的方法是在 D:\im-select 文件夹下，shift+右键，出现一个在poworshell下打开）
   // 分别切换你的输入法(中文 和英文) , 然后运行.\im-select.exe，理论上你应该得到两个不同的数字，比如我的英文是1033, 中文（搜狗输入法）是2052
+  // "vim.autoSwitchInputMethod.enable": true,
+  // "vim.autoSwitchInputMethod.defaultIM": "1033",
+  // "vim.autoSwitchInputMethod.obtainIMCmd": "D:\\im-select.exe",
+  // "vim.autoSwitchInputMethod.switchIMCmd": "D:\\im-select.exe {im}",
+  // linux
   "vim.autoSwitchInputMethod.enable": true,
+  "vim.autoSwitchInputMethod.defaultIM": "keyboard-us",
+  "vim.autoSwitchInputMethod.obtainIMCmd": "/usr/bin/fcitx5-remote -n",
+  "vim.autoSwitchInputMethod.switchIMCmd": "/usr/bin/fcitx5-remote -s {im}",
   "vim.searchHighlightColor": "#5f00af",
-  "vim.autoSwitchInputMethod.defaultIM": "1033",
-  "vim.autoSwitchInputMethod.obtainIMCmd": "D:\\im-select.exe",
-  "vim.autoSwitchInputMethod.switchIMCmd": "D:\\im-select.exe {im}",
-  "i18n-ally.displayLanguage": "zh",
   //  ----------------------- vim config end  -------------------------
 }

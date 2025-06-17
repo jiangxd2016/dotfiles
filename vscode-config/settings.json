@@ -67,13 +67,14 @@
   "prettier.enable": false, // 禁用 Prettier 
   "extensions.autoUpdate": "onlyEnabledExtensions", // 仅自动更新已启用的扩展
   "extensions.experimental.affinity": { // 设置扩展之间的优先级 （将插件分配到独立的进程，减少主进程的负担）
-    "vscodevim.vim": 1,
-    "csstools.postcss": 2,
-    "eamodio.gitlens": 3,
-    "antfu.unocss": 4,
-    "bradlc.vscode-tailwindcss": 5,
-    "hollowtree.vue-snippets": 6
-},
+    "dbaeumer.vscode-eslint": 1,
+    "vscodevim.vim": 2,
+    "csstools.postcss": 3,
+    "eamodio.gitlens": 4,
+    "antfu.unocss": 5,
+    "bradlc.vscode-tailwindcss": 6,
+    "hollowtree.vue-snippets": 7
+  },
   // file header 暂时弃用
   // "fileheader.customMade": {
   //   "Author": "jiangxd<jiangxd2016@gmail.com>",
