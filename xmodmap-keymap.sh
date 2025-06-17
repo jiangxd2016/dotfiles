@@ -13,14 +13,13 @@ xmodmap -e "keycode 108 = Control_R"    # 右 Alt → 右 Control
 # 重新绑定修饰符
 xmodmap -e "add mod1 = Alt_L Alt_R"     # Alt 的修饰符（原 Control 键）
 xmodmap -e "add control = Control_L Control_R"  # Control 的修饰符（原 Alt 键）
-# 将 Caps Lock 映射为 Control 或 Escape（解除注释生效）
+# 将 Caps Lock 映射为Escape
 xmodmap -e "keycode 66 = Escape"     # Caps Lock → Escape（适合 Vim）
 
 xmodmap -pke > ~/.Xmodmap
 
 # 添加至开机自启动
 echo "[[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap" >> ~/.bashrc
-echo "[[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap" >> ~/.zshrc
 
 # 验证并提示
 echo "键位已调整为 macOS 风格！"

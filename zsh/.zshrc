@@ -241,6 +241,8 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 
-if [ -f ~/.mac_keys_xmodmap ]; then
-    xmodmap ~/.mac_keys_xmodmap
+// linux keymap
+if [ -f ~/.Xmodmap ]; then
+    xmodmap ~/.Xmodmap
 fi
+
