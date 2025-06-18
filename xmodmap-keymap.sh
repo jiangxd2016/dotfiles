@@ -18,8 +18,15 @@ xmodmap -e "keycode 66 = Escape"     # Caps Lock → Escape（适合 Vim）
 
 xmodmap -pke > ~/.Xmodmap
 
-# 添加至开机自启动
-echo "[[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap" >> ~/.bashrc
+# 配置开机自启动（兼容主流桌面环境）
+AUTOSTART_DIR="$HOME/.config/autostart"
+mkdir -p "$AUTOSTART_DIR"
+cat > "$AUTOSTART_DIR/mac_keys.desktop" <<EOF
+[Desktop Entry]
+Type=Application
+Name=Mac Keys
+Exec=sh -c "sleep 2 && xmodmap $HOME/.Xmodmap"
+EOF
 
 # 验证并提示
 echo "键位已调整为 macOS 风格！"
