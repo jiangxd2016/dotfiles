@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 MY_ZSH="$PWD/zsh"
 # config for mac

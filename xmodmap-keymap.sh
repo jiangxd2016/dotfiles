@@ -1,5 +1,6 @@
-#!/bin/bash
+#!/bin/sh
 
+echo $HOME 
 # 清除修饰键绑定
 xmodmap -e "clear mod1"       # Alt 的修饰符
 xmodmap -e "clear control"    # Control 的修饰符
@@ -18,15 +19,24 @@ xmodmap -e "keycode 66 = Escape"     # Caps Lock → Escape（适合 Vim）
 
 xmodmap -pke > ~/.Xmodmap
 
-# 配置开机自启动（兼容主流桌面环境）
-AUTOSTART_DIR="$HOME/.config/autostart"
-mkdir -p "$AUTOSTART_DIR"
+# 开机自启动目录 
+AUTOSTART_DIR="/home/ziyang/.config/autostart"
+
+# 检查目录是否创建成功
+if [ ! -d "$AUTOSTART_DIR" ]; then
+  mkdir -p "$AUTOSTART_DIR"
+  exit 1
+fi
+
+echo "开始创建 mac_keys.desktop 文件..."
 cat > "$AUTOSTART_DIR/mac_keys.desktop" <<EOF
 [Desktop Entry]
 Type=Application
 Name=Mac Keys
-Exec=sh -c "sleep 2 && xmodmap $HOME/.Xmodmap"
+Exec=sh -c "sleep 2 && xmodmap /home/ziyang/.Xmodmap"
 EOF
+
+echo "文件创建完成!"
 
 # 验证并提示
 echo "键位已调整为 macOS 风格！"
