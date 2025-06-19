@@ -201,7 +201,7 @@ tmo() {
 # export PATH="/usr/local/opt/openjdk/bin:$PATH"
 
 # pnpm
-# export PNPM_HOME="/Users/xd/Library/pnpm"
+# export PNPM_HOME="$HOME/Library/pnpm"
 # export PATH="$PNPM_HOME:$PATH"
 # pnpm end
 
@@ -234,7 +234,7 @@ export RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"
 
 
 # bun completions
-[ -s "/Users/xd/.bun/_bun" ] && source "/Users/xd/.bun/_bun"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
