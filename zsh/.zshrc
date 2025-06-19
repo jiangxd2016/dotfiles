@@ -201,8 +201,8 @@ tmo() {
 # export PATH="/usr/local/opt/openjdk/bin:$PATH"
 
 # pnpm
-export PNPM_HOME="/Users/xd/Library/pnpm"
-export PATH="$PNPM_HOME:$PATH"
+# export PNPM_HOME="/Users/xd/Library/pnpm"
+# export PATH="$PNPM_HOME:$PATH"
 # pnpm end
 
 
