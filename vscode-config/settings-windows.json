@@ -12,7 +12,7 @@
   "editor.suggestSelection": "first", // 在代码补全时默认选择第一个建议
   "editor.tabSize": 2, // 设表符的宽度为 2 个空格
   "editor.fontSize": 14, // 编辑器中字体的大小为 13 像素
-  "editor.fontFamily": "JetBrains Mono, Consolas", // 使用 JetBrains Mono 字体
+  "editor.fontFamily": "JetBrains Mono,monospace,Consolas", // 使用 JetBrains Mono 字体
   "editor.linkedEditing": true, // 启用链接编辑功能，允许同时编辑多个相同的文本
   "editor.bracketPairColorization.enabled": true, // 启用括号配对着色功能
   "editor.guides.bracketPairs": "active", // 仅在活动编辑器中显示括号配对指南
@@ -78,6 +78,7 @@
   "diffEditor.ignoreTrimWhitespace": true, // 在比较文件时不忽略空白字符的差异
   "prettier.enable": false, // 禁用 Prettier
   "i18n-ally.displayLanguage": "zh",
+  "i18n-ally.languageTagSystem": "legacy",
   "extensions.autoUpdate": "onlyEnabledExtensions", // 仅自动更新已启用的扩展
   "extensions.experimental.affinity": { // 设置扩展之间的优先级 （将插件分配到独立的进程，减少主进程的负担）
     "dbaeumer.vscode-eslint": 1,
