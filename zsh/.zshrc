@@ -201,8 +201,11 @@ tmo() {
 # export PATH="/usr/local/opt/openjdk/bin:$PATH"
 
 # pnpm
-# export PNPM_HOME="$HOME/Library/pnpm"
-# export PATH="$PNPM_HOME:$PATH"
+export PNPM_HOME="/home/ziyang/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
 # pnpm end
 
 
