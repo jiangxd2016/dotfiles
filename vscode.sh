@@ -1,35 +1,14 @@
 #!/bin/sh
 
-VSCODE_CONFIG_DIR="$PWD/vscode-config"
-
-# function to detect OS type
-detect_os() {
-    local uname_out="$(uname -s)"
-    local os_type=""
-
-    # check os type from uname
-    case "$uname_out" in
-        Linux*)     os_type="Linux";;
-        Darwin*)    os_type="Mac";;
-        CYGWIN*|MINGW*|MSYS*) os_type="Windows";;
-        *)          os_type="Unknown: $uname_out";;
-    esac
-
-    # check is windows from path
-    if [ "$os_type" = "Unknown: $uname_out" ]; then
-        if [ "$OS" = "Windows_NT" ]; then
-            os_type="Windows"
-        elif [ -d "/windows" ]; then
-            os_type="Windows"
-        fi
-    fi
-
-    echo $os_type
-}
+. "$PWD/helper.sh"
 
 # echo OS type
 os_type=$(detect_os)
 echo "Detected OS: $os_type"
+
+user_home=$(get_user_home)
+
+echo "User home directory: $user_home"
 
 # check if vscode snippets directory exists
 if [ ! -d "$VSCODE_CONFIG_DIR" ]; then
@@ -37,15 +16,18 @@ if [ ! -d "$VSCODE_CONFIG_DIR" ]; then
     mkdir -p "$VSCODE_CONFIG_DIR/snippets"
 fi
 
+VSCODE_CONFIG_DIR="$PWD/vscode-config"
+
+VSCODE_KEYBINDINGS_FILE="$VSCODE_CONFIG_DIR/$os_type/keybindings.json"
+VSCODE_SETTINGS_FILE="$VSCODE_CONFIG_DIR/$os_type/settings.json"
+
 # setup VSCode keybindings and settings
-if [ "$os_type" = "Mac" ]; then
-    VSCODE_USER_DIR="$HOME/Library/Application Support/Code/User"
-    VSCODE_KEYBINDINGS_FILE="$VSCODE_CONFIG_DIR/keybindings.json"
-    VSCODE_SETTINGS_FILE="$VSCODE_CONFIG_DIR/settings.json"
-elif [ "$os_type" = "Windows" ]; then
-    VSCODE_USER_DIR="$HOME/AppData/Roaming/Code/User"
-    VSCODE_KEYBINDINGS_FILE="$VSCODE_CONFIG_DIR/keybindings-windows.json"
-    VSCODE_SETTINGS_FILE="$VSCODE_CONFIG_DIR/settings-windows.json"
+if [ "$os_type" = "mac" ]; then
+    VSCODE_USER_DIR="$user_home/Library/Application Support/Code/User"
+elif [ "$os_type" = "windows" ]; then
+    VSCODE_USER_DIR="$user_home/AppData/Roaming/Code/User"
+elif [ "$os_type" = "linux" ]; then
+    VSCODE_USER_DIR="$user_home/.config/Code/User"
 else
     echo "Unsupported OS. Skipping symlink creation."
     exit 1
