@@ -1,10 +1,16 @@
 #!/bin/sh
+. "$PWD/helper.sh"
+
+# echo OS type
+os_type=$(detect_os)
+echo "Detected OS: $os_type"
+
+user_home=$(get_user_home)
+
+echo "User home directory: $user_home"
 
 MY_ZSH="$PWD/zsh"
-# config for mac
-# ZSH_CUSTOM="$HOME/.oh-my-zsh/custom/plugins"
-# config for linux
-ZSH_CUSTOM="/home/ziyang/.oh-my-zsh/custom/plugins"
+ZSH_CUSTOM="$user_home/.oh-my-zsh/custom/plugins"
 
 
 # plugins
@@ -42,9 +48,9 @@ fi
 
 
 # 生成软链接
-ln -sf $PWD/zsh/.zshrc  $HOME/.zshrc
-ln -sf $PWD/zsh/.ideavimrc  $HOME/.ideavimrc
-ln -sf $PWD/zsh/.vsvimrc  $HOME/.vsvimrc
+ln -sf $PWD/zsh/.zshrc  $user_home/.zshrc
+ln -sf $PWD/zsh/.ideavimrc  $user_home/.ideavimrc
+ln -sf $PWD/zsh/.vsvimrc  $user_home/.vsvimrc
 
 
 # 开启vscode按键重复
@@ -53,5 +59,5 @@ $ defaults write com.microsoft.VSCodeInsiders ApplePressAndHoldEnabled -bool fal
 $ defaults delete -g ApplePressAndHoldEnabled                                           # If necessary, reset global default
 
 # 让zsh配置生效
-source  $HOME/.zshrc
-source  $HOME/.ideavimrc
+source  $user_home/.zshrc
+source  $user_home/.ideavimrc

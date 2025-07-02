@@ -1,4 +1,6 @@
-source ./hammerspoon.zsh
 source ./zsh.zsh
-source ./karabiner.sh
+source ./vscode.sh
+source ./keymap.sh
+# source ./karabiner.sh
 # source ./nvim.sh
+# source ./hammerspoon.zsh

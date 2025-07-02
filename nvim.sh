@@ -1,5 +1,11 @@
-  #!/bin/sh
-NVIM_DIR="$HOME/.config/"
+#!/bin/sh
+. "$PWD/helper.sh"
+
+user_home=$(get_user_home)
+
+echo "User home directory: $user_home"
+
+NVIM_DIR="$user_home/.config/"
 
 
 # Install neovim needed fonticons
