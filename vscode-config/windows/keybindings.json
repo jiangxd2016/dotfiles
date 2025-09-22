@@ -255,5 +255,23 @@
     "key": "ctrl+oem_5",
     "command": "workbench.action.terminal.split",
     "when": "terminalFocus && terminalProcessSupported || terminalFocus && terminalWebExtensionContributedProfile"
+  },
+
+  // 取消默认的zoom,使用shift+ctrl+-
+  {
+    "key": "ctrl+shift+-",
+    "command": "workbench.action.zoomOut"
+  },
+  {
+    "key": "ctrl+-",
+    "command": "-workbench.action.zoomOut"
+  },
+  {
+    "key": "ctrl+shift+=",
+    "command": "workbench.action.zoomIn"
+  },
+  {
+    "key": "ctrl+=",
+    "command": "-workbench.action.zoomIn"
   }
 ]
