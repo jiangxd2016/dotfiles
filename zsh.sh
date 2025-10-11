@@ -1,6 +1,10 @@
 #!/bin/sh
 . "$PWD/helper.sh"
 
+# sudo apt install zsh
+# chsh -s $(which zsh)
+# sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
 # echo OS type
 os_type=$(detect_os)
 echo "Detected OS: $os_type"
